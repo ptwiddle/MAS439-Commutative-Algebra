@@ -4,7 +4,8 @@ email: "paul.johnson@sheffield.ac.uk"
 description: 
 baseurl: "/MAS439-Commutative-Algebra/" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-
+collections:
+ - problemsets
 github_username:  ptwiddle
 
 # Build settings

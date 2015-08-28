@@ -5,10 +5,22 @@ layout: default
 <div class="home">
 This is the course website for the first semester of MAS439: Commutative algebra and algebraic geometry.  
 
-Problem sets:
-{% for set in site.problemsets %}
-{{ set.title }} Due {{ set.duedate }}
-{% endfor %}
+<h2>Most recent problem set:</h2>
+<ul>
+{% for set in site.problemsets limit:1 %}
+<li>
+<a href="{{ set.url | prepend:site.baseurl }}"> {{ set.title }}</a>  Due {{ set.duedate }}
+</li>
+{% endfor %} 
+</ul>
 
-Last Lecture:
+<h2> Recent Lectures: </h2>
+<ul>
+{% for lecture in site.lectures limit:2 %}
+<li>
+<a href="{{ lecture.url }}"> {{ lecture.title }}</a>  Date {{ lecture.date }}
+</li>
+{% endfor %} 
+</ul>
+
 </div>

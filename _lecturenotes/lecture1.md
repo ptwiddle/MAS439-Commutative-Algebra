@@ -1,6 +1,7 @@
 ---
 layout: lecture
-title: Lecture 1
+title: Lecture 1&#58; Introduction
+comments: True
 ---
 
 Introduction / Motivation

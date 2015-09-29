@@ -8,23 +8,30 @@ This page contains all the essential policies for the course.  The same material
 
 Basics
 ------
-The lecturer for the first semester is Paul Johnson.  Email paul.johnson@sheffield.ac.uk, Office Hicks J6b.
-
+The lecturer for the first semester is Paul Johnson.  Email paul.johnson@sheffield.ac.uk, Office Hicks J6b.  The second semester lecturer is Evgeny Shinder
+.evgen
 Lectures are in Hicks F24 Wednesdays at 11 and Thursdays at 2.
 
-Office hours are
+Office hours will be decided with input from the students; always feel free to email me questions, or to set up a time to chat in person.
 
 Marking
 -------
 
-There is no final exam for this course.  Instead, there will be weekly assessed problem sets handed out every week.
+There is no exam for this module.  Instead, there will be weekly assessed problem sets.
 
-Problem sets will be handed out every Wednesday, and will be due the following Wednesday at the beginning of class.  Each assignment should be handed in with a signed cover sheet.
+Problem sets will be assigned in lecture every Wednesday, and will be due the following Wednesday by the beginning of lecture.  
 
 *You must keep your assignments after they have been handed back to you to return to me at the end of the year.  This seems silly, but is required for the external examiner.*
 
-I highly encourage you to work together in small groups on the problem sets.  Working with friends is a great way to learn and is usually more fun.  I recommend groups of two or three, with four at the very largest.  
+You are allowed, and in fact encouraged, to meet in small groups to discuss the course, including the problem sets.  Working with friends is a great way to learn and is usually more fun.  ``Small'' here means two or three people; larger groups are not allowed, as it becomes too easy to just listen and not contribute.  
 
-Although you can solve the problems together, each individual must still write up their own proofs.  Please do *not* write the proofs up together.  You must write the names of all members of your group  your cover sheet.
+Every study must hand in their own solutions, and the group *shouldn't* ``write up'' the proofs together.
 
-I recommend latexing your assignments, but this is not required.  The handout from the first day with tips about writing up assignments is available here.
+Doing mathematics typically has two parts: the informal ``what is even going on here?'' way we work in our heads, and the formal proofs and definitions that we read and write.  We are constantly going back and forth between these, and solving a problem set will typically involve
+1. Digesting the formal statement of the problem into an informal 
+2. Coming up with an informal solution
+3. Refining that informal solution into a formal, written proof
+
+The first two steps are what can be down with your group, the third step should be done alone.   Obviously, the steps blend together some and separating the exact line is not really feasible.  But you should *not* be discussing the line-by-line organization of the proof together, or sitting next to each other and asking questions as you write up the proof.
+
+I recommend latexing your assignments, but this is not required.  A previous incarnation of the course had the following [handout](../mas439problemguidelines.pdf), which has some useful discussion of writing proofs.

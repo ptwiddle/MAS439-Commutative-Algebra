@@ -5,10 +5,4 @@ duedate: October 9th
 
 
 
-Question 1
-==========
-
-Other junk
-
-Question 2
-==========
+Coming soon.

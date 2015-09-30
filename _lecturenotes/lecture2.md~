@@ -1,0 +1,19 @@
+---
+layout: lecture
+title: Lecture 2: Definition
+comments: True
+---
+
+Definition
+----------
+
+The abstract definition of the
+
+> A *ring* $$(R,+,*)$$ is a set $$R$$ together with two binary 
+> operations $$+$$ and $$*$$ satisfying the following axioms
+>
+> 1. $$(R, +)$$ is an abelian group
+> 2. $$(R, *)$$ is a monoid
+> 3. Addition and multiplication satisfy the distributive law
+
+Although 

@@ -24,8 +24,10 @@ b. There is a zero element $$0_R$$ such that for all $$a \in R$$ we have $$a+0=a
 c. Every element $$a\in R$$ has an additive inverse $$-a\in R$$ so that $$a+(-a)=0_R$$
 
 Condition 2, being a monoid, is less familiar, but it means two things:
-a.m<ultiplication is associative:
-   $$a*(b*c)=(a*b)*c$$
+a. multiplication is associative:
+   
+$$a*(b*c)=(a*b)*c$$
+
 for all $$a, b, c\in R$$.
 b.  There is a multiplicative identity $$1_R$$ satisfying $$1_R*a=a=a*1_R$$ for all $$a\in R$$
 
@@ -63,7 +65,7 @@ where the $$a_n\in R$$
 
 Multiplication and addition are defined in the familiar way:
 
-$$\left(\sum_{i\geq 0} a_i x^i\right)+\left(\sum_{j\geq 0} b_j x^j\right)=\sum (a_i+b_i)x^i$$
+$$\left(\sum_{i\geq 0} a_i x^i\right)+\left(\sum_{j\geq 0} b_j x^j\right)=\sum_{k\geq 0} (a_k+b_k)x^k$$
 
 $$\left(\sum_{i\geq 0} a_i x^i\right)\cdot\left(\sum_{j\geq 0} b_j x^j\right)=\sum_{k \geq 0} \sum_{i=0}^k (a_i\cdot b_{k-i}) x^k$$
 

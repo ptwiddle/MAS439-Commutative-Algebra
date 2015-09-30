@@ -28,7 +28,7 @@ layout: default
 <ul>
 {% for lecture in site.lecturenotes limit:2 %}
 <li>
-<a href="{{ lecture.url | prepend:site.baseurl }}"> {{ lecture.title }}</a>  Date {{ lecture.date }}
+<a href="{{ lecture.url | prepend:site.baseurl }}"> {{ lecture.title }}</a>  
 </li>
 {% endfor %} 
 </ul>

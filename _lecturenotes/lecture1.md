@@ -41,18 +41,18 @@ $$a^3+b^3=(a+b)(a+wb)(a+w^2b)$$
 
 Then if $$a^3+b^3=c^3$$ was a solution to Fermat's last theorem, then we would have two different factorizations of $$c^3$$.  If factorizations were unique, then this would give very strong constraints on $$a, b, c$$, that hopefully would lead to there being no solutions.  This strategy, in fact, works for $$n=3$$.
 
-However, it turns that when we add certain roots of unity to the integers, there is no longer unique factorizations into primes -- Kummer had already published an example of this in 1844, and introduced  *ideal complex numbers* (the precursor to ideals) to fix some cases of this in 1846.  Using these ideas, Kummer was able to prove Fermat's last theorem for all $$n<100$$ except for 37, 59, 67, and 74.  Some people suspect that Fermat's `proof' is something similar to Lamé's idea.
+However, it turns that when we add certain roots of unity to the integers, there is no longer unique factorizations into primes -- Kummer had already published an example of this in 1844, and introduced  *ideal complex numbers* (the precursor to ideals) to fix some cases of this in 1846.  Using these ideas, Kummer was able to prove Fermat's last theorem for all $$n<100$$ except for 37, 59, 67, and 74.  Some people suspect that Fermat's `proof' was something similar to Lamé's failed idea.
 
 For more on the history of ring theory, see this [MacTutor page](http://www-history.mcs.st-and.ac.uk/HistTopics/Ring_theory.html)
 
-Why rings?  Algebraic Geometry
+What's Algebraic Geometry
 ------------------
 
 At its most basic, algebraic geometry is the study of the shapes of zero loci of polynomials.  For example, the set of points in $$\mathbb{R}^2$$ satisfying $$x^2+y^2=1$$ is a circle.  
 
 An example you might not be familiar with is that set of points in $$\mathbb{C}^2$$ satisfying $$z^2=x^3-x$$ is a torus (surface of a donut) with one point missing.
 
-More formally, let $$\mathbb{k}$$ be a field, and $$f_1, f_2,...,f_n$$ polynomials in $$m$$ variables  $$x_1,\dots, x_m$$.  Consider  the set of points  $$a=(a_1,\dots, a_m)\in k^m$$ where all of the $$f_i$$ are zero -- that is, $$f_i(a)=0$$ for all $$i$$.  Such a set is denoted $$V(f_1,\dots, f_n)$$, and is called an *affine varieties* and is denoted $$V(f_1, f_2,...f_n)$$.  Studying these sets is the starting point of algebraic geometry.
+More formally, let $$\mathbb{k}$$ be a field, and $$f_1, f_2,...,f_n$$ polynomials in $$m$$ variables  $$x_1,\dots, x_m$$.  Consider  the set of points  $$a=(a_1,\dots, a_m)\in k^m$$ where all of the $$f_i$$ are zero -- that is, $$f_i(a)=0$$ for all $$i$$.  Such a set is denoted $$V(f_1,\dots, f_n)$$, and is called an *affine varieties* and is denoted $$V(f_1, f_2,...f_n)$$.  Studying these sets is the starting point of algebraic geometry.  
 
 Connection
 ----------

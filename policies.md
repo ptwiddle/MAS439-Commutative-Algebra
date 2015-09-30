@@ -12,12 +12,15 @@ The lecturer for the first semester is Paul Johnson.  Email paul.johnson@sheffie
 .evgen
 Lectures are in Hicks F24 Wednesdays at 11 and Thursdays at 2.
 
-Office hours will be decided with input from the students; always feel free to email me questions, or to set up a time to chat in person.
+Office hours are currently scheduled for:
+
+ -  Monday 2-3
+ -  Wednesdays 12-1
+
+They may change with input from the class later in the semester.  Always feel free to email me questions, or to set up a time to chat in person.
 
 Marking
 -------
-
-
 
 There is no exam for this module.  Instead, there will be weekly assessed problem sets.
 
@@ -39,6 +42,9 @@ Doing mathematics typically has two parts: the informal ``what is even going on 
  3. Refining that informal solution into a formal, written proof
 
 The first two steps are what can be down with your group, the third step should be done alone.   Obviously, the steps blend together some and separating the exact line is not really feasible.  But you should *not* be discussing the line-by-line organization of the proof together, or sitting next to each other and asking questions as you write up the proof.
+
+Writing proofs
+--------------
 
 I recommend latexing your assignments, but this is not required.  A previous incarnation of the course had the following [handout](../mas439problemguidelines.pdf), which has some useful discussion of writing proofs.  We will take time to have discussions about writing proofs as the course continues.
 

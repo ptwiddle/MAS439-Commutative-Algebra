@@ -1,6 +1,6 @@
 ---
 title: Problem Set 1
-duedate: October 2nd
+duedate: October 7th
 layout: default
 ---
 

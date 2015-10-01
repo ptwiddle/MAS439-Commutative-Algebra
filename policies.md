@@ -15,7 +15,7 @@ Lectures are in Hicks F24 Wednesdays at 11 and Thursdays at 2.
 Office hours are currently scheduled for:
 
  -  Monday 2-3
- -  Wednesdays 12-1
+ -  Wednesday 12-1
 
 They may change with input from the class later in the semester.  Always feel free to email me questions, or to set up a time to chat in person.
 

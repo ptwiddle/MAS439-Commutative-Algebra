@@ -158,7 +158,7 @@ $$\left(\sum_{i\geq 0} a_i x^i\right)\cdot\left(\sum_{j\geq 0} b_j x^j\right)=\s
 Example
 =====
 
-In $$(\mathbb{Z}/\mathbb{5Z})[x]$$, we have $$(x^2+4x+4)\cdot (x^2+x+3)=x^4+4\quad\square$$
+In $$(\mathbb{Z}/\mathbb{5Z})[x]$$, we have $$(x^2+4x+3)\cdot (x^2+x+3)=x^4+4\quad\square$$
 
 
 We can *evaluate* a polynomial $$p(x)\in R[x]$$ at an element $$r\in R$$ and get an element of $$R$$, by substituting $$r$$ in for $$x$$.

@@ -21,7 +21,7 @@ Question 2
 ==========
 (3 Points)
 
-Let $$R$$ be a nontrivial commutative ring.  An element $$r\in R$$ is a *zero divisor* if there exists $$s\in R, s\neq 0$$ with $$r\cdot s=0$$.  Show that for a nontrivial commutative ring $$R$$, the element $$x\in R[X]$$ is not a zero divisor.
+Let $$R$$ be a nontrivial commutative ring.  An element $$r\in R$$ is a *zero divisor* if there exists $$s\in R, s\neq 0$$ with $$r\cdot s=0$$.  Show that for a nontrivial commutative ring $$R$$, the element $$x\in R[x]$$ is not a zero divisor.
 
 Question 3
 ==========

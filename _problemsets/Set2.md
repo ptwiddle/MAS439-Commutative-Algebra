@@ -1,12 +1,12 @@
 ---
 title: Problem set 2
-duedate: October 9th
+duedate: October 14th
 layout: default
 ---
 
 Question 1
 ====
-( 3 points)
+(3 points)
 
 For $$R$$ a commutative ring, recall that the power series ring $$R[[x]]$$ has as elements formal sums (possibly infinite) $$a_0+a_1x+a_2x+\cdots$$, with $$a_i\in R$$, that add and multiply as you expect.
 

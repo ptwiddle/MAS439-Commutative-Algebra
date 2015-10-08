@@ -9,26 +9,20 @@ layout: default
 
 <h3>Most recent problem set:</h3>
 <ul>
-{% for set in site.problemsets limit:1 %}
+{% assign problems = site.problemsets | reverse %}
+{% for set in problems limit:1 %}
 <li>
 <a href="{{ set.url | prepend:site.baseurl }}"> {{ set.title }}</a>  Due {{ set.duedate }}
 </li>
 {% endfor %} 
 </ul>
 
-<h3>Most recent solutions:</h3>
-<ul>
-{% for set in site.solutions limit:1 %}
-<li>
-<a href="{{ set.url | prepend:site.baseurl }}"> {{ set.title }}</a> 
-</li>
-{% endfor %} 
-</ul>
 
 
 <h3> Recent Lectures: </h3>
 <ul>
-{% for lecture in site.lecturenotes limit:2 %}
+{% assign lectures = site.lecturenotes | reverse %}
+{% for lecture in lectures limit:2 %}
 <li>
 <a href="{{ lecture.url | prepend:site.baseurl }}"> {{ lecture.title }}</a>  
 </li>

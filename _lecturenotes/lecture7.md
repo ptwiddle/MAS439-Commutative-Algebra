@@ -1,10 +1,62 @@
 ---
 layout: lecture
-title: Lecture 7&#58; Quotient rings.  Motivation, definition, and examples
+title: Lecture 7&#58; Writing tips.  Quotient rings&#58;  Motivation, definition.
 Comments: True
 ---
 
 Last week we introduced ring homomorphisms and ideals; this week we will show how these concepts are related through the quotient ring.
+
+Writing
+----
+I spent longer than I meant on this.
+
+General philosophy
+====
+
+
+Writing mathematics is hard; there is a large tension between being *clear* and being *concise*, between actually *communicating* how to think about what's going on to somebody else, and being completely mathematically rigorous and precise.
+
+For example, a standard $$\varepsilon-\delta$$ proof from analysis often begins ``Take $$\delta=\varepsilon^3+\varepsilon/3$$, which is pulled completely out of a magic hat.  But the calculations that follow do completely what was wanted with no extra effort.
+
+You could instead begin a proof by explaining how that choice of $$\varepsilon$$ was reached; but these are often heuristic, intuitive calculations, and then you'd want to append the first proof *after* this to be precise, but that gets long.  
+
+You could try to write it so that your deduction of the value of $$\varepsilon$$ was itself also a rigorous proof that it works, but this is often tricky to do in a way that makes sure you aren't assuming what you were trying to do.
+
+The point is you should be thinking about these things, especially as you're writing your fourth year projects.  When to give intuitive "this is what's going on" things, which details of proofs you need to spell out completely and when you can say something like, "Playing around with the definitions shows", or "By a similar argument, we have".  These questions very much depend on your audience.
+
+
+Practical tips
+===
+
+ - Please restate the question on homework questions
+ - Don't use shorthand symbols.  This is for formally written work; these symbols have their place in your notes or scratchwork, or when writing on a board in a lecture, for instance.  
+
+For example, $$\implies$$ to be mean "implies" can usually be replaced with "so" or "and so" or "therefore" or "we see that", etc.  Similarly, just write "exists" or "for all" out instead of using $$\exists$$ and $$\forall$$.
+
+When using $$\implies$$ to denote which half of an equivalence you are proving, write out which half of the equivalence are proving.  i.e., "We first prove that if $$a_0$$ is a unit in $$R$$, then $$a_0+a_1x+a_2x^2+\cdots$$ is a unit in the power series ring $$R[[x]]$$".
+
+Note that these first two suggestions make things less concise, but they do improve clarity; for instance, if both of these are skipped, then you wind up with solutions that begin:
+
+> Question 2: Let 
+>
+> $$b=b_0+b_1x+b_2x^2+\cdots$$ 
+>
+> where
+>
+> $$b_n=-b_0\sum_{k=1}^n a_kb_{n-k}$$ 
+>
+> Then ...
+
+Here the reader has no clue what's going on because we've jumped straight into the middle of things.  
+
+ - Avoid case by case analyses when they are unnecessary.  There was a lot of this on the last homework.  Sometimes this makes it feel like you're being more clear -- in a way, you're illustrating more examples.  But if all the cases really work the same way, you're being *less* clear; you're making it look like they behave differently, but really the same thing is happening.  You're certainly making things less concise.
+
+In a way, this is exactly what the abstract method in mathematics is all about.  A good abstract definition (like commutative rings, for instance) shows that things that look differend (number rings, polynomial rings) which look different really have a lot in common.  Treating them uniformly is a satisfying way of seeing "what's really going on" as opposed to a long, case by case analysis that can be followed easily but doesn't really add to your understanding.
+
+ - Don't repeat yourself; It's valuable to motivate things and explain your thinking, but when you do this and then immediately go over all the formal details afterwards it gets long.  I may do this in lecture sometimes, but that's a different audience than you writing up homework for me.  If you can work an explanation of "what's really going on" into the details of a formal proof, rather than having one right after the other, that's better all around; if I don't do it in class it's because *it's hard*.
+
+
+
 
 
 Motivation
@@ -72,44 +124,16 @@ since $$i,j\in I$$ and $$I$$ is closed under addition and under multiplication b
 Checking the $$R/I$$ satisfies the ring axioms follows mechanically from the fact that $$R$$ satisfies the ring axioms.  For example, to check the distributive property, we have
 
 
-$$\begin{eqnarray*}
-[a]\cdot\left([b]+[c]\right)=[a]\cdot [b+c]=[a\cdot(b+c)]=[a\cdot b+a\cdot c]=[a\cdot b]+[a\cdot c]=[a]\cdot [b]+[a]\cdot[c]$$
+$$
+\begin{eqnarray*}
+[a]\cdot\left([b]+[c]\right)&=&[a]\cdot [b+c] \\
+&=&[a\cdot(b+c)] \\
+&=&[a\cdot b+a\cdot c] \\
+&=&[a\cdot b]+[a\cdot c] \\
+&=&[a]\cdot [b]+[a]\cdot[c]
+\end{eqnarray*}
+$$
 
 
 
-
-Examples
------
-
-A few familiar/trivial examples:
-
-Example:  $$R=\mathbb{Z}$$
-===
-Any ideal of $$\mathbb{Z}$$ is principal, i.e., $$(n)$$.  The quotient ring $$\mathbb{Z}/(n)=\mathbb{Z}/n\mathbb{Z}$$.
-
-Example: General $$R$$
-===
-Any nontrivial ring has at least two ideals; the ideal $$\{0\}$$, and the ideal $$R$$.  We have $$R/(0)\cong R$$, and $$R/R$$ is the trivial ring.
-
-
-
-
-
-The most important examples of quotient rings for us will be when $$R$$ is a polynomial ring (particularly over a field); i.e., $$R=k[x_1,\dots, x_n]$$.
-
-
-
-Example
-====
-
-Let $$R=\mathbb{R}[x]$$, $$I=(x^2)$$.  To understand $$R/I$$, we need to understand the cosets of $$I$$ in $$R$$; to do this, it often helps to pick a unique representative of each coset.
-
-
-What are the cosets of $$I$$?  Given any polynomial $$p(x)=a_nx^n+\cdots a_2x^2+a_1x+a_0$$, we have $$p(x)=x^2(a_n^{x^{n-2}+\cdots a_3x+a_2)x^2+a_1x+a_0$$, and so $$p(x)\sim a_1x+a_0$$, so every coset of $$I$$ can be represented by a linear polynomial.  Furthermore, this representative is unique.  
-
-So we can view $$R/I$$ as a two dimensional vector space, with basis $$1$$ and $$x$$.  How do these multiply?  
-
-
-Example
-===
 

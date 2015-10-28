@@ -95,6 +95,7 @@ The identity between homomorphisms $$f=\overline{f}\circ p$$ is usually represen
 <a href="http://presheaf.com/?d=d24w694i1u1c2a15a165r514s37024"><img src="http://presheaf.com/cache/d24w694i1u1c2a15a165r514s37024.png" title="click to go to presheaf.com for editing"/></a>
 
 
+
 Each node is a ring, and each arrow is a homomorphism.  The commutative part comes in because it doesn't matter which order we follow the arrows in -- we can go straight from $$R$$ to $$S$$ by $$f$$, or we can first go from $$R$$ to $$R/I$$ by $$p$$, and then go by $$\overline{f}$$ to $$S$$.
 
 Proof

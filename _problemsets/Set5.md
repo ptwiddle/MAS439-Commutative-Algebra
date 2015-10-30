@@ -20,7 +20,7 @@ Question 1
 
 1. Prove that in any category $$\mathcal{C}$$, any retraction is an epimorphism, and any section is a monomorphism.
 2. Prove that in the category of sets, with functions as morphisms, that the function $$f:A\to B$$ being a retraction and being an epimorphism are both equivalent to being a surjection.
-3. In the category of rings, it is true that surjections and epimorphisms are the same things, but these are no longer equivalent to retractions.  Give an example to show this -- i.e., give a surjective map of rings $$f:R\to S$$ that is not a retraction.  (Hint: a previous exercise about maps between $$\mathbb{Z}/n\mathbb{Z}$$ and $$\mathbb{Z}/k\mathbb{Z}$$ might help.
+3. In the category of rings, it is true that surjections and epimorphisms are the same things, but these are no longer equivalent to retractions.  Give an example to show this -- i.e., give a surjective map of rings $$f:R\to S$$ that is not a retraction.  (Hint: a previous exercise about maps between $$\mathbb{Z}/n\mathbb{Z}$$ and $$\mathbb{Z}/k\mathbb{Z}$$ might help.)
 
 Extra thinking: What about monomorphisms, injections, and sections -- are these all the same for sets?  For rings?
 
@@ -28,9 +28,9 @@ Question 2
 ====
 (4 points)
 
-An object $$I$$ in a category $$\mathcal{C}$$ is called an *initial object* if it satisfies the following universal property: for any object $$A\in \textrm{Ob}(C)$$, there is a unique morphism $$f:I\to C$$.
+An object $$I$$ in a category $$\mathcal{C}$$ is called an *initial object* if it satisfies the following universal property: for any object $$A\in \textrm{Ob}(\mathcal{C})$$, there is a unique morphism $$f:I\to A$$.
 
-An object $$F$$ in a category $$\mathcal{C}$$ is called a *final object* if for any object $$B\in \textrm{Ob}(C)$$, there is a unique morphism $$f:B\to F$$.
+An object $$F$$ in a category $$\mathcal{C}$$ is called a *final object* if for any object $$B\in \textrm{Ob}(C)$$, there is a unique morphism $$g:B\to F$$.
 
 1. Prove that in any category $$\mathcal{C}$$, if an initial object exists, then it is unique up to unique isomorphism.
 2. Prove that in any category $$\mathcal{C}$$, if a final object exists, then it is unique up to unique isomorphism.

@@ -88,7 +88,7 @@ In the homework this week, we will see ways of thinking about injections and sur
 Definition
 ====
 
-A morphism $$f:A\to B$$ is an *isomorphism* if there exists a morphism $$g:B\to C$$ with $$g\circ f=1_B$$ and $$f\circ g=1_A$$.
+A morphism $$f:A\to B$$ is an *isomorphism* if there exists a morphism $$g:B\to A$$ with $$g\circ f=1_B$$ and $$f\circ g=1_A$$.
 
 Remark
 ===

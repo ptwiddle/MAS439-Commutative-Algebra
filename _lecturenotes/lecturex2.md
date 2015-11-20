@@ -34,7 +34,7 @@ More formally, this can be expressed in terms of a universal property.
 Proposition
 ===
 
-The polynomial ring $$R[x_1,\dots, x_n]$$ satisfies the following universal property in the category of $$R$$ algebras:  for any $$R$$-algebra $$S$$, and any $$n$$-tuple $$s_1,dots, s_n$$ of elements of $$S$$, there exists a unique morphism $$\varphi:R[x_1,\dots, x_n]\to S$$ of $$R$$-algebras so that $$\varphi(x_i)=s_i$$.
+The polynomial ring $$R[x_1,\dots, x_n]$$ satisfies the following universal property in the category of $$R$$ algebras:  for any $$R$$-algebra $$S$$, and any $$n$$-tuple $$s_1,\dots, s_n$$ of elements of $$S$$, there exists a unique morphism $$\varphi:R[x_1,\dots, x_n]\to S$$ of $$R$$-algebras so that $$\varphi(x_i)=s_i$$.
 
 Proof:
 ===
@@ -64,7 +64,7 @@ Example: Maps $$\mathbb{Z}[x]\to\mathbb{Z}/2\mathbb{Z}$$
 
 Since every ring is a $$\mathbb{Z}$$ algebra in a unique way, from the universal property we see that there are two maps from $$\mathbb{Z}[x]\to \mathbb{Z}/2\mathbb{Z}$$, one with $$x\mapsto 0$$ and one with $$x\mapsto 1$$.  
 
-We the first map sends $$a_0+a_1x+\cdots+a_nx^n$$ to $$[a_0]$$, the second sends $$a_0+a_1x+\cdots+a_nx^n$4 to $$[a_0+a_1+\cdots+a_n]$$.  Note that the structure map $$\psi:\mathbb{Z}\to\mathbb{Z}/2\mathbb{Z}$$ is just $$\psi(k)=[k]$$, and so the map guaranteed by the universal property is the evaluation map together with the structure map.
+We the first map sends $$a_0+a_1x+\cdots+a_nx^n$$ to $$[a_0]$$, the second sends $$a_0+a_1x+\cdots+a_nx^n$$ to $$[a_0+a_1+\cdots+a_n]$$.  Note that the structure map $$\psi:\mathbb{Z}\to\mathbb{Z}/2\mathbb{Z}$$ is just $$\psi(k)=[k]$$, and so the map guaranteed by the universal property is the evaluation map together with the structure map.
 
 
 

@@ -21,7 +21,7 @@ Let $$R=\mathbb{R}[x,y]$$.
 1. Describe the geometry of $$V(y^2-yx)$$.  
 2. For $$t$$ in $$\mathbb{R}$$, describe the geometry of $$V(y^2-yx, x-t)$$.  For which value of $$t$$ is the geometry different than the others?
 3. For that value of $$t$$, find a function $$f$$ with $$f\in I(V(y^2-yx,x-t))$$, but $$f\notin (y^2-yx, x-t)$$.
-4. For that value of $$t$$, give generators for the radical of $$V(y^2-yx,x-t)$$.
+4. For that value of $$t$$, give generators for the radical of $$(y^2-yx,x-t)$$.
 
 Problem 3
 ====
@@ -30,7 +30,7 @@ Problem 3
 Let $$R=\mathbb{R}[x,y,z]$$.  
 
 1.  Describe the geometry of $$V(xyz)$$.
-2. Describe the geometry of $$V(xy+xz+xy, xyz)$$.
+2. Describe the geometry of $$V(xy+xz+yz, xyz)$$.
 3. Find an $$f\in I(V(xy+xz+zy,xyz))$$ with $$f\notin (xy+xz+zy,xyz)$$.  
 4. Give generators for the radical of $$(xy+xz+yz, xyz)$$.
 

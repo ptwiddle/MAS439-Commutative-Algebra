@@ -1,0 +1,11 @@
+_site
+.sass-cache
+*.toc
+*.log
+*.nav
+*.out
+*.aux
+*.snm
+*.md~
+*.md#
+*.tex~

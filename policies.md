@@ -8,25 +8,23 @@ This page contains all the essential policies for the course.  The same material
 
 Basic facts
 ------
-The lecturer for the first semester is Paul Johnson.  Email paul.johnson@sheffield.ac.uk, Office Hicks J6b.  The second semester lecturer is Evgeny Shinder
-.evgen
-Lectures are in Hicks F24 Wednesdays at 11 and Thursdays at 2.
+The lecturer for the first semester is Paul Johnson.  Email paul.johnson@sheffield.ac.uk, Office Hicks J6b.  The second semester lecturer is Evgeny Shinder.
+
+Lectures are Wednesday at 11 in 9 Mappin Street G03, and Thursday at 2 in Hicks Lecture Theatre B.
 
 Office hours are currently scheduled for:
 
- -  Monday 2-3
- -  Wednesday 12-1
+ -  Tuesday 11-12
+ -  Friday 10:30-11:30
 
-They may change with input from the class later in the semester.  Always feel free to email me questions, or to set up a time to chat in person.
+They may change with input from the class later in the semester.  Always feel free to ask questions during or after class, in an email, or to set up a time to chat in person.
 
 Marking
--------
-
+------
+-
 There is no exam for this module.  Instead, there will be weekly assessed problem sets.
 
 Problem sets will be assigned in lecture every Wednesday, and will be due the following Wednesday by the beginning of lecture.  You can email the problem sets to me before lecture starts, hand a paper copy in at the *beginning* of lecture, or leave it in my mailbox *before* lecture starts.  
-
-*You must keep your assignments after they have been handed back to you to return to me at the end of the year.  This seems silly, but is required for the external examiner.*
 
 You are allowed, and in fact encouraged, to meet in small groups to discuss the course, including the problem sets.  Working with friends is a great way to learn and is usually more fun.  ``Small'' here means two or three people; larger groups are not allowed, as it becomes too easy to just listen and not contribute.  
 
@@ -48,4 +46,4 @@ Writing proofs
 
 I recommend latexing your assignments, but this is not required.  A previous incarnation of the course had the following [handout](../mas439problemguidelines.pdf), which has some useful discussion of writing proofs.  We will take time to have discussions about writing proofs as the course continues.
 
-Proofs are perfect platonic objects living in a vacuum, they are social constructs that are a form of *communication*.  As such, neatness and style are important and will be evaluated.
+Proofs are not perfect platonic objects living in a vacuum, they are social constructs that are a form of *communication*.  As such, neatness and style are important and will be evaluated.

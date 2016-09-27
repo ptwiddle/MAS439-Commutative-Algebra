@@ -114,10 +114,21 @@ Mathematics is written down in full rigor, but informal discussion of ``how to t
 \end{frame}
 
 
+\begin{frame}[plain,c]
 
-\begin{frame}{A quiz to see what you know}
+\begin{center}
 
-Answer these questions to the best of your ability on the blank sheet of paper provided.
+\Huge
+
+\usebeamercolor[fg]{frametitle}
+A Quiz
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Answer on the paper provided}
 
 \begin{enumerate}
 \item What's the formal definition of a ring homomorphism?  Give an example.
@@ -129,9 +140,9 @@ Up to you whether you put your name on them or not; I'm just using these as a qu
 
 \end{frame}
 
-\begin{frame}{Definition of a ring}
+\begin{frame}{Definition of a ring, ugly version}
 
-A \emph{ring} is a set $R$ with two binary operations $+, \cdot$ on $R$ satisfying:
+A \emph{ring} is a set $R$ with two binary operations $+, \cdot$ satisfying:
 
 \begin{enumerate}
 \item $\forall x, y,z\in R, (x+y)+z=x+(y+z)$
@@ -142,6 +153,8 @@ A \emph{ring} is a set $R$ with two binary operations $+, \cdot$ on $R$ satisfyi
 \item $\exists 1_R\in R$ such that $\forall x\in R, 1_r\cdot x=x\cdot 1_R=x$
 \item $\forall x, y,z\in R, x\cdot (y+z)=x\cdot y+x\cdot z$ and $(y+z)\cdot x=y\cdot x+ y\cdot z$
 \end{enumerate}
+
+\begin{block}{What are the names of the axioms?}\end{block}
 
 \end{frame}
 
@@ -157,7 +170,22 @@ A \emph{ring} is a set $R$ with two binary operations $+,\cdot$ satisfying:
 A \emph{monad} satisfies all the axioms of a group except perhaps the existence of inverses.
 \end{frame}
 
-\begin{frame}{Examples of rings}
+\begin{frame}[plain,c]
+
+\begin{center}
+
+\Huge
+
+\usebeamercolor[fg]{frametitle}
+ Back to the Quiz:
+ 
+Let's list examples of rings
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{How'd we do?}
 \begin{enumerate}
 \item The trivial ring has one element
 \item The integers $\mathbb{Z}$
@@ -182,6 +210,44 @@ A ring $R$ is \emph{commutative} if multiplication is commutative, i.e. $x\cdot 
 \begin{block}{Convention:}
 Unless otherwise specified, all rings $R$ will be assumed to be commutative.
 \end{block}
+\end{frame}
+
+
+
+\begin{frame}{Types of elements}
+
+
+\begin{definition}
+We say $r\in R$ is a \emph{unit} if there exists an element $s\in R$ with $rs=1_R$
+\end{definition}
+
+\begin{definition}
+We say that $r\in R$ is a \emph{zero divisor} if there exists $s\in R, s\neq 0_R$ with $rs=0_R$
+\end{definition}
+
+\begin{definition}
+We say that $r\in R$ is \emph{nilpotent} if there exists some $n\in\mathbb{N}$ with $r^n=0_R$
+\end{definition}
+
+\begin{block}{Examples?}
+ \end{block}
+
+\end{frame}
+
+
+\begin{frame}{Types of rings}
+
+\begin{definition}
+We say $R$ is \emph{field} if every nonzero element is a unit.
+\end{definition}
+By convention, the trivial ring is not a field.
+\begin{definition}
+We say $R$ is an \emph{integral domain} if it has no zero divisors.
+\end{definition}
+
+\begin{definition}
+We say that $R$ is \emph{reduced} if it has no nilpotent elements.
+\end{definition}
 
 
 \end{frame}

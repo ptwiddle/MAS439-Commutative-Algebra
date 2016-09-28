@@ -22,7 +22,7 @@
 
 \begin{itemize}
 \item Problems are due \emph{every} Wednesday at the \emph{beginning} of class
-\item Each semester, the two lowest problem set scores can be dropped
+\item Each semester, the two lowest scores (out of ten) can be dropped
 \item You are encouraged, but not required, to write your solutions in \LaTeX
 \item You are encouraged, but not required, to work together in groups of 2 or 3
 \end{itemize}
@@ -85,11 +85,24 @@ Mathematics is written down in full rigor, but informal discussion of ``how to t
 \item Comment section
 \end{itemize}
 \end{block}
+\end{frame}
 
 
 
+\begin{frame}[plain,c]
+
+\begin{center}
+
+\Huge
+
+\usebeamercolor[fg]{frametitle}
+Please \emph{Please} read Tom's notes \\
+I will be assuming you are
+\end{center}
 
 \end{frame}
+
+
 
 
 \begin{frame}{The first 3-4 weeks should be somewhat review}
@@ -147,11 +160,13 @@ A \emph{ring} is a set $R$ with two binary operations $+, \cdot$ satisfying:
 \begin{enumerate}
 \item $\forall x, y,z\in R, (x+y)+z=x+(y+z)$
 \item $\exists 0_R\in R$ such that $\forall x\in R,  0_R+x=x+0_R=x$
-\item $\foral x\in R, \exists {-x}\in R$ such that $x+({-x})=({-x})+x=0_R$
+\item $\forall x\in R, \exists {-x}\in R$ such that $x+({-x})=({-x})+x=0_R$
 \item $\forall x,y \in R, x+y=y+x$
 \item $\forall x, y,z\in R, (x\cdot y)\cdot z=x\cdot (y\cdot z)$
 \item $\exists 1_R\in R$ such that $\forall x\in R, 1_r\cdot x=x\cdot 1_R=x$
-\item $\forall x, y,z\in R, x\cdot (y+z)=x\cdot y+x\cdot z$ and $(y+z)\cdot x=y\cdot x+ y\cdot z$
+\item $\forall x, y,z\in R$:
+$$x\cdot (y+z)=x\cdot y+x\cdot z$$ 
+$$(y+z)\cdot x=y\cdot x+ y\cdot z$$
 \end{enumerate}
 
 \begin{block}{What are the names of the axioms?}\end{block}
@@ -197,7 +212,7 @@ Let's list examples of rings
 \item The Gaussian integers $\mathbb{Z}[i]=\{z=a+bi\in \mathbb{C} | a,b\in \mathbb{Z}\}$
 \item The set $\text{Fun}(\mathbb{R}, \mathbb{R})$ of all functions from $\mathbb{R}$ to itself, under pointwise addition and multiplication (e.g., $(f\cdot g)(x)=f(x)\cdot g(x)$)
 \item The set $C(\mathbb{R})$ of all \emph{continuous} functions from $\mathbb{R}$ to itself
-\end{itemize}
+\end{enumerate}
 \end{frame}
 
 
@@ -249,6 +264,8 @@ We say $R$ is an \emph{integral domain} if it has no zero divisors.
 We say that $R$ is \emph{reduced} if it has no nilpotent elements.
 \end{definition}
 
+\begin{block}{Examples?}
+\end{block}
 
 \end{frame}
 

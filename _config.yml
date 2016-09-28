@@ -7,7 +7,7 @@ url: "http://yourdomain.com" # the base hostname & protocol for your site
 collections:
   problemsets:
     output: true
-  lecturenotes:
+  bulletins:
     output: tue
 github_username:  ptwiddle
 

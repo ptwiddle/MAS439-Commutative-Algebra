@@ -37,12 +37,12 @@ Although I will follow those lecture notes closely, I will not lecture from the 
 
 
 
-<h3> Recent Lectures: </h3>
+<h3> Recent Bulletins: </h3>
 <ul>
-{% assign lectures = site.lecturenotes | reverse %}
-{% for lecture in lectures limit:2 %}
+{% assign bulletinlist = site.bulletins | reverse %}
+{% for bulletin in bulletinlist limit:2 %}
 <li>
-<a href="{{ lecture.url | prepend:site.baseurl }}"> {{ lecture.title }}</a>  
+<a href="{{ bulletin.url | prepend:site.baseurl }}"> {{ bulletin.title }}</a>  
 </li>
 {% endfor %} 
 </ul>

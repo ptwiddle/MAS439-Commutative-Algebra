@@ -4,7 +4,7 @@ title: Policies
 permalink: /Policies/
 ---
 
-This page contains all the essential policies for the course.  The same material was in the handout from the first lecture.
+This page contains all the essential policies for the course.  
 
 Basic facts
 ------
@@ -21,10 +21,10 @@ They may change with input from the class later in the semester.  Always feel fr
 
 Marking
 ------
--
+
 There is no exam for this module.  Instead, there will be weekly assessed problem sets.
 
-Problem sets will be assigned in lecture every Wednesday, and will be due the following Wednesday by the beginning of lecture.  You can email the problem sets to me before lecture starts, hand a paper copy in at the *beginning* of lecture, or leave it in my mailbox *before* lecture starts.  
+Problem sets will be assigned in lecture every week, usually on Wednesday but occasionally on Thursday. They will be due the following Wednesday by the beginning of lecture.  You can email the problem sets to me before lecture starts, hand a paper copy in at the *beginning* of lecture, or slip it under my door *before* lecture starts.  
 
 You are allowed, and in fact encouraged, to meet in small groups to discuss the course, including the problem sets.  Working with friends is a great way to learn and is usually more fun.  ``Small'' here means two or three people; larger groups are not allowed, as it becomes too easy to just listen and not contribute.  
 

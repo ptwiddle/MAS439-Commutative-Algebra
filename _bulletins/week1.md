@@ -13,6 +13,9 @@ We discussed general course policies, which can be found in the policies section
 
 Wednesday
 ----------
+[Slides](../slides/Day1.pdf)
+
+
 On Wednesday we had a very brief quiz just to see what you remembered from MAS220.  We then reviewed the formal definition of a ring, listed many examples, and introduced/reviewed three types of elements elements and the corresponding three types of rings:
 
 * a *field* is a ring in which every nonzero element is a *unit*

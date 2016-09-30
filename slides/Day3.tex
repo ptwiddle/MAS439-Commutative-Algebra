@@ -1,0 +1,310 @@
+\documentclass{beamer}
+
+\usepackage{amsmath, amssymb, hyperref, graphics, wasysym}
+\usepackage{mathpazo}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+\title{MAS439 Lecture 3 \\ Subrings}
+
+\date{October 5th}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}{Today we discuss subrings, tomorrow we discuss ideals}
+
+Let $\varphi:R\to S$ be a ring homomorphism.  
+
+\begin{definition}[image]
+ $$\textrm{Im}(\varphi)=\{s\in S| s=\varphi(r) \text{ for some } r\in R\}$$
+\end{definition}
+
+\begin{definition}[kernel]
+$$\ker(\varphi)=\{r\in R | \varphi(r)=0_S\}$$
+\end{definition}
+
+
+\begin{itemize}
+\item $\textrm{Im}(\varphi)$ is a \emph{subring} of $S$, which we will discuss today.
+\item $\ker(\varphi)$ is an \emph{ideal} of $R$, which we will discuss tomorrow.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Definition of a subring}
+
+
+Let $R$ be a ring.  A subset $S\subset R$ is a \emph{subring} of $R$ if
+\begin{itemize}
+\item $S$ is closed under addition and multiplication:
+
+$$r,s\in S \text{ implies } r+s, r\cdot s\in S$$
+
+\item $S$ is closed under additive inverses: $r\in S \text{ implies } -r\in S$.
+\item $S$ contains the identity: $1_R\in S$
+
+\end{itemize}
+
+\begin{block}{This is the \emph{minimal} structure needed}
+But of course subrings are actually rings...
+\end{block}
+
+
+\end{frame}
+
+
+\begin{frame}{Subrings are rings}
+
+\begin{lemma}
+Let $S$ be a subring of $R$.  Then $S$ is a ring, with addition and multiplication inherited from $R$.  If $R$ is commutative, so is $S$.
+\end{lemma}
+
+\begin{proof}
+\begin{itemize}
+\item Since $S$ is closed under addition and multiplication, they're binary operations on $S$.
+\item Second two properties guarantee additive inverses and identities
+\item Since $R$ is a ring, $+,\cdot$ satisfy associativity, distributivity, (commutativity)
+\end{itemize}
+\end{proof}
+\end{frame}
+
+\begin{frame}{First examples of subrings}
+
+\begin{itemize}
+\item $\mathbb{Z}\subset\mathbb{Q}\subset \mathbb{R}\subset\mathbb{C}\subset\mathbb{H}$ is a chain of subrings.
+\item if $R$ any ring, $R\subset R[x]\subset R[x,y]\subset R[x,y,z]$ is a chain of subrings.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Another example}
+
+We have the chain of subrings 
+
+$$\mathbb{R}\subset \mathbb{R}[x]\subset C^\infty(\mathbb{R},\mathbb{R})\subset C(\mathbb{R},\mathbb{R}) \subset \textrm{Fun}(\mathbb{R},\mathbb{R})$$
+
+Where, working backwards:
+\begin{itemize}
+\item $\textrm{Fun}(\mathbb{R},\mathbb{R})$ is the space of all functions from $\mathbb{R}$ to $\mathbb{R}$
+\item $C(\mathbb{R},\mathbb{R})$ are the continuous functions
+\item $C^\infty(\mathbb{R},\mathbb{R})$ are the \emph{smooth} (infinitely differentiable) functions
+\item $\mathbb{R}[x]$ are the polynomial functions
+\item We view $\mathbb{R}$ as the space of constant functions 
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Non-examples of subrings}
+
+\begin{itemize}
+\item $\mathbb{N}\subset\mathbb{Z}$ is not a ring, as it is not closed under additive inverses
+\item Let $\mathcal{K}$ be the set of continuous functions from $\mathbb{R}$ to itself with compact (equivalently, bounded) support.  That is,
+$$f\in \mathcal{K} \iff \exists M \textrm{ s.t. } |x|>M\implies  f(x)=0 $$
+Then $\mathcal{K}$ is not a ring as it doesn't contain the identity.  
+\item Let $R=\mathbb{Z}\times \mathbb{Z}$, and let $S=\{(x,0)\in R | x\in \mathbb{Z}\}$.  
+
+Then $S$ \emph{is} a ring, but it is \alert{not} a subring of $R$, as the identity of $S$ is $(1,0)$, while the identity of $R$ is $(1,1)$.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{And our original example of a subring is in fact a subring}
+
+\begin{lemma} Let $\varphi:R\to S$ be a homomorphism.  Then $\textrm{Im}(\varphi)\subset S$ is a subring.
+\end{lemma}
+
+\begin{proof}
+We need to check $\textrm{Im}(\varphi)$ is closed under addition and multiplication and contains $1_S$.
+\begin{itemize}
+\item Suppose $s_1,s_2\in\textrm{Im}(\varphi)$.  Then $\exists r_i$ with $\varphi(r_i)=s_i$.  Then
+$$s_1+s_2=\varphi(r_1)+\varphi(r_2)=\varphi(r_1+r_2)\in\textrm{Im}(\varphi)$$
+\item Closed under multiplication is exactly the same.
+\item $1_S=\varphi(1_R)\in\textrm{Im}(\varphi)$
+\end{itemize}
+
+\end{proof}
+
+\end{frame}
+
+\begin{frame}[plain,c]
+
+\begin{center}
+
+\Huge
+
+\usebeamercolor[fg]{frametitle}
+$\twonotes$ Let's all go to the lobby $\twonotes$ \\ $\twonotes$ Let's all go to the lobby $\twonotes$ \\
+(2 minute intermission)
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Motivation for generators from Group theory}
+
+When working with groups, we often write things down in terms of generators and relations.
+
+\begin{example}
+The dihedral group $D_{8}$ is the symmetries of the square.  It is often written as
+
+$$D_8=\langle r,f | r^4=1, f^2=1, rf=fr^{-1}\rangle $$
+
+Meaning that the group $D_8$ is \emph{generated} by two elements, $r$ and $f$, satisfing the \emph{relations} $r^4=1, f^2=1$ and $rf=fr^{-1}$.
+\end{example}
+
+\end{frame}
+
+
+\begin{frame}{Groups from generators and relations}
+
+We often write down rings in a similar manner; 
+
+\begin{example}[Gaussian integers]
+The Gaussian integers are written $\mathbb{Z}[i]$; they're generated by an element $i$ satisfying $i^4=1$.
+\end{example}
+
+\begin{example}[Field with 4 element]
+The field $\mathbb{F}_4$ of four elements can be written $\mathbb{F}_2[x]/(x^2+x+1)$ -- to get $\mathbb{F}_4$, we add an element $x$ that satisfies the relationship $x^2+x+1=0$.
+\end{example}
+
+\end{frame}
+
+
+\begin{frame}{Idea of generating set}
+
+We start with an intuitive notion of what ``the subring generated by $T$'' should mean.
+
+\begin{block}{Attempted definition} Let $T\subset R$ be any subset of a ring.  The \emph{subring generated by $T$}, denoted $\langle T\rangle$, \emph{should be} the smallest subring of $R$ containing $T$.
+\end{block}
+
+This is not a good formal definition -- what does ``smallest'' mean?  Why is there a smallest subgring containing $T$? 
+
+
+\end{frame}
+
+\begin{frame}{Intersections of subrings are subrings}
+
+
+\begin{lemma} Let $R$ be a ring and $I$ be any index set. For each $i\in I$, let $S_i$ be a subring of $R$.  Then
+$$S=\bigcap_{i\in I} S_i$$
+is a subring of $R$.
+
+\end{lemma}
+\begin{proof} 
+
+Suppose $s_1,s_2\in S$.  Then by definition $s_1,s_2\in S_j$ for all $j$.  Hence $s_1+s_2\in S_j$ for all $j$, since $S_j$ is a subring.  So $s_1+s_2\in S$, and $S$ is closed under addition.
+
+The exact same argument shows $S$ is closed under multiplication and contains the unit.
+
+\end{lemma}
+
+
+\end{frame}
+
+\begin{frame}{The proper definition of $\langle T\rangle$}
+
+\begin{definition} Let $T\subset R$ be any subset.  The \emph{subring generated by $T$}, denoted $\langle T\rangle$, is the intersection of all subrings of $R$ that contain $T$.
+\end{definition}
+
+\begin{block}{This agrees with our intuitive ``definition''}
+$\langle T\rangle $ is the smallest subring containing $T$ in the following sense: if $S$ is any subring with $T\subset S\subset R$, then by definition $\langle T\rangle \subset S$.
+\end{block}
+
+\begin{block}{But it's all a bit airy-fairy}
+The definition may be good for proving things, but it doesn't tell us what, say $\langle \pi, i \rangle \subset \mathbb{C}$ actually looks like...
+\end{block}
+
+
+\end{frame}
+
+
+\begin{frame}{What \emph{has} to be in $\langle \pi, i \rangle $?}
+
+Start with simple bits; use fact $\langle T \rangle$ is closed under operations...
+\begin{itemize}
+\item $1, \pi, i$
+\item Sums of those; say, $5+\pi, 7i$
+\item Negatives of those, say $-7i$ 
+\item Products of those, say $(5+\pi)^4 i^3$
+\item Sums of those, say $(5+\pi)^4+i^3$
+\item $\cdots$
+\item $$\Big(\big((5+7i-\pi)^3+3\pi^2\big)\cdot (-2+\pi i)+\pi^3-i\Big)^{27}$$
+\end{itemize}
+Of course, could expand that out into just sums of terms like $\pm\pi^m i^m$...
+
+\end{frame}
+
+\begin{frame}
+
+\begin{definition} Let $T\subset R$ be any subset.  Then a \emph{monomial in $T$} is a (possibly empty) product $\prod_{i=1}^n t_i$ of elements $t_i\in T$.  We use $M_T$ to denote the set of all monomials in $T$.
+\end{definition}
+
+The empty product is the identity $1_R$, and so $1_R\in M_T$.
+\end{frame}
+
+
+\begin{frame}
+
+\begin{lemma} $\langle T\rangle=X_T$, where $X_T$ consists of those elements of $R$ that are finite sums of monomials in $T$ or their negatives.  That is: 
+$$X_T=\left\{\sum_{k=0}^n \pm m_k \Big| m_k\in M_T\right\}$$
+
+\end{lemma}
+
+\begin{proof} 
+\begin{itemize}
+\item $X_T\subset \langle T\rangle$ since  everything in $X_T$ is built up from $T$ by multiplying, adding, and taking negatives, and $\langle T\rangle $ contains $T$ and is a closed under this operations.
+
+\item $\langle T\rangle \subset X_T$ since $X_T$ is a subring containing $T$. $X_T$ clearly contains $T$ and is closed under addition and negatives, and it's closed under products by the distributive property.
+\end{itemize}
+\end{proof}
+
+\end{frame}
+
+\begin{frame}{Generating sets for rings}
+
+\begin{definition}
+We say that a ring $R$ is \emph{generated by} a subset $T$ if $R=\langle T\rangle$.  We say that $R$ is \emph{finitely generated} if $R$ is generated by a finite set.
+\end{definition}
+
+\end{frame}
+
+
+\begin{frame}{Examples of generating sets}
+\begin{itemize}
+\item $\mathbb{Z}=\langle\emptyset\rangle $
+\item $\mathbb{Z}/n\mathbb{Z}=\langle \emptyset \rangle $
+\item $\mathbb{Z}[x]=\langle x \rangle$
+
+
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Some of your best friends are not finitely generated}
+
+\begin{itemize} 
+\item The rationals $\mathbb{Q}$ are not finitely generated: any finite subset of rational numbers has only a finite number of primes appearing in their denominator.  
+\item The real and complex numbers are uncountably; a finitely generated ring is countable
+\end{itemize}
+\end{frame}
+
+\begin{frame}{A subring of a finitely generated ring need not be finitely generated}
+
+
+We've seen that $\mathbb{Z}[x]=\langle x\rangle$ and so is finitely generated.
+
+$$S=\left\{ a_0+2a_1x+\cdots +2a_nx^n\right\}$$
+that is, $S$ consists of polynomials all of whose coefficients, except possibly the constant term, are even.   
+\end{frame}
+
+\end{document}

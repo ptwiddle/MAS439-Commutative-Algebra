@@ -5,7 +5,7 @@
 
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
-
+\newcommand{\R}{\mathbb{R}}
 
 \title{MAS439 Lecture 5 \\ Quotient Rings}
 
@@ -52,6 +52,12 @@ We do this because awkward to think of ring elements as being themselves sets; a
 
 \begin{frame}{You've seen this before: quotient groups}
 Recall that, given a normal subgroup $N \subset  G$, we have the quotient subgroup $G/N$.  The elements of $G/N$ are the \emph{cosets} of $N$ -- sets of the form $gN$.  Alternatively, elements of $G/N$ are equivalence classes, where $g\sim h$ if $gh^{-1}\in N$.
+
+\begin{block}{Why did $N$ need to be normal?}
+To make multiplication well defined.
+
+\end{block}
+
 \end{frame}
 
 
@@ -107,6 +113,8 @@ Suppose $$a^\prime-a=i\in I,\qquad b^\prime-b=j\in I$$
 We need to show that $$a^\prime\cdot b^\prime-a\cdot b\in I$$
 
 Then:
+
+
 $$a^\prime\cdot b^\prime-a\cdot b=(a+i)\cdot (b+j)-a\cdot b=a\cdot j+b\cdot i+i\cdot j$$
 
 \begin{itemize}
@@ -121,12 +129,24 @@ $$a^\prime\cdot b^\prime-a\cdot b=(a+i)\cdot (b+j)-a\cdot b=a\cdot j+b\cdot i+i\
 
 These proofs are all just symbol pushing.  For instance, to show that the distributive law holds, we have:
 
-$$([a]+[b])\cdot [c]=[a+b]\cdot[c]=[(a+b)\cdot c]=[a\cdot c+b\cdot c]=[a\cdot c+b\cdot c]=[a\cdot c]+[b\cdot c]$$
+\begin{align*}
+([a]+[b])\cdot [c]& =[a+b]\cdot[c] \\
+& =[(a+b)\cdot c] \\
+&=[a\cdot c+b\cdot c] \\
+&=[a\cdot c]+[b\cdot c]=[a]\cdot [c]+[b]\cdot [c]
+\end{align*}
+\end{frame}
+
+
+\begin{frame}{In words}
+
+To me, that last proof was rather unenlightening.
+
+The ring axioms are satisifed in $R/I$ because the operations $+, \cdot$ are defined in terms of lifting to representatives in $R$; and the axioms hold there.
 
 
 
 \end{frame}
-
 
 
 \begin{frame}[plain,c]
@@ -142,8 +162,59 @@ $\twonotes$ Let's all go to the lobby $\twonotes$ \\ $\twonotes$ Let's all go to
 
 \end{frame}
 
-\begin{frame}{First example}
+\begin{frame}{Example: $\R[x]/(x^2)$}
+
+First, we have to understand it as a set -- we want to give a \emph{unique} name to each element of $R/I$.  This is usually done by picking a representative from each coset in some systematic way.
+
+$I$ consists of linear combinations of monomials of degree 2 or bigger.  So every equivalence class contains exactly one linear term $a+bx$.  We see that 
+
+$$[a+bx]\cdot [c+dx]=[ac+adx+bcx+adx^2]=[ac+(ad+bc)x]$$
+
 
 \end{frame}
+
+
+\begin{frame}{Example: $\C\cong\R[x]/(x^2+1)$}
+
+\begin{block}{The division algorithm gives unique representatives}
+
+Any polynomial $p(x)$ can be written uniquely as
+
+ $$p(x)=(x^2+1)q(x)+bx+a$$. 
+
+This means that $[p(x)]=[bx+a]$, so every class can be represented by a linear polynomial; furthermore, this representation is unique.
+\end{block}
+
+It's clear $[a+bx]+[c+dx]=[a+c+(b+d)x]$.
+\end{frame}
+
+\begin{frame}{Example: $\mathbb{C}=\R[x]/(x^2+1)$}
+
+\begin{block}{Multiplication of representatives}
+$$[a+bx]\cdot [c+dx]=[ac+(ad+bc)x+bdx^2]$$
+
+But this isn't linear;  we need to get rid of the $x^2$ term.  Note that $bdx^2=bd(x^2+1)-bd$, and so $[bdx^2]=[-bd]$.
+
+Thus, we see
+$$[a+bx]\cdot [c+dx]=[ac-bd+(ad+bc)x]$$
+which, if we replace $x$ with $i$, is exactly the formula for multiplying complex numbers.
+\end{block}
+
+
+\end{frame}
+
+\begin{frame}{Constructing $\mathbb{F}_4$}
+
+We claim that $R=\mathbb{F}_2[x]/(x^2+x+1)$ is a field with 4 elements.  
+
+Exactly as in the last two examples, the division algorithm gives every equivalence class has a unique linear representative $a+bx$; now $a,b\in\mathbb{F}_2$, so there are indeed four elements.
+
+We check:
+$$[x]\cdot [x+1]=[x^2+x]=[1]$$
+So every nonzero element has an inverse, and so $R$ is a field.
+\end{frame}
+
+
+
 
 \end{document}

@@ -16,3 +16,4 @@ This page contains the slides from lectures.
 - [Lecture 8: $$k$$-Algebras](../slides/Day8.pdf)
 - [Lecture 9: Polynomial Rings](../slides/Day9.pdf)
 - Lecture 10 (no slides): Noetherian Rings
+- [Lecture 11: Algebraic Subsets](../slides/Day11.pdf)

@@ -10,7 +10,7 @@ layout: default
 Question 1 (3 points)
 ===
 
-Consider the algebraic subset $$X=V(J)\subset\mathbb{A}_{\mathbb{C}^3$$ where
+Consider the algebraic subset $$X=V(J)\subset\mathbb{A}_{\mathbb{C}}^3$$ where
 
 $$J=(xy-zy-z^2x+z^3, x^2-xz-xy+yz)$$
 
@@ -35,6 +35,6 @@ Question 3 (4 points)
 In last week's problem set, we looked at the ideal $$J=(x^2+y^2-2, xy-1)\subset R=\mathbb{C}[x,y]$$.  This week, we compute the radical $$\sqrt{J}$$ using the Nullstellensatz.
 
 1. Last week, we saw that $$V(J)=\{(1,1), (-1,-1)\}$$.  Using this, show that $$\dim_\mathbb{C}R/I(V(J))=2$$.  One way to do this is to show that every element of $$R/I(V(J))$$ has a unique representative of the form $$ax+b$$ for some $$a,b\in\mathbb{C}$$.  
-2. Show that $$(x^2-1, x-y)= V(I(J))$$ by showing $$(x^2-1,x-y)\subset V(I(J))$$ and that $$\dim_{\mathbb{C}} R/(x^2-1, x-y)=2$$
+2. Show that $$(x^2-1, x-y)= I(V(J))$$ by showing $$(x^2-1,x-y)\subset I(V(J))$$ and that $$\dim_{\mathbb{C}} R/(x^2-1, x-y)=2$$
 3. Conclude that $$\sqrt{J}=(x^2-1, x-y)$$.
 

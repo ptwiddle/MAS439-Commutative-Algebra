@@ -17,3 +17,7 @@ This page contains the slides from lectures.
 - [Lecture 9: Polynomial Rings](../slides/Day9.pdf)
 - Lecture 10 (no slides): Noetherian Rings
 - [Lecture 11: Algebraic Subsets](../slides/Day11.pdf)
+- [Lecture 12: Nullstellensatz](../slides/Day12.pdf)
+- Lecture 13 (no slides): Affine varieties
+- [Lecture 14: Coordinate Rings](../slides/Day14.pdf)
+- Lecture 15: (no slides): Polynomial maps -- examples

@@ -1,0 +1,118 @@
+\documentclass{beamer}
+
+\usepackage{amsmath, amssymb, hyperref, graphics, wasysym, tikz}
+%\usetikzlibrary{cd}
+\usepackage{mathpazo}
+
+\AtBeginDocument{
+   \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+   \DeclareSymbolFontAlphabet{\mathbb}{AMSb}}
+
+\newcommand{\AAA}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\title{MAS439 Lecture 14 \\ Polynomial maps and ring homomorphisms}
+
+\date{November 30th}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+ \begin{frame}{Last time:}
+
+For $X\subset \mathbb{A}_k^n$, $Y\subset \mathbb{A}_k^m$, we defined a polynomial map $\varphi:X \to Y$ to be a set of $m$ polynomials $\varphi_i\in k[x_1,\dots, x_n]$, so that if $p\in X$, 
+
+$$\varphi(p)=(\varphi_1(p),\dots, \varphi_m(p))\in Y$$
+
+Algebraic subsets are the geometric part of ``algebraic geometry''.  \\~\\
+
+Now that we have maps between geometric side of our correspondence, our goal today is to see how these compare to maps between objects on the algebraic side, namely, the coordinate rings $k[X]=k[x_1,\dots, x_n]/I(X)$.
+
+\end{frame}
+
+\begin{frame}
+Remember that we can view $k[X]$ as the space of polynomial functions from $X$ to $k$.  Thus, if we have a polynomial map $\varphi:X\to Y$, and an element of $f\in k[Y]$, the composition $f\circ \varphi:X\to k$ naturally is an element of $k[X]$.  We will denote this element by $\varphi^*(f)$.
+\\~\\
+Note that $\varphi^*$ is a $k$-algebra morphism.
+
+
+
+\end{frame}
+
+\begin{frame}
+
+\begin{definition}
+For $X$ and $Y$ algebraic sets, let $\text{Poly}(X,Y)$ denote the set of polynomial maps between $X$ and $Y$.
+\end{definition}
+
+\begin{definition}
+For $R$ and $S$ $k$-algebras, let $\hom_{k-\text{alg}}(R,S)$ denote the set of $k$-algebra homomorphisms from $R$ to $S$.
+\end{definition}
+
+Thus, we see that we have a map $F:\text{Poly}(X,Y)\to \hom_{k-\text{alg}}(R,S)$ given by $F:\varphi\mapsto \varphi^*$.
+
+
+\begin{lemma}
+The map $F$ is a bijection.
+\end{lemma}
+
+
+\end{frame}
+
+\begin{frame}
+To prove this, we construct an inverse to the map $F$, that is, given a $k$-algebra morphism $\varphi:k[Y]\to k[X]$, we must construct a map $f:X\to Y$.
+
+We do that as follows: $G(f)=(f(y_1),\dots, f(y_m))$.  \\~\\
+
+
+
+
+
+
+
+\end{frame}
+
+
+
+\begin{frame}{Another viewpoint}
+
+One issue with our correspondence between rings is that the spaces aren't described ``instrinsically'' -- they're described as a subspace of some affine space $\mathbb{A}^n_k$.  Furthermore, we can represent the ``same'' algebraic subset $X$ in many different ways:
+
+\begin{example} All of the following algebraic varieties are isomorphic to $\mathbb{A}^1_k$:
+\begin{itemize}
+\item $V(x)\subset \mathbb{A}^2_k$
+\item $V(x-2)\subset \mathbb{A}^2_k$
+\item $V(2x-3y)\subset \mathbb{A}^2_k$
+\item $V(y-x^2)\subset \mathbb{A}^2_k$
+\item $V(x,y)\subset \mathbb{A}^3_k$
+\end{itemize}
+\end{example}
+The choice of this affine space, and how $X$ sits inside this affine space, depend on a choice of generators of our ring $k[X]$.
+
+
+
+
+\end{frame}
+
+
+\begin{frame}{An intrinsic point of view}
+
+However, we recall that if $R=k[x_1,\dots, x_n]/I$, then we have that points of $X=V(I)$ (which is \emph{extrinsic} -- it depends on the presentation of $R$) are in bijection with the maximal ideals of $R$ (which is \emph{intrinsic} -- it only depends on $R$ and not on any extraneous data.
+
+\begin{definition}
+Let $R$ be a ring.  We define $\text{Spec}(R)$ to be the set of prime ideals of $R$, and $\text{mSpec}(R)$ to be the set of maximal ideals of $R$.
+\end{definition}
+
+\end{frame}
+
+
+
+
+\end{document}

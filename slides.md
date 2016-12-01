@@ -21,3 +21,5 @@ This page contains the slides from lectures.
 - Lecture 13 (no slides): Affine varieties
 - [Lecture 14: Coordinate Rings](../slides/Day14.pdf)
 - Lecture 15: (no slides): Polynomial maps -- examples
+- [Lecture 16: Polynomial maps correspond to ring maps](../slides/Day16.pdf)
+- Lecture 17: (no slides): Spec and mSpec, fields of fractions

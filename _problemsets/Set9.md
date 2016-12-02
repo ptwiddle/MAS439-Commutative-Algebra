@@ -26,7 +26,7 @@ Question 2 (5 points):
 Let $$K$$ be an algebraic closed field, and let $$X\subset \mathbb{A}^n_k$$ and $$Y\subset \mathbb{A}^m_k$$ be algebraic sets.  Let $$\varphi:X\to Y$$ be a polynomial map and let $$\varphi^*:k[Y]\to k[X]$$ be the corresponding map between coordinate rings.
 
 1. Prove that if $$\varphi$$ is surjective, then $$\varphi^*$$ is injective.
-2. Prove that if $$\varphi^*$$ is surjective, then $$\varphi$$ is surjective.
+2. Prove that if $$\varphi^*$$ is surjective, then $$\varphi$$ is injective.
 3. Give examples showing that the converses to 1 and 2 don't hold
 
 Hints: Two points are different iff there is a polynomial that takes on different values at p and q.  Two polynomials are the same iff they take on the same value at every point.  For 3, one of the examples from the previous homework may help...

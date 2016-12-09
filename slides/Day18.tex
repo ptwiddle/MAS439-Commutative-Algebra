@@ -1,0 +1,53 @@
+\documentclass{beamer}
+
+\usepackage{amsmath, amssymb, hyperref, graphics, wasysym, tikz}
+%\usetikzlibrary{cd}
+\usepackage{mathpazo}
+
+\AtBeginDocument{
+   \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+   \DeclareSymbolFontAlphabet{\mathbb}{AMSb}}
+
+\newcommand{\AAA}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\title{MAS439 Lecture 18 \\ Categories}
+
+\date{December 7th}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Why categories?}
+
+\begin{block}{Viewpoint:}
+
+We've been implicitly thinking ``categorically'' by using Universal properties, and thinking about $\C[x]$ and $\C[x,y]/I$ in terms of maps out of them.\\~\\
+\end{block}
+
+\begin{block}{Language:}
+
+We've established a dictionary between geometry and algebra, taking algebraic subsets to their coordinate ring, and maps between spaces to maps between rings. The dictionary can seem a little unwieldy and abstract at first, but it's actually a common type occurence, and category theory is language invented to discuss just such things,
+\end{block}
+
+
+\end{frame}
+
+\begin{frame}{Definition of a category}
+
+A category $\mathcal{C}$ consists of:
+
+1. A collection of \emph{objects} $\text{Ob}(\mathcal{C})$ (think: objects are sets}
+2. For each pair of objects $A,B\in\text{Ob}(\mathcal{C})$, a set of \emph{morphisms} $\Hom_{\mathcal{C}}(A, B)$ (think: morphisms are maps between sets)
+3. For every triple of objects $A, B,C$ a composition map
+
+\end{frame}
+
+
+\end{document}

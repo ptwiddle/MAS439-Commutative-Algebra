@@ -10,13 +10,12 @@ Basic facts
 ------
 The lecturer for the first semester is Paul Johnson.  Email paul.johnson@sheffield.ac.uk, Office Hicks J6b.  The second semester lecturer is Evgeny Shinder.
 
-Lectures are Wednesday at 11 in 9 Mappin Street G03, and Thursday at 2 in Hicks Lecture Theatre B.
+Lectures are in the Hicks building, Thursday at 2 in Lecture Theatre C, and Thursday at 4 in F28.  It's slightly awkward to have both lectures so close together; I'm going to experiment with having informal office hours in a coffeeshop in the hour in between.
 
 Office hours are currently scheduled for:
 
- -  Tuesday 11-12
- -  Friday 10:30-11:30
-
+ -
+ 
 They may change with input from the class later in the semester.  Always feel free to ask questions during or after class, in an email, or to set up a time to chat in person.
 
 Marking
@@ -24,7 +23,7 @@ Marking
 
 There is no exam for this module.  Instead, there will be weekly assessed problem sets.
 
-Problem sets will be assigned in lecture every week, usually on Wednesday but occasionally on Thursday. They will be due the following Wednesday by the beginning of lecture.  You can email the problem sets to me before lecture starts, hand a paper copy in at the *beginning* of lecture, or slip it under my door *before* lecture starts.  
+Problem sets will be assigned in lecture every week, and will be due the next week at the beginning of the first lecture.  You can email the problem sets to me before lecture starts, hand a paper copy in at the *beginning* of lecture, or slip it under my door *before* lecture starts.  
 
 You are allowed, and in fact encouraged, to meet in small groups to discuss the course, including the problem sets.  Working with friends is a great way to learn and is usually more fun.  ``Small'' here means two or three people; larger groups are not allowed, as it becomes too easy to just listen and not contribute.  
 

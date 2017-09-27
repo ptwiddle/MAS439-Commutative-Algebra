@@ -4,14 +4,14 @@ layout: default
 
 <div class="home">
 
-  <h3>Notes:</h3>
-  <ul>
- <li><a href="MAS439Bridgeland.pdf">Original Notes by Tom Bridgeland</a></li>
-  </ul>
+  <h2>Notes:</h2>
+We closely will follow these <a href="MAS439Bridgeland.pdf">notes by Tom Bridgeland,</a> though lectures will be from a slightly different angle.
 
- The class will follow these notes closely, but I will not lecture directly from them.  I may edit them lightly as we go this term, so if please point out any confusing parts, minor typos, etc.  
-
-<h3>Most recent problem set:</h3>
+<h2>Office Hours</h2>
+<ul><li>Monday 2:30-3:30</li>
+<li>Tuesday 11:30-12:30</li></ul>
+ 
+<h2>Most recent problem set:</h2>
 <ul>
 {% assign problems = site.problemsets | reverse %}
 {% for set in problems limit:1 %}
@@ -21,7 +21,7 @@ layout: default
 {% endfor %} 
 </ul>
 
-<h3> Recent Bulletins: </h3>
+<h2> Recent Bulletins: </h2>
 <ul>
 {% assign bulletinlist = site.bulletins | reverse %}
 {% for bulletin in bulletinlist limit:2 %}

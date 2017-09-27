@@ -1,0 +1,2385 @@
+
+
+
+%%%%%%%%%%
+
+% Corrections to do
+
+
+%%%% 0 should be nilpotent
+%%%% Ideal should contain 0
+%%%% Include construction of field F_4
+
+\documentclass [12pt,oneside,a4paper,mathscr]{amsart}
+\usepackage{amssymb}
+
+
+
+\openup1.2\jot
+\setlength{\topmargin}{0.1\topmargin}
+\setlength{\oddsidemargin}{0.5\oddsidemargin}
+\setlength{\evensidemargin}{0.5\oddsidemargin}
+\setlength{\textheight}{1.02\textheight}
+\setlength{\textwidth}{1.1\textwidth}
+
+\usepackage{amssymb}
+
+%\usepackage{xypic}
+
+
+
+
+
+%\usepackage{amscd,amsmath,amssymb,euscript}
+\usepackage[frame,cmtip,curve,arrow,matrix,line,graph]{xy}
+
+
+%\usepackage{geometry}
+%\usepackage{showkeys}
+
+\date{\today}
+
+%\openup1.2\jot
+\setlength{\topmargin}{0.1\topmargin}
+\setlength{\oddsidemargin}{0.5\oddsidemargin}
+\setlength{\evensidemargin}{0.5\oddsidemargin}
+\setlength{\textheight}{1.02\textheight}
+\setlength{\textwidth}{1.1\textwidth}
+
+\title{MAS 439 \medskip \\ Commutative algebra and algebraic geometry}
+\author{Paul Johnson \\ Minor adaptation of notes by Tom Bridgeland}
+\address{Department of Pure Mathematics, The University of Sheffield}
+\email{paul.johnson@shef.ac.uk}
+%\renewcommand{\footnote}[1]{}
+%\renewcommand{\qedsymbol}{\rightthumbsup}
+
+
+
+
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+%\newenvironment{pf}{\paragraph{Proof}}{\qed\par\medskip}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{assumption}[thm]{Assumption}
+\newtheorem{formula}[thm]{Formula}
+\newtheorem{thm*}[thm]{Theorem$^*$}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{remarks}[thm]{Remarks}
+\newtheorem{example}[thm]{Example}
+\newtheorem*{example*}{Example}
+\newtheorem{examples}[thm]{Examples}
+\newtheorem{ass}[thm]{Assumptions}
+\newtheorem{nonexamples}[thm]{Non-examples}
+
+\newcommand {\A}{\mathbb A}
+\newcommand {\B}{\mathcal B}
+\newcommand{\D}{{D}}
+\newcommand {\C}{\mathbb C}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand {\F}{{\mathcal F}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\O}{\mathcal{O}}
+
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\W}{\mathcal{W}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\M}{\operatorname{M}}
+\renewcommand{\check}{{\vee}}
+\renewcommand{\L}{\Tilde{\mathcal{M}}}
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand {\id}{\operatorname{id}}
+\newcommand{\into}{\ensuremath{\hookrightarrow}}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\isom}{\cong}
+\newcommand{\tensor}{\otimes}
+\newcommand{\lRa}[1]{\stackrel{#1}{\lra}}
+\newcommand{\Fun}{\operatorname{Fun}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\im}{\operatorname{Im}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\cp}{\mathfrak{p}}
+
+\newcommand{\divides}{\mid}
+\newcommand{\notdivides}{\nmid}
+\newcommand{\m}{\mathfrak{m}}
+\newcommand{\lc}{\operatorname{lead}}
+
+\newcommand{\ignore}[1]{}
+\newcommand{\Spec}{\operatorname{Spec}_{max}}
+
+\newcommand{\mat}[4]{\left( \begin{array}{cc} #1 & #2 \\ #3 & #4
+\end{array} \right)}
+
+%\renewcommand{\todo}[1]{}
+
+%for tikz
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+
+\begin{document}
+%\begin{abstract}{Lecture notes from the first 12 lectures of this course. Comments and corrections are welcome.}\end{abstract}
+\maketitle
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+
+
+
+\newpage
+
+
+\section{Introduction}
+
+Commutative algebra is the study of comuutative rings. These are sets $R$ having two composition laws (called addition and multiplication)
+which behave in the same way as addition and multiplication of integers. They form perhaps the third most important class of algebraic objects in the whole of maths (after  groups and vector spaces). Commutative rings come up all over pure mathematics. Here are two examples:
+
+\begin{itemize}
+\item \emph {Number theory.} The Gaussian integers
+\[\Z[i]=\{a+b i :a,b\in \Z\}\subset \C\]
+form a commutative ring under the usual operations of addition and multiplication of complex numbers. Similarly, if we consider the third root of unity \[\omega=\exp(2\pi i/3)=(-1+\sqrt{3}\, i)/2\]
+ then the subset
+\[\Z[\omega]=\{a+b\omega: a,b \in \Z\}\subset \C\]
+form a commutative ring. To see this note the relations
+\[\omega^3=1, \quad \omega^2+ \omega+ 1=0.\]
+Rings of algebraic integers like these are useful for studying Diohantine equations. For example, to prove the first case $n=3$ of Fermat's last theorem one writes
+\[z^3=x^3+y^3=(x+y)(x+\omega y)(x+\omega^2 y)\]
+and considers prime factorizations of both sides in the ring $\Z[\omega]$.\footnote{ See Hardy and Wright, An Introduction to the Theory of Numbers, Chapters 12--13. }
+\smallskip
+\item \emph{Geometry.} We can study a topological space $X$ (for example a subset $X\subset \R^n$)  via its ring of  functions. This is the set of all continuous functions $f\colon X \to \R$. These can be added and multiplied pointwise:
+\[(f+g)(x)=f(x)+g(x), \quad (f\cdot g)(x)=f(x)\cdot g(x).\]
+Similarly we can consider rings of differentiable or analytic functions.
+\end{itemize}
+
+Algebraic geometry is the study of  systems of polynomial equations. The set of solutions to such a system is called an affine variety. We first choose a field $k$ we wish to work over (e.g. $k=\Q$, $\R$ or $\C$). Given a collection of polynomials  $f_1,f_2,\cdots, f_r$  in $n$ variables $x_1,\cdots, x_n$ with coefficients in $k$, the corresponding  affine variety  is the subset \[V(f_1,\cdots, f_r)\subset k^n\] consisting of those points $(a_1,\cdots,a_n)\in k^n$ satisfying
+\[f_1(a_1,\cdots,a_n)=f_2(a_1,\cdots,a_n)=\cdots=f_r(a_1,\cdots,a_n)=0.\]
+
+
+Perhaps surprisingly, algebraic geometry occupies a central place in modern pure mathematics. The basic reason is that the study of polynomial equations has many different aspects, which relate to lots of other areas of pure mathematics. Wegive a few examples of this:
+
+\begin{itemize}
+\item \emph{Number theory.} If we take the field $k=\Q$ then polynomial equations become \emph{Diophantine equations}. For example Fermat's last theorem is the statement that if $n>2$ the variety
+\[x^n+y^n=1\]
+has no points over the field $k=\Q$ with $x,y$ nonzero. 
+\smallskip
+
+\item \emph{Geometry and topology.} Working over $\C$ we can study the geometry and topology of varieties. For example, consider the variety
+\[y^2=x^3-x.\]
+This is an example of  an \emph{elliptic curve}. Topologically it is a torus (doughnut) with 3 points removed. To get the full torus we must work  with the corresponding  projective variety\footnote{See Frances Kirwan, `Complex algebraic curves', Chapter 5.}.
+%, the subset of projective space defined by the homogeneous equation
+%\[Y^2Z=X^3-XZ^3.\]
+
+\smallskip
+\item \emph{Physics}. In string theory the world is supposed to  have 10 dimensions. 4 of these dimensions form spacetime, the other 6 are supposed to be curled up very small, and account for the properties of the fundamental forces. For string theory to work properly these curled up dimensions must have a special shape: they should be \emph{Calabi-Yau threefolds}\footnote{See Brian Greene, `The Elegant Universe'.}.  Examples of Calabi-Yau threefolds are most easily described using polynomial equations. For example, again working over $\C$,  the variety
+\[x_1^5 + x_2^5 + x_3^5 + x_4^5 + x_1 x_2 x_3 x_4=0\]
+is a Calabi-Yau threefold known as the \emph{quintic threefold}. Note that it has $4-1=3$ complex dimensions, and hence 6 real dimensions.
+\smallskip
+
+\item \emph{Algebra.} The basic calculational tool in algebraic geometry is commutative algebra. Every affine variety $X$ has an associated \emph{co-ordinate ring} \[k[V]=k[x_1,\cdots,x_n]/(f_1,\cdots, f_r),\] which is a commutative ring. It is obtained by quotienting the polynomial ring $k[x_1,\cdots, x_n]$ by the ideal  generated by the  polynomials defining $V$.
+\end{itemize}
+
+This course will focus on the relationship between commutative algebra and algebraic geometry .  We aim to introduce the basic commutative algebra needed to study affine varieties, and to build up an intuition for the relationship between the geometrical properties of an affine variety $V$  and the algebraic properties of the associated co-ordinate ring $k[V]$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Definition of a ring}
+
+The definition of a ring is an abstraction of the properties of addition and multiplication of integers.
+
+\begin{defn}
+A \emph{ring} is a set $R$ equipped with two binary operations,
+\[+\colon R\times R\to R, \quad \cdot \colon R\times R \to R;\] 
+called addition and multiplication, satisfying the following conditions:
+\begin{itemize}
+\item[(a)] addition $(a,b)\mapsto a+b$ makes $R$ into an abelian group;\smallskip
+\item[(b)] multiplication $(a,b)\mapsto a\cdot b$ makes $R$ into a monoid;\smallskip
+\item[(c)] these two operations are related by the \emph{distributive law}:
+\[(a+b)\cdot c = a\cdot c+ b\cdot c, \quad a\cdot (b+c) = a\cdot b + a\cdot c. \]
+\end{itemize}
+\end{defn}
+
+We now explain the  first two conditions in more detail.
+\smallskip
+
+Condition (a) means that
+
+\begin{itemize}
+\item[(i)]  addition is associative and commutative, that is
+\[a+(b+c) = (a+b)+c, \quad a+b=b+a;\]
+\item[(ii)]
+there is a \emph{zero element} $0_R\in R$ such that for all $a\in R$, 
+\[0_R+a=a=a+0_R;\]
+\item[(iii)] for every element $a\in R$ there is an additive inverse  $-a\in R$ such that
+\[a+(-a) = 0_R = (-a) + a.\]\end{itemize}
+\smallskip
+
+Condition (b) means that
+\begin{itemize}
+\item[(i)]multiplication is associative
+\[a\cdot (b\cdot c) = (a\cdot b)\cdot c;\]
+\item[(ii)] there is an \emph{identity element} $1_R\in R$ such that for all $a\in R$
+\[1_R\cdot a = a = a\cdot 1_R.\]
+\end{itemize}
+
+\smallskip
+There are many basic examples of rings. It is important to become familiar with a good number of these.
+
+
+\begin{examples}
+\label{blah}
+\begin{itemize}
+\item[(a)] The set of integers $\Z$ forms a ring when equipped with the usual operations of addition and multiplication.
+\smallskip
+
+\item[(b)]  Let $n>0$ be a positive integer.  Let $\Z/n$ denote the set of  integers modulo $n$.   More precisely, the elements of $\Z/n$ are equivalence classes of integers, under the equivalence relation\[a\sim b \iff n\divides (b-a), \quad a,b\in \Z.\]
+The equivalence classes are called \emph{residue classes} modulo $n$; we denote the equivalence class containing $a\in \Z$ by the symbol $[a]$. Thus
+ \[\Z/n=\{[0],[1], \cdots,[n-1]\}.\]
+
+The set $\Z/n$ forms a commutative ring under the  operations induced by the usual operations of addition and multiplication in $\Z$. Thus to add or multiply two residue classes in $\Z/n$ we choose integer representatives in the two classes, add or multiply these, and then consider the corresponding residue class modulo $n$. For example in $\Z/{10}$ we have
+\[ [5] + [7] = [12] = [2], \quad [5] \cdot [7] = [35] = [5].\]  
+The zero and identity elements are $0_{\Z/n}=[0]$ and $1_{\Z/n}=[1]$ respectively.
+\smallskip
+
+\item[(c)] Let $X$ be a  set and write \[R=\Fun(X,\R)\] for the set of all functions $ X \to \R$.  This set forms a ring under pointwise operations:
+\[(f+g)(t)= f(t)+g(t); \quad (f\cdot g)(t) = f(t)\cdot g(t).\]
+The zero and identity elements are  the constant functions defined by
+\[0_R(x)=0, \quad 1_R(x)=1\]
+ for all  points $x\in X$.
+\smallskip
+
+\item[(d)] Any set with a single element is a ring in a unique way: there is only one possible way to define the addition and multiplication  operations. A ring with a single element is called  \emph{trivial}.
+Note that trivial rings are not all equal: e.g.
+the set \[R=\{n\in \Z: 16<n<18\}\]
+is a trivial ring, with addition and multiplication $17+17=17=17\cdot 17$, and similarly the set \[S=\{\text{David Cameron}\}\] of current UK prime ministers forms a trivial ring. But these rings are definitely not the same. 
+What is true is that all trivial rings are isomorphic (see Section 4).
+\end{itemize}
+\end{examples}
+
+\begin{nonexamples}
+\begin{itemize}
+\item[(a)] The non-negative integers $\Z_{\geq 0}$ do not form a ring under the usual operations, since there are no additive inverses.
+\smallskip
+\item[(b)] The even integers $2\Z$ do not form  a ring under the usual operations, since there is no identity element.
+\smallskip
+\item[(c)] The integers $\Z$ equipped with the usual multiplication, but with addition \[(a,b)\mapsto a+b+1\] is not a ring, since the distributive law fails.
+\end{itemize}
+\end{nonexamples}
+
+\begin{remarks}\label{remm}
+\begin{itemize}\item[(a)]
+The usual argument shows that the elements $0_R$ and $1_R$ are unique with the given properties. If we make other choices $0'_R$ and $1'_R$ the axioms imply 
+\[0'_R=0'_R+0_R = 0_R, \quad 1'_R=1'_R\cdot 1_R = 1_R.\]
+\item[(b)]
+The distributive law implies that for any element $a\in R$
+\[0_R \cdot a + 0_R\cdot a = (0_R + 0_R)\cdot a = 0_R \cdot a.\]
+Adding $-(0_R \cdot a)$ to both sides we conclude that $0_R\cdot a = 0_R$.
+\smallskip
+\item[(c)] Given an element $a\in R$ the distributive law implies that
+\[(-1_R)\cdot a + 1_R\cdot a=(1_R+(-1_R))\cdot a = 0_R \cdot a=0_R.\]
+It follows that $(-1_R)\cdot a = -a$.\smallskip
+\item[(c)]Another consequence of the distributive law is the following identity:
+\[(a_1+ \cdots +a_r)\cdot (b_1+ \cdots +b_s)=a_1\cdot b_1 + a_1 \cdot b_2 + \cdots +a_r\cdot b_s,\]
+or in summation notation
+\[\sum_{i=1}^r a_i \cdot \sum_{j=1}^s b_j = \sum_{i=1}^r \sum _{j=1}^s a_i\cdot b_j.\]
+To prove this, first verify the identity for $r=1$ using induction on $s$, and for $s=1$ using induction on $r$. Finally, prove the general statement using induction on either $r$ or $s$. The details are left as a good exercise for the reader.
+\smallskip
+
+\item[(d)]
+In a trivial ring we have the relation $0_R=1_R$.
+Conversely, if this relation is satisfied in a  ring $R$,  then for all elements $a\in R$  \[a= 1_R\cdot a= 0_R\cdot a = 0_R.\] Thus $R$ consists of a single element and is therefore a trivial ring.
+\end{itemize}
+\end{remarks}
+
+We often just write $0$ for the zero element $0_R$, and similarly $1$ for the unit element $1_R$. We use the notation  \[a-b:=a+(-b).\] We  also often write $ab$ instead of $a\cdot b$. 
+
+\begin{defn}
+A ring $R$ is \emph{commutative} if the condition  \[a\cdot b = b\cdot a\] holds for all elements $a,b\in R$.
+\end{defn}
+
+
+Unless otherwise specified, \emph{all rings  will be assumed to be commutative.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Further examples and basic properties}
+
+We give some more examples of rings.
+
+
+
+
+\begin{examples}
+\label{begin}
+\begin{itemize}
+\item[(a)] Let $R$ be a commutative ring; we could take  $R=\R$ for example. The set of  polynomials in one variable with coefficients in $R$ forms a commutative ring $R[x]$. The elements are finite sums of the form
+\[f(x)=\sum_{i=0}^d a_i x^i = a_0 + a_1 x + a_2 x^2 + \cdots + a_d x^d\]
+with $a_0,a_1,\cdots a_d\in R$. If $a_d\neq 0$ we call the number $d\geq 0$ the degree of the polynomial $f(x)$ (we consider the zero polynomial to have degree 0).
+Polynomials of degree 0 are called \emph{constant polynomials}. The addition and multiplication laws are
+\[\big(\sum_{i=0}^n a_i x^i\big) + \big(\sum_{i=0}^n b_i x^i\big)  = \sum_{i=0}^n (a_i + b_i) x^i.\]
+\[\big(\sum_{i=0}^m a_i x^i\big) \cdot \big(\sum_{i=0}^n b_j x^j\big)  = \sum_{k=0}^{mn} c_k x^k \text{ where } c_k = \sum_{i=0}^k a_i \cdot b_{k-i}.\]
+The zero element is the zero polynomial $0_R$. The identity is the constant polynomial $1_R$.
+
+\smallskip
+\item[(b)] The set $\M_{2\times 2}(\R)$ of real $2\times 2$ real matrices \[\mat{a}{b}{c}{d}, \quad a,b,c,d\in \R,\]
+forms a non-commutative ring under the usual operations of matrix addition and multiplication\[\mat{a}{b}{c}{d} + \mat{e}{f}{g}{h} = \mat{a+e}{b+f}{c+g}{d+h}.\]
+\[ \mat{a}{b}{c}{d} + \mat{e}{f}{g}{h} = \mat{ae+bg}{af+bh}{ce+dg}{cf+dh}.\]
+The zero and unit are
+\[0=\mat{0}{0}{0}{0}, \quad 1=\mat{1}{0}{0}{1}.\]
+More generally, for any ring $R$, and any integer $n>0$,  there is a ring $\M_{n\times n}(R)$ of $n\times n$ matrices with entries in $R$.
+\end{itemize}
+\end{examples}
+
+
+
+%Let $R$ be a commutative ring and $a\in R$ some element. For any $n\in \Z$ we use the shorthand
+%\[n\cdot a=\left\{
+%\begin{array}{ll}
+%\underbrace{a+\dots+a}_{n \text{ times}} & \text{if } n>0\\
+%0_R &  \text{if } n=0\\
+%-\left(\underbrace{a+\dots+a}_{-n \text{ times}}\right) & \text{if } n<0
+%\end{array}
+%\right.
+%\]
+%For $n\geq 0$ we also write
+%\[ a^n=\left\{
+%\begin{array}{ll}
+%\underbrace{a\cdot\dots\cdot a}_{n \text{ times}} & \text{if } n>0\\
+%1_R &  \text{if } n=0
+%\end{array}
+%\right.
+%\]
+
+
+
+
+
+
+Let $R$ be a commutative ring and $a\in R$ some element. For any $n>0$ we use the shorthands
+\[n\cdot a = \overbrace{a+a+\dots+a}^{n \text{}}, \qquad \ a^n = \overbrace{a\cdot a\cdot \dots\cdot a}^{n \text{}} .\]
+Of course we then have relations
+\[(m+n)\cdot a = m\cdot a + n\cdot a, \quad a^{m}\cdot a^n=a^{m+n}\]
+for all $m,n> 0$. We can extend this to $m,n\geq 0$ by defining
+\[0\cdot a =0_R, \quad a^0=1_R.\]
+ Note  that it is possible for a nonzero element $a\in R$ to satisfy  $n\cdot a=0_R$ for $n>0$. This relation holds for example for any element $a\in \Z/n$. 
+
+
+
+\begin{lemma}[Binomial expansion]
+Let $R$ be a commutative ring and take elements  $a,b\in R$. For any $n>0$ there is a relation
+\[(a+b)^n = \sum_{i=0}^n {n\choose i}\cdot  a^i \cdot b^{n-i}.\]
+\end{lemma}
+
+\begin{proof}
+For $0<i<n$ the binomial coefficients satisfy
+\[{n \choose i} = {{n-1} \choose {i-1}} +{ {n-1} \choose i}.\]
+The result then follows from the distributive law and induction on $n$.
+\end{proof} 
+
+Note that the commutativity assumption is essential for this result. In a non-commutative ring one has
+\[(a+b)^2 = a^2 + a\cdot b + b\cdot a + b^2\]
+but one cannot simplify any further.
+
+\begin{defn}
+Let $R$ be a commutative ring. An element $a\in R$ is called
+\begin{itemize}
+\item[(a)]
+ a \emph{unit} if it has a multiplicative inverse, that is if there exists another element $a^{-1}\in R$ satisfying
+\[ a \cdot a^{-1}=1_R = a^{-1}\cdot a.\]
+
+\item[(b)] a \emph{zero divisor} if $a\neq 0_R$ but there is a  $0_R\neq b\in R$ with $a\cdot b = 0_R$;\smallskip
+\item[(c)] \emph{nilpotent} if $a\neq 0_R$ but $a^n=0_R$ for some $n>1$.
+\end{itemize}
+\end{defn}
+
+\begin{examples}
+\begin{itemize}
+\item[(a)] An element $f\in \Fun(X,\R)$ is a unit precisely if $f(x)\neq 0$ for all $x\in X$.
+\smallskip
+\item[(b)] An element $f\in \Fun(X,\R)$ is a zero-divisor precisely if $f(x)=0$ for some $x\in X$.
+\smallskip
+\item[(c)] The element $[2]\in \Z/8\Z$ is nilpotent.
+\end{itemize}
+\end{examples}
+
+
+
+
+
+\begin{defn}
+A non-trivial commutative ring $R$ is said to be
+\begin{itemize}
+\item[(a)]a \emph{field} if every nonzero element is a unit;
+\smallskip
+\item[(b)]an \emph{integral domain} if it has no zero divisors;
+\smallskip
+\item[(c)] \emph{reduced} if it is has no nilpotent elements.
+\end{itemize}
+\end{defn}
+
+It is the convention that trivial rings are not considered to be fields or  integral domains, but they are considered to be reduced. 
+
+
+\begin{lemma}
+\label{imp}
+There 
+are implications
+\[R \text{ a field} \implies R \text{ an integral domain} \implies R \text{ reduced}.\]
+\end{lemma}
+
+\begin{proof}
+For the first implication let us assume that $R$ is a field, and suppose for a contradiction  that  $0_R\neq a\in R$ is a zero divisor. Thus there is an element $0_R\neq b\in R$ with $a\cdot b=0_R$. Since $R$ is a field there is an element $a^{-1}\in R$ with $a^{-1}\cdot a=1_R$. Multiplying both sides of the relation $a\cdot b=0_R$ on the left by $a^{-1}$ then gives $ b = 0_R$, a contradiction. Hence $R$ is an integral domain.
+
+For the second implication note that if $a\in R$ is a nilpotent element, we can find a minimal integer $n>1$ such that $a^n=0_R$. Then $a\neq 0_R$ and $a^{n-1}\neq 0_R$ but $a\cdot a^{n-1}=0_R$. Thus $a$ is a zero divisor. So if a ring  contains no zero divisors, it contains no nilpotent elements either.
+\end{proof}
+
+
+\begin{examples}
+\begin{itemize}
+\item[(a)] The set of rational numbers \[\Q=\big\{a/b : a,b \in \Z\text{ with }b\neq 0 \big\}\] forms a field under the usual operations of addition and multiplication.
+Similarly, the real numbers $\R$, and the complex numbers
+\[\C=\{a+b i: a,b \in \R\},\] become  fields when equipped with the usual operations.
+\smallskip
+\item[(b)]  The integers $\Z$ are an integral domain but not a field.
+\smallskip
+\item[(c)] Suppose that $X$ is a set with more than one element. Then the ring $\Fun(X,\R)$ is reduced, but not an integral domain.
+\end{itemize}
+\end{examples}
+
+
+
+
+
+\begin{lemma}
+\label{pos}
+Let $n>0$ be a positive integer. The residue class ring $\Z/n$ is a field if and only if it is an integral domain. This happens precisely when $n$ is prime.
+\end{lemma}
+
+\begin{proof}
+Consider first the case when $n$ is composite, and write $n=ab$ with   $1<a,b<n$. Then \[[0]\neq [a]\in \Z/n\text{ and }[0]\neq [b]\in \Z/n\text{ but }[a]\cdot [b]=[0]\in \Z/n.\]
+Hence  $\Z/n$ is not an integral domain, and also therefore not a field.
+
+Now consider the case when $n=p$ is prime.   We claim that $\Z/p$ is a field, and hence also an integral domain. Take a nonzero element $[0]\neq [a]\in \Z/p$. We must show that there is a $[b]\in \Z/p$ such that  $[a]\cdot [b]=[1]$ in $\Z/p$. The class $[a]$ is represented by an integer $a\in \Z$, and the assumption that $[a]\neq [0]\in \Z/p$ means that $a$  is coprime to $p$.   Using the Euclidean algorithm  we can therefore find integers $b,c\in \Z$ such that
+\[a\cdot b + p\cdot c = 1.\]
+This implies that  $[a]\cdot [b]=[1]$ in the ring $\Z/p$.
+% Alternatively, consider multiplication by $[a]$ as a map of sets $m_a\colon \Z/p\to \Z/p$. We claim that $m_a$ is injective. Indeed  \[[a]\cdot [b_1]=[a]\cdot [b_2] \iff   [a]\cdot [b_2-b_1]=[0] \iff p\divides a(b_2-b_1).\]
+% Since $p\notdivides a$ this implies that $p\divides (b_2-b_1)$ and hence that $[b_1]=[b_2]\in \Z/p$.  
+%Now $\Z/p$ is a finite set so $m_a$ must also be surjective, and there is therefore some element $[b]\in \Z/p$ such that $[a]\cdot [b]=[1]$ in $\Z/p$.
+\end{proof}
+
+\begin{example}
+\label{sqfr}
+Let $n>0$ be a positive integer. The ring $\Z/n$ is reduced presisely if $n$ is square-free. This means that either $n=1$ or $n=p_1\cdot p_2\cdots \cdot p_k$ can be written as a product of distinct primes.
+For example, $12=2^2\cdot 3$ is not square-free, and  the ring $\Z/12$ is not reduced, since the element $[6]\in \Z/12$ is nilpotent.
+\end{example}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Homomorphisms of rings}
+We now consider maps of rings which preserve the relevant structure.
+
+\begin{defn}Let $R$ and $S$ be rings. A \emph{homomorphism} $f\colon R\to S$ is a map of sets such that
+\begin{itemize}
+\item[(a)] $f$ preserves addition and multiplication: for all elements $a,b\in R$
+\[f(a+b)=f(a)+f(b), \quad f(a\cdot b)=f(a) \cdot f(b);\]
+\item[(b)] $f$ preserves the identities: 
+$ f(1_R)=1_S.$
+\end{itemize}
+\end{defn}
+
+We often refer to $f$ as simply a \emph{map of rings}.
+\begin{remark} Note that $f$ defines a homomorphism of abelian groups \[f\colon (R,+) \to (S,+).\] It therefore automatically preserves the zero elements. Indeed
+\[f(0_R)+f(0_R)=f(0_R+0_R)=f(0_R) ,\]
+so adding $-f(0_R)$ to both sides gives $f(0_R)=0_S$. It also preserves additive inverses:
+\[f(a)+f(-a)=f(a-a)=f(0_R)=0_S,\]
+so adding $-f(a)$ to both sides gives $f(-a)=-f(a)$.\end{remark}
+
+\begin{examples}
+\begin{itemize}
+\item[(a)]The inclusion maps $\Z \subset \Q\subset \R \subset \C$ are all ring homomorphisms.
+\smallskip
+\item[(b)] The quotient map $\Z \to \Z/n$ sending an integer $i\in \Z$ to the corresponding residue class $[i]\in \Z/n$ is a ring homomorphism.
+\smallskip
+\item[(c)] Complex conjugation $z\mapsto \bar{z}$ defines a ring homomorphism $\C \to \C$.
+\smallskip
+\item[(d)] For any point $x\in X$ the evaluation map $\ev_x\colon \Fun(X,\R) \to \R$ defined by\[\ev_x(f) = f(x).\]
+ is a ring homomorphism.
+\smallskip
+\item[(e)] Let $S$ be a trivial ring. Then for any ring $R$ there is a unique ring homomorphism $R \to S$. There is no choice in defining the map of sets, and it is easily checked to be a ring homomorphism.  
+\end{itemize}
+\end{examples}
+
+The following is a very important example:
+
+\begin{lemma}
+\label{map}
+Let $R$ be a ring.  Then there is a unique ring homomorphism $f\colon \Z \to R$. It is defined by the formulae
+\[f(n)=\left\{
+\begin{array}{ll}
+\underbrace{1_R+\dots+1_R}_{n \text{}} & \text{if } n>0\\
+0_R &  \text{if } n=0\\
+-(\overbrace{1_R+\dots+1_R}^{|n| \text{}}) & \text{if } n<0
+\end{array}
+\right.
+\]
+\end{lemma}
+
+\begin{proof}
+ Firstly we must show that the map $f\colon \Z \to R$ defined by the given formulae is indeed  a ring homomorphism. Certainly we have $f(1_\Z)=1_R$. We must also check the relations \[f(n+m)=f(n)+f(m), \quad f(n\cdot m)=f(n)\cdot f(m)\] for all integers $n,m\in \Z$. These are obvious  if $n,m\geq 0$. One must then separately  treat the cases when one or both of $n$ and $m$ are negative. We leave the details of this to the reader.
+
+For the uniqueness statement suppose that $g\colon \Z \to R$ is a ring homomorphism. Since $g(1_Z)=1_R$ and $g$ preserves addition we see that for any $n>0$
+\[g(n)=g(1_\Z+ \cdots + 1_\Z)=1_R + \cdots +1_R=f(n).\]
+Since $g$ also takes additive inverses to additive inverses we must have \[g(-n)=-g(n)=-f(n)=f(-n).\] Thus we see that $g=f$ which proves the uniqueness of $f$. 
+\end{proof}
+
+\begin{nonexamples}
+\begin{itemize}
+\item[(a)] The inverse map $-1\colon \Z \to \Z$ is not a ring homomorphism since it does not preserve multiplication.
+\smallskip
+%\item[(b)] The map $\C \to \R$ given by $z\mapsto \operatorname{Re}(z)$ is not a ring homomorphism since it doesn't preserve multiplication;
+%\smallskip
+\item[(b)] The determinant map
+\[\operatorname{det}\colon \operatorname{M}_{2\times 2}(\R) \to \R\]
+is not a ring homomorphism since it fails to preserve addition.
+\smallskip
+\item[(c)] The map $\Z/6 \to \Z/6$ given by $[a]\mapsto [4a]$ preserves addition and mulitplication, but is not a ring homomorphism,  because it does not preserve the identity.
+\smallskip
+\item[(d)] The map $\R \to \R$ given by $t\mapsto 0$ is not a ring homomorphism because it does not preserve the identity.
+\end{itemize}
+\end{nonexamples}
+
+
+
+
+\begin{lemma}
+\label{obv}
+\begin{itemize}
+\item[(a)] If $f\colon R\to S$ and $g\colon S \to T$ are ring homomorphisms then so is the composite map $g\circ f\colon R \to T$.
+\smallskip
+\item[(b)] If $f\colon R \to S$ is a bijective ring homomorphism then the inverse map $f^{-1}\colon S \to R$ is also a ring homomorphism.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+Part (a) is immediate from the definitions and is left to the reader.
+
+For part (b) note first that the assumption $f(1_R)=1_S$ ensures that $f^{-1}(1_S)=1_R$. To prove that $f^{-1}$ preserves addition we must show that
+\begin{equation}
+\label{sun}f^{-1}(s_1+s_2)=f^{-1}(s_1)+f^{-1}(s_2)\end{equation}
+for all $s_1,s_2\in S$. Since $f$ is a bijection we can take $r_1,r_2\in R$ such that $f(r_i)=s_i$. Thus $f^{-1}(s_i)=r_i$. Since $f$ preserves addition  we have $f(r_1+r_2)=s_1+s_2$.  Hence $f^{-1}(s_1+s_2)=r_1+r_2$. This proves \eqref{sun}. A similar argument works for multiplication.
+\end{proof}
+
+\begin{defn}An \emph{isomorphism of rings} is a bijective  ring homomorphism. Two rings are called \emph{isomorphic} if they are related by a ring isomorphism. \end{defn}
+
+We write $R\isom S$ to mean that the rings $R$ and $S$ are isomorphic. It follows from Lemma \ref{obv} that this is an equivalence relation. Isomorphic rings are `sort of the same': they consist of the same elements with the same operations, but are somehow `labelled differently'. 
+
+\begin{examples}
+\begin{itemize}
+%\item[(a)]
+%Consider the set $R=2\Z$ of even integers. We can make it a ring by equipping it with the usual addition of integers, and with multiplication \[n\cdot_R m = nm/2\in 2\Z, \quad n,m\in 2\Z.\] The unit is then $1_R = 2\in 2\Z$. There is an isomorphism of rings \[f\colon \Z \to R, \quad n\mapsto 2n.\]
+
+
+\item[(a)] Suppose the set $X=\{x\}$ consists of a single element. Then the evaluation homomorphism \[\ev_x\colon \Fun(X,\R)\to \R\]
+is a ring isomorphism.
+\smallskip
+
+\item[(b)] All rings with a single element are isomorphic. In particular, the two rings of Example \ref{blah} (d) are isomorphic.\smallskip
+
+%\[\{x\in \Z: 16<x<18\}\isom \{\text{David Cameron}\} .\]
+
+\item[(c)] All rings with 2 elements are isomorphic to $R=\Z/2$. Indeed, by Remark \ref{remm}(d), such a ring $S$ must have $0_S\neq 1_S$ so that $S=\{0_S, 1_S\}$.  The map \[f\colon R \to S, \quad 0_R\mapsto 0_S, \quad 1_R \mapsto 1_S\]
+is then a bijection of sets, which is easily checked to be a ring homomorphism, and hence an isomorphism of rings. 
+\end{itemize}
+\end{examples}
+
+All reasonable properties of rings are invariant under isomorphism. So for example, if two rings are isomorphic and one is (commutative, an integral domain, reduced, a field) then so is the other. Proving these statements is an easy exercise, which we leave to the reader.
+
+\begin{example}
+The rings $\Z, \Z/n\Z, \Q, \R$ and $\C$ are all non-isomorphic. To see this, first  note that since  isomorphic rings are related by a bijection, they must have the same cardinality (`number of elements'). Thus the only possibilities are $\Z \isom \Q$ (these sets are both countably infinite),  or $\R\isom \C$ (these sets are both uncountable). Now $\Q$ is a field whereas $\Z$ is not, so certainly $\Z$ and $\Q$ are not isomorphic. To show that $\R$ and $\C$ are not isomorphic, note that $\C$ contains an element $r$ satisfying $r^2+1=0$ whereas $\R$ does not.
+\end{example}
+
+
+Given a ring homomorphism $f\colon R \to S$ we define the image and kernel of $f$ as follows
+\[\im(f) = \{b\in S: b=f(a)\text{ for some } a\in R \}\subset S\]
+\[\ker(f)=\{a\in R: f(a)=0_S\}\subset R.\]
+These will turn out to be the basic examples of a subring and an ideal respectively  (see below).
+
+\begin{lemma}
+Let $f\colon R \to S$ be a ring homomorphism. Then
+\begin{itemize}
+\item[(a)] $f$  is surjective precisely if $\im(f)=S$; 
+\smallskip
+\item[(b)] $f$  is injective precisely if $\ker(f)=\{0_R\}$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+Part (a)  is obvious.
+
+For part (b), note that since $f(0_R)=0_S$ we always have $0_R\in \ker(f)$. Now $\ker(f)=f^{-1}(0_S)$, so if $f$ is injective then $\ker(f)=\{0_R\}$. Conversely, let us assume that   $\ker(f)=\{0_R\}$. Suppose elements $r_1,r_2\in R$ satisfy $f(r_1)=f(r_2)$. Then $f(r_2-r_1)=0_S$, so $r_2-r_1\in \ker(f)$ and hence $r_2-r_1=0_R$. Thus  $r_1=r_2$ and we have proved that $f$ is injective.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Subrings}
+
+
+
+Let $R$ be a commutative ring. A subset $S\subset R$ is called a subring if the operations on $R$ restrict to give a ring structure on $S$. More precisely we have
+
+\begin{defn}
+\label{subring}
+A \emph{subring} of $R$ is a subset $S\subset R$ such that
+\begin{itemize}
+\item[(a)] $S$ is closed under addition and multiplication:
+\[a,b \in S \implies a+b \in S \text{ and } a\cdot b \in S;\]
+\item[(b)] $S$ contains additive inverses:
+\[a\in S \implies -a \in S;\] 
+\item[(c)] $S$ contains 
+the identity: $1_R\in S$.
+\end{itemize}
+\end{defn}
+
+Note that a subring $S\subset R$ is itself a ring when equipped with the operations induced from $R$. Moreover the inclusion map $i\colon S \to R$ is a ring homomorphism. In fact this gives an alternative characterisation: a subring is a subset $S\subset R$ which is also  a ring in such a way that the inclusion map $i\colon S \to R$ is a ring homomorphism.
+
+\begin{examples}
+\label{eg_subrings}
+\begin{itemize}
+\item[(a)] There is a chain of subrings
+\[\Z \subset \Q \subset\R \subset \C.\]
+
+
+\item[(b)] Let $X$ be the closed interval  $X=[0,1]\subset \R$.
+There is a subring
+\[C(X)\subset  \Fun(X,\R)\]
+consisting of continuous functions $f\colon X \to \R$. The same holds for any topological space $X$. 
+\smallskip
+
+
+
+
+\item[(d)] Let $R=\Z[x]$. There is a subring $S\subset R$ consisting of polynomials of the form
+\[\sum_{i=0}^d a_{2i} x^{2i}=a_0 +a_2 x^2 + a_4 x^4 + \cdots +a_{2d} x^{2d}.\]
+ Note that there is an isomorphism $R\isom S$ obtained by sending
+\[\sum_{i=0}^d a_i x^i \mapsto \sum_{i=0}^d a_i x^{2i}.\]
+
+\item[(d)] The Gaussian integers
+$\{a + bi : a,b\in \Z\}\subset \C$
+form a subring.
+\end{itemize}
+\end{examples}
+
+Observe that a subring $S\subset R$ is always the image of a ring homomorphism, namely the inclusion map $i\colon S\to R$. Conversely we have
+
+\begin{lemma}
+If $f\colon R \to S$ is a ring homomorphism then $\im(f)\subset S$ is a subring.
+\end{lemma}
+
+\begin{proof}
+We must check the conditions of Definition \ref{subring}. First suppose that $s_1,s_2\in \im(f)$. We can write $s_i=f(r_i)$ for elements $r_1,r_2\in R$. Then
+\[s_1+s_2=f(r_1+r_2)\in \im(f), \quad s_1\cdot s_2=f(r_1\cdot r_2)\in \im(f),\]
+which proves condition (a). For condition (b), take $s\in \im(f)$ and write $s=f(r)$. Then since $f$ is a ring homomorphism, $f(-r)=-f(r)=-s$. Thus  $-s\in \im(f)$ which verifies condition (b). Condition (c) is immediate since $1_S=f(1_R)$.
+\end{proof}
+
+\begin{remark}
+\label{fact}
+Suppose that $f\colon R \to S$ is a ring homomorphism. We can always factor $f$ as a composite of ring homomorphisms $f=i\circ f'$ where $f'\colon R \to \im(f)$ and $i\colon \im(f)\to S$ is the inclusion of $\im(f)$. 
+\[\xymatrix{ R \ar@{>}[rr]^{f} \ar@{>}[dr]_{f'} && S \\ &\im(f) \ar@{>}[ur]_{i}}.\]Note that the homomorphism $f'$ is surjective, by definition.
+\end{remark}
+
+If $S_1,S_2 \subset R$ are two subrings of a ring $R$, then it is easy to check that  the intersection $S_1\cap S_2\subset R$ is also a subring. More generally we have
+
+\begin{lemma}
+\label{intersect}
+Suppose given a set $J$, and for each element $j\in J$, a subring $S_j\subset R$. Then the  intersection $S=\bigcap_{j\in J} S_j\subset R$ is a subring.
+\end{lemma}
+
+\begin{proof}
+This is immediate from the definitions. Let us check for example that the intersection $S$ is closed under addition. Suppose given elements $a,b\in S$. This means precisely that $a,b\in S_j$ for all $j\in J$. Then since the subsets $S_j\subset R$ are subrings we have $a+b\in S_j$ for all $j\in J$. This then  implies that $a+b\in S$.
+\end{proof}
+
+
+\begin{defn}
+\label{gen}
+Let $R$ be a ring and $T\subset R$ a subset. The subring of $R$ \emph{generated by}  $T$  is the intersection of all subrings $S \subset R$ containing  $T$. It is denoted $\langle T\rangle\subset R$.
+\end{defn}
+
+Note that $\langle T\rangle\subset R$ is indeed a subring by Lemma \ref{intersect}. In fact it is the smallest subring of $R$ containing $T$: if $S\subset R$ is any other subring containing $T$  then by  definition we have  $\langle T\rangle \subset S$.
+ To describe  $\langle T\rangle\subset R$ explicitly we first define the subset
+\begin{equation}\label{hat}\Hat{T}= \{ t_{1} \cdot t_{2} \cdots t_{n}: n\geq 0, \ t_{i}\in T\}\subset R,\end{equation} consisting of all finite (possibly empty) products of elements of $T$.
+Note that $1_R\in \Hat{T}$ by definition, since we  interpret the empty product as meaning $1_R$. 
+
+\begin{lemma}
+\label{neil}
+The subring $\langle T \rangle\subset R$ consists of those elements of $R$ which can be written as  finite (possibly empty)  sums of the form
+\begin{equation}
+\label{all}
+r= \pm ( p_1 + p_2+  \cdots +  p_k) \text{ with } k \geq 0 \text{ and }p_i\in \Hat{T}.\end{equation}
+Here, when $k=0$, we interpret the empty sum as meaning $0_R$.
+\end{lemma}
+
+\begin{proof}
+Let $X\subset R$ be the set of all elements of the form  \eqref{all}. It is easy to  see that any subring $S \subset R$ containing $T$ also contains $X$, since by definition $S$ is closed under addition, multiplication and additive inverses. In particular $X\subset \langle T \rangle$. On the other hand, we claim that the subset $X\subset R$ is itself a subring. Since $T\subset X$ it then follows from Definition \ref{gen} that $\langle T \rangle\subset X$, and hence that $\langle T \rangle = X$.
+
+To prove the claim note that $X$ is clearly closed under addition and additive inverses and contains $1_R$. To see that it is closed under multiplication we use
+\[(p_1+\cdots+ p_k) \cdot (q_1+\cdots +q_l)=\sum_{i,j} p_i\cdot q_j.\]
+Since $p_i\cdot q_j\in \Hat{T}$ for all $i,j$,  the sum on the right also lies in $X$.
+\end{proof}
+
+
+
+\begin{defn}We say that a ring $R$ is \emph{generated by} a subset $T\subset R$ if $R=\langle T \rangle$. We say that a ring $R$ is \emph{finitely-generated} if it is generated by a finite subset.\end{defn}
+
+\begin{examples}
+\begin{itemize}
+\item[(a)]
+Let $R$ be a ring and consider the empty subset $T=\emptyset\subset R$. Then $\Hat{T}=\{1_R\}$ and $\langle T\rangle=\{n\cdot 1_R: n\in \Z\}$. Thus the subring generated by $\emptyset$ is the image of the unique ring homomorphism $f\colon \Z \to R$ of Lemma \ref{map}.
+\smallskip
+
+\item[(b)] The residue class ring $\Z/n$ and the integers $\Z$ are generated by the empty subset $\emptyset$.
+\smallskip
+\item[(c)] The polynomial ring $\Z[x]$ is generated by the single element set $\{x\}\subset \Z[x]$.
+\smallskip
+\item[(d)] Take $R=\Z[x]$ and consider the one-element subset $T=\{x^2\}\subset R$. The subring $S=\langle T \rangle\subset R$  is the subring of Example \ref{eg_subrings}(d).
+\end{itemize}
+\end{examples}
+
+
+
+\begin{example}
+The ring $\Q$ is not finitely-generated. Indeed, given any finite subset $T\subset \Q$ there is a finite set of prime numbers $\P$ such that every element of $T$ can be written as a fraction $a/b$, with the integer $b$ being a product of primes from $\P$. The subset $S\subset \Q$ consisting of all rational numbers which can be written in this form  is easily seen to be a  subring of $\Q$. Hence $\langle T \rangle \subset S$ and since $S\subsetneq \Q$ is a proper subring, it follows that $\Q$ is not generated by $T$.
+\end{example}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Ideals}
+
+Let $R$ be a commutative ring. Besides subrings, there is another very important class of subsets of $R$ known as ideals.
+
+\begin{defn}
+An \emph{ideal} in $R$ is a non-empty subset $I\subset R$ such that
+\begin{itemize}
+\item[(a)] $I$ is closed under addition: $a,b \in I \implies a+b \in I$;
+\smallskip
+\item[(b)] $I$ is preserved by multiplication by arbitrary elements of $R$:
+\[a\in R, \, b\in I \implies a\cdot b \in I.\]
+\end{itemize}
+\end{defn}
+
+There are two trivial examples: the zero ideal $\{0\}\subset R$, and the whole ring $R$ itself.  An ideal is called \emph{proper} if $I\neq R$.
+
+\begin{remarks}
+\label{remy}
+\begin{itemize}
+\item[(a)]
+If $I\subset R$ is an ideal, then $(I,+)$ is a subgroup of $(R,+)$,  since $I$ is closed under addition, and
+\[a\in I \implies -a = (-1_R)\cdot a\in I.\]
+\item[(b)]
+If an ideal   $I\subset R$ contains $1_R$ then $I=R$ because for all $r\in R$ we have $r = r\cdot 1_R \in I$
+\end{itemize}
+\end{remarks}
+
+In particular, Remark \ref{remy}(b) shows that  if a subset $S\subset R$ is both a subring and an ideal, then $S=R$.
+
+\begin{examples}
+\begin{itemize}
+\item[(a)] Take an integer $n\in \Z$. The subset \[n\Z = \{m\in \Z: m=n\cdot k \text{ for some } k\in \Z\}\subset \Z\] is an ideal. \smallskip
+
+\item[(b)] Let $X$ be a set and consider the ring $\Fun(X,\R)$. For any point $x\in X$ there is an ideal
+\[I_x = \{f\in \Fun(X,\R): f(x)=0\}\]
+consisting of functions vanishing at the point $x$.
+\end{itemize}
+\end{examples}
+
+\begin{lemma}
+\label{nz}
+ Any ideal in $\Z$ is of the form $n\Z$. 
+\end{lemma}
+
+\begin{proof}The zero ideal $\{0\}=0\Z$ so it is enough to consider non-zero ideals $I\subset \Z$. Any such ideal contains a positive integer, since it is an additive subgroup. Let $n$ be the smallest such. Then $n\Z\subset I$ and in fact equality holds, because if $r\in I$ is not divisible by $n$  then by adding multiples of $n$ we can find $0<r<n$ with $r\in I$, contradicting the minimality of $n$. \end{proof}
+
+The basic examples of ideals are kernels of ring homomorphisms.
+
+\begin{lemma}
+If $f\colon R \to S$ is a ring homomorphism then $\ker(f)\subset R$ is an ideal.
+\end{lemma}
+
+\begin{proof}
+Certainly $\ker(f)$ is non-empty since $0_R\in \ker(f)$. Suppose $a_1,a_2\in \ker(f)$. Then \[f(a_1+a_2)=f(a_1)+f(a_2)=0_S+0_S=0_S\] so $a_1+a_2\in \ker(f)$. Finally, suppose $r\in R$ and $a\in \ker(f)$. Then \[f(r\cdot a)=f(r)\cdot f(a)=f(r)\cdot 0_S=0_S\] 
+so that $r\cdot a\in \ker(f)$ also.
+\end{proof}
+
+
+If $I_1,I_2 \subset R$ are ideals, then so is the intersection $I_1\cap I_2\subset R$. More generally
+
+\begin{lemma}
+\label{in}
+Suppose given a set $J$, and for each element $j\in J$ an ideal $I_j\subset R$. Then the  intersection $I=\bigcap_{j\in J} I_j\subset R$ is an ideal.
+\end{lemma}
+
+\begin{proof}
+ Note that the intersection $I$ is definitely non-empty since every ideal $I_j$ contains the zero element $0_R$. The proof is now very similar to that of Lemma \ref{intersect}. Let us show for example that $I$ is closed under multiplication by arbitrary elements of $R$. Suppose then that $i\in I$ and $r\in R$. Then $i\in I_j$ for all $j\in J$, so since each $I_j\subset R$ is an ideal, we have $r\cdot i\in I_j$ for all $j\in J$. This implies that  $r\cdot i\in I$ which is what we wanted to prove.
+\end{proof}
+
+\begin{defn}
+\label{deff}Let $R$ be a commutative ring, and $T\subset R$ a subset. The \emph{ideal generated by $T$}  is the intersection of all ideals $I \subset R$ containing  $T$. It is denoted  $(T)\subset R$. 
+\end{defn}
+
+Note that the subset $(T)\subset R$ is indeed an ideal by Lemma \ref{in}. In fact it is the  smallest ideal of $R$ containing $T$: if $I$ is any ideal in $R$ containing $T$ then by definition we have $(T)\subset I$.
+
+
+\begin{lemma}
+The ideal $(T)$ consists of all
+finite sums of the form
+\[r=r_1\cdot t_1 + \cdots+ r_k t_k, \quad k\geq 1, \quad r_j \in R, \quad t_j \in T.\]
+\end{lemma}
+
+\begin{proof}
+Let $X$ be the set of such elements.  Any ideal $I\subset R$ containing $T$ must also contain $X$ since it is closed under addition and multiplication by elements of $R$. It follows from Definition \ref{deff} that $X \subset (T)$. On the other hand the subset $X$ is clearly an ideal, so by Definition \ref{deff} again we get $(T)\subset X$. Hence $(T)=X$, which is what we wanted to show. 
+\end{proof}
+
+\begin{defn}We say that an ideal $I\subset R$ is \emph{generated by} a subset $T\subset R$ if $(T)=I$. An ideal is said to be \emph{finitely-generated} if it is generated by a finite set of elements.
+\end{defn}
+
+If $T=\{t_1,\cdots, t_k\}$ is a finite set we write
+$(t_1,\cdots,t_k)\subset R$
+for the ideal $(T)\subset R$ generated by $T$. It consists of all elements $r\in R$  of the form
+\[r=r_1\cdot t_1 + \cdots + r_k \cdot t_k \text{ with } r_1,\cdots, r_k\in R.\]
+An ideal generated by a single element is of the form
+\[I=(t)=\{r\cdot t: r\in R\}.\]
+ Such ideals are said to be \emph{principal}. 
+
+
+\begin{remarks}
+\begin{itemize}
+\item[(a)]
+In any ring $R$, the zero ideal $\{0\}=(0)$ and the full ring $R=(1)$ are both principal ideals.\smallskip
+\item[(b)]
+Lemma \ref{nz} shows  that all ideals in the ring $\Z$ are principal. Integral domains with this property are called \emph{principal ideal domains}.\end{itemize}
+\end{remarks}
+
+
+
+\begin{examples}
+\begin{itemize}
+\item[(a)]
+The principal  ideal $(x)\subset \Z[x]$ consists of all polynomials with zero constant term.\smallskip
+ 
+
+\item[(b)] The ideal $(3,5)\subset\Z$  is the whole of $\Z$. \smallskip
+
+\item[(c)] The ideal generated by the empty set is always the zero ideal $(0)$.\smallskip
+
+\item[(c)]Consider the subset $T=\{2x, x^2\}\subset \Z[x]$. The subring $\langle T\rangle$ consists of  polynomials with even coefficients in odd orders, i.e. those of the form
+\[a_0+2a_1 x + a_2 x^2 + 2a_3 x^3 + \cdots , \quad a_i\in \Z.\]
+The ideal $(T)$ consists of polynomials with constant term 0 and even linear term, i.e. those of the form
+\[2a_1 x + a_2 x^2 + a_3 x^3 +\cdots, \quad a_i\in \Z.\]
+\end{itemize}
+\end{examples}
+
+
+
+
+
+
+
+
+If $I_1,I_2\subset R$ are ideals, we can form their sum
+\[I_1+I_2 = \{r\in R: r = i_1+ i_2 \text{ with } i_1\in I_1\text{ and } i_2\in I_2\}.\]
+It is easy to see that this is an ideal, and in fact is
+the ideal generated by the subset $I_1\cup I_2 \subset R$.
+Note that
+\[(t_1)+(t_2)=(t_1,t_2)\]
+for any elements $t_1,t_2\in R$.
+
+%\begin{example}
+% Let $R$ be the polynomial ring $R=\Z[x]$.
+%\smallskip
+%\begin{itemize}
+%\item[(a)]
+%Describe the  subring generated by the elements $2x$ and $x^2$. Does the polynomial $4x^3+3x^5$ lie in this subring?
+%\smallskip
+%\item[(b)] Describe the ideal generated by the elements $2x$ and $x^2$.  Does the polynomial $4x^3+3x^5$ lie in this ideal?
+%\end{itemize}
+%\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Quotient rings}
+
+
+
+We now come to  the very important concept of a quotient ring. It generalises the construction of the ring of residue classes $\Z/n$.
+Let $R$ be a commutative ring and $I\subset R$ an ideal. We shall construct another  commutative ring $R/I$ which is called the quotient of the ring $R$ by the ideal $I$.
+
+Define an equivalence relation $\sim$ on the elements of $R$ by defining
+\[a_1\sim a_2 \iff a_2-a_1\in I, \quad a_1,a_2\in R.\]
+First of all note that this is indeed an equivalence relation. It is reflexive because $a-a=0_R\in I$. It is symmetric because $a_2-a_1=-(a_1-a_2)$ and $I$ is closed under additive inverses. It is transitive because $I$ is closed under addition:
+\[a_2-a_1\in I, \quad a_3-a_2\in I \implies a_3-a_1=(a_3-a_2)+(a_2-a_1)\in I.\]
+We write $R/I$ for the set of equivalence classes for this relation.
+The equivalence class containing an element $a\in R$ will be denoted $[a]$. Thus
+\[ a_1\sim a_2  \iff [a_1]=[a_2] \iff a_2-a_1\in I.\]
+Note that so far we only used the fact that $I$ is a subgroup of $(R,+)$. 
+
+\begin{remark}
+An alternative piece of notation for the equivalence class $[a]$ is $a+I$. 
+This makes sense since an element $a'\in R$ lies in this equivalence class precisely if it is of the form $a+i$ for some element $i\in I$.
+\end{remark}
+
+We claim that we can define addition and multiplication on the set $R/I$ of  equivalence classes by the rules
+\[[a]+[b]=[a+b], \quad [a]\cdot [b]=[a\cdot b].\]
+It is not immediately clear that this works though, because 
+a given element of $R/I$ can be represented in the form $[a]$ in many different ways.
+
+\begin{lemma}
+These rules are well-defined and define the structure of a commutative ring  on the set $R/I$. The zero and identity elements in $R/I$ are the equivalence classes $0_{R/I}=[0_R]$ and $1_{R/I}=[ 1_R]$ respectively.
+\end{lemma}
+
+\begin{proof}
+ Suppose  that we take  elements  $a',b'\in R$ such that
+$[a]=[a'] $ and  $[b']=[b]$.
+ By definition, this translates into the condition that
+\[a'-a=i\in I, \quad b'-b=j\in I.\]
+We need to check that if we follow the rule above with these representatives then we get the same answers for the sum and product of the two equivalence classes. Now
+\[a'+b'=a+b+i+j.\]
+Since $I$ is closed under addition we have $i+j\in I$ so this  means that $[a+b]=[a'+b']$
+ and the sum 
+ is indeed a well-defined equivalence class. Similarly
+\[a'\cdot b'=(a+i)\cdot (b+j)=a\cdot b+a \cdot j + i \cdot b + i\cdot j.\]
+Since $I$ is closed under addition and arbitrary products, this implies that
+$[a\cdot b]= [a'\cdot b']$ and  the multiplication in $R/I$ is also well-defined.
+
+The required properties of addition and multiplication in $R/I$ now follow easily from the corresponding statements for $R$. For example, to check associativity of multiplication we observe that
+\[([a]\cdot[b])\cdot [c]=[a\cdot b]\cdot [c]=[(a\cdot b)\cdot c]=[a\cdot(b\cdot c)]=[a]\cdot[b\cdot c]=[a]\cdot([b]\cdot [c]),\]
+where we used  the definition of the multiplication in $R/I$ and the associativity of the multiplication in $R$.
+%For example, associativity of addition follows from
+%\[\big((a+I)+(b+I)\big)+(c+I)=(a+b)+I + (c+I) =(a+b+c)+I\]
+%\[(a+I)+\big( (b+I)+(c+I)\big) = (a+I)+(b+c)+I=(a+b+c)+I.\]
+ \end{proof}
+
+
+
+
+\begin{examples}
+\begin{itemize}
+\item[(a)] Take $R=\R[x]$ and $I=(x^2)$. Then every element of $R$ is equivalent to one of the form $a+bx$
+ and no two such are equivalent. So
+ \[R/I=\{[a+bx]:a,b\in\R\}.\]
+ The element $[x]$ satisfies $[x]^2=[x^2]=[0]$.
+ 
+ \item[(b)] Take $R=\R[x]$ and $I=(x^2+1)$. Using polynomial division we can write any $f\in \R[x]$ in the form
+ \[f(x)=q(x) \cdot (x^2+1) + r(x)\]
+ with $r(x)=ax+b$ having degree $\leq 1$. It follows that $f(x)\sim r(x)$ so as in (a) every element of $R$
+  is equivalent to one of the form $a+bx$. No two of these can be equivalent because any non-zero element
+  of the principal ideal $(x^2+1)$ has degree $\geq 2$.
+  So again
+ \[R/I=\{[a+bx]:a,b\in\R\}.\]
+ This time the element $[x]$ satisfies $[x]^2=[x^2]=[-1]$. It's not hard to see that $R/I\isom \C$.
+ 
+ \item[(c)] Take $R=(\Z/2)[x]$ and $I=(x^2+x+1)$. Then as above we can write any $f(x)\in R$ in the form
+\[f(x)=q(x)\cdot( x^2+x+1) + r(x)\]
+with $\deg r(x)< \deg (x^2)=2$. Then $f(x)\sim r(x)$ so we conclude that $R/I$ consists of equivalence classes
+\[R/I=\{[a+bx]:a,b\in \Z/2\}.\]
+It follows that $R/I$  has precisely 4 elements: $R/I=\{[0],[1],][x],[x+1]\}$. Note that we have relations
+\[ [x]\cdot [x+1]=[x^2+x] = [-1] = [1],\]
+so every nonzero element of $R/I$ is a unit. Thus $R/I$ is a field.
+In field theory one learns that for every prime power
+$q=p^n$ there is a unique (up to isomorphism) field $\mathbb{F}_q$ with $q$ elements, and that these are
+all the fields with finitely many elements.
+ When $q=p$ is prime we have $\mathbb{F}_p=\Z/p$, but of course
+this doesn't work when $q=p^n$ with $n>1$. We just constructed the field  $\mathbb{F}_4$.
+
+%
+%\item[(a)]
+%If we take $R=\Z$ and $I=(n)=n\Z$ then $R/I=\Z/(n)$ is the residue ring $\Z/n$ considered before.
+%\smallskip
+%\item[(b)] Take $R=\C[x]$ and $I=(x^2)$. Then using polynomial division we can write any polynomial $f\in R$ in the form
+%\[f(x)=q(x)\cdot x^2 + r(x)\]
+%with $\deg r(x)< \deg (x^2)=2$. Then $f(x)\sim r(x)$. It follows that  $R/I$ consists of equivalence classes
+%\[R/I=\{[a+bx]:a,b\in \C\}.\]
+%Note that these equivalence classes are all different: we cannot have $a_1+b_1x\sim a_2+b_2 x$ unless $a_1=a_2$ and $b_1=b_2$, because all nonzero elements of $I$ have degree $>1$.\smallskip
+%
+%\item[(c)] Take $R=(\Z/2)[x]$ and $I=(x^2+x)$. Then as above we can write any $f(x)\in R$ in the form
+%\[f(x)=q(x)\cdot( x^2+x) + r(x)\]
+%with $\deg r(X)< \deg (x^2)=2$. Then $f(x)\sim r(x)$ so we conclude that $R/I$ consists of equivalence classes
+%\[R/I=\{[a+bx]:a,b\in \Z/2\}.\]
+%It follows that $R/I$  has precisely 4 elements: $R/I=\{[0],[1],][x],[x+1]\}$. Note that we have relations
+%\[ [x]^2=[x^2]=[-x]=[x], \quad [x+1]^2=[x^2+2x+1]=[x+1], \]
+%\[[x]\cdot [x+1]=[x^2+x]=0.\]
+%It follows that $R/I$ is reduced:
+%In fact $R/I$ is isomorphic to the product ring $\Z/2 \times \Z/2$.
+%\smallskip
+%\item[(d)] Take $R=(\Z/2)[x]$ and $I=(x^2)$. As above $R/I$ consists of precisely 4 elements:
+%$R/I=\{[0],[1],][x],[x+1]\}$. In fact, as an abelian group $R/I$ is isomorphic to the quotient ring $R/I$ occuring in the previous example. Note however that the multiplication is very different:
+%\[[x]^2=[x^2]=0, \quad [x+1]^2=[x^2+2x+1]=1,\]\[  [x]\cdot [x+1]=[x^2+x]=[x].\]
+%In particular,   $R/I$ contains nilpotent elements, and is therefore not isomorphic to the quotient ring $R/I$ of the previous example.
+
+%\item[(d)] Take $R=\Z[x]$ and $I=(x^2+1)$. Then
+%\[R/I=\{[a+bx]:a,b\in \Z\}\]
+%and we have relations $[x]^2+1=[x^2+1]=0$. You can probably guess that $R/I$ is isomorphic to the Gaussian integers. This will be easier to prove using the isomorphism theorem of the next section.
+
+\end{itemize}
+\end{examples}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The isomorphism theorem}
+
+Let $R$ be a commutative ring and $I\subset R$ an ideal. There is an obvious ring homomorphism $p\colon R\to R/I$ sending an element  $r\in R$ to the corresponding equivalence class $[r]\in R/I$. This is usually called the \emph{quotient map}. Note that its kernel is precisely the ideal $I$. Indeed
+\[p(r)=0_{R/I} \iff [r]=[0_R] \iff  r\in I.\]
+The quotient map has the following universal property.
+
+\begin{prop}[Universal property of quotient rings]
+\label{factor}
+Suppose that $f\colon R\to S$ is a ring homomorphism such that\[
+r\in I \implies f(r)=0.\]
+ Then there is a unique ring homomorphism $\bar{f}\colon R/I \to S$ such that $f=\bar{f}\circ p$.
+\[\xymatrix{ R \ar@{>}[rr]^{f} \ar@{>}[dr]_{p} && S \\ &R/I \ar@{..>}[ur]_{\bar{f}}}.\]
+\end{prop}
+
+\begin{proof}
+First we check the uniqueness claim. The property  $f=\bar{f}\circ p$ means that \begin{equation}
+\label{rule}\bar{f}([r])=\bar{f}(p(r))=f(r) \text{ for all } r\in R,\end{equation}
+which is enough to specify $\bar{f}$ uniquely. 
+
+To prove existence, let us define  $\bar{f}$ by the rule \eqref{rule}. We must check that it defines a ring homomorphism. Certainly $\bar{f}$ preserves addition since
+\[\bar{f}( [a]+[b])=\bar{f}([a+b])=f(a+b)=f(a)+f(b)=\bar{f}(a) + \bar{f}(b).\]
+A similar argument works for multiplication. Finally \[\bar{f}(1_{R/I})=\bar{f}([1_R])=f(1_R)=1_S\]
+which completes the proof.
+ \end{proof}
+
+%\begin{remark}
+%Every subring  of a ring $S$ is the image of a ring homomorphism with target $S$, namely the inclusion map. Similarly every ideal in a ring $R$ arises as the kernel of a homomorphism with source $R$, namely the quotient map.
+%\end{remark}
+
+
+
+Putting this together with Remark  \ref{fact} we get the following result:
+
+\begin{thm}[Isomorphism theorem]
+Any ring homomorphism $f\colon R \to S$ can be written uniquely in the form $f=i\circ \bar{f}'\circ p$ \[\xymatrix{ R \ar@{>}[rrr]^{f} \ar@{>}[d]_{p} &&& S \\ R/\ker(f) \ar@{>}[rrr]_{\bar{f}'} &&& \im(f)\ar@{>}[u]_{i}}.\]
+where $p\colon R\to R/\ker(f)$ is the quotient map, $i\colon \im(f)\to S$ is the inclusion map, and $\bar{f}'$ is an isomorphism.
+\end{thm}
+ 
+\begin{proof}
+ By Proposition \ref{factor} we can factor  $f$ as the quotient map $p$ followed by the  induced homomorphism
+\[\bar{f}\colon R/\ker(f) \to S.\]
+Note that $\bar{f}$  is injective, since
+\[\bar{f}([r])=0 \iff f(r)=0\iff r\in \ker(f) \iff r\sim 0_R.\]
+Note also that $\im(\bar{f})=\im(f)\subset S$.
+The result then follows by factoring $\bar{f}$ via its image, as in Remark \ref{fact}.
+\end{proof}
+
+
+
+\begin{example}
+Consider the ring homomorphism $f\colon \R[x] \to \C$ obtained by sending
+\[a_0+a_1 x + \cdots + a_d x^d \mapsto a_0 + a_1 i + \cdots + a_d i^d.\]
+The image is the whole of $\C$ since $a+bx$ maps to $a+bi$.
+
+We claim that the kernel of $f$ is the principal ideal $(x^2+1)$. Certainly $(x^2+1)\subset \ker(f)$. Suppose for a contradiction that the inclusion is strict, and take a polynomial \[g\in \ker(f)\setminus (x^2+1).\]
+Subtracting multiples of $x^2+1$ we can assume that $\operatorname{deg}(g)<2$, so that $g=ax+b$ with $a,b\in \R$. But then $f(g)=a+bi$, and since we assumed that $g\in \ker(f)$ this implies that $a=b=0$. But  then $g=0$, contradicting the assumption $g\notin (x^2+1)$.
+
+The isomorphism theorem shows that we get an isomorphism of rings
+\[\R[x]/(x^2+1) \isom \C.\]
+Thus we can construct the complex numbers from $\R$ by adjoining a symbol $x$ and imposing the condition $x^2+1=0$.
+\end{example}
+
+
+Next we want to study ideals in quotient rings.   First of all, we note the following general result:
+
+\begin{lemma}
+Suppose $f\colon R\to S$ is a ring homomorphism and $J\subset I$ is an ideal. Then $f^{-1}(J)\subset R$ is an ideal.
+\end{lemma}
+
+\begin{proof}
+Suppose $a,b\in f^{-1}(J)$. Thus $f(a),f(b)\in J$. Then  \[f(a+b)=f(a)+f(b)\in J\] so $a+b\in f^{-1}(J)$.
+Next suppose $a\in f^{-1}(J)$ and $r\in R$. Then \[f(r\cdot a)=f(r)\cdot f(a)\in J\] so $r\cdot a\in f^{-1}(J)$. Finally, note that $f^{-1}(J)$ is certainly non-empty: since $f(0_R)=0_S$ and $0_S\in J$ we have $0_R\in f^{-1}(J)$.
+\end{proof}
+
+Let $I\subset R$ be an ideal and consider  the quotient map $p\colon R \to R/I$.  For any ideal $K\subset R/I$ there is an ideal \[p^{-1}(K)=\{r\in R: [r]\in K\}\subset R,\]
+and this ideal contains $I$ since $I=p^{-1}(\{0\})\subset p^{-1}(K)$.
+
+Conversely, suppose  $J\subset R$ is an ideal containing $I$ and consider
+\[J/I=\{[r]\in R/I : r\in J\}.\]
+Note first that this is well-defined subset of $R/I$: if $[r_1]=[r_2]\in R/I $ then $r_2-r_1\in I$ and hence, since $I\subset J$, we have $r_2\in J \iff r_1\in J$.
+
+We now show that $J/I\subset R/I$ is an ideal. Firstly, $J/I$ is non-empty because it contains $[0]\in R/I$. Secondly, $J/I$ is closed under addition because if $[a],[b]\in J/I$, then $a,b\in J$ and so, since $J$ is an ideal,  $a+b\in J$ and therefore $[a+b]\in J/I$. Finally, $J/I$ is closed under multiplication by arbitrary elements of $R/I$, because if $[r]\in R/I$ and $[a]\in J/I$, then $a\in J$ so, since $J$ is an ideal, $r\cdot a\in J$ and therefore $[r]\cdot[a]=[r\cdot a]\in J/I$.
+
+\begin{prop}
+\label{corr}
+There is  a bijection 
+\[\text{\big\{Ideals in R containing I\,\big\}} \longrightarrow \text{\big\{Ideals in R/I\,\big\} }\]
+sending an ideal $J\subset R$ containing $I$ to the ideal  $J/I\subset R/I$. The inverse map is given by $K\mapsto p^{-1}(K)$.
+\end{prop}
+
+\begin{proof}
+It will be enough to show that the composite of the two given maps in either order is the identity.
+Firstly, if $J\subset R$ is an ideal containing $I$ then by definition $p^{-1}(J/I)=J$. For the other composition, suppose $K\subset R/I$ is an ideal, and set $J=p^{-1}(K)$.
+We must show that $K=J/I$. Suppose $[a]\in K$. Then $a\in p^{-1}(K)=J$ so also $[a]\in J/I$. Conversely, suppose $[a]\in J/I$. Then $a\in J=p^{-1}(K)$ so $[a]\in K$.
+\end{proof}
+
+
+
+The following is sometimes called the third isomorphism theorem.
+
+\begin{prop}
+Let $R$ be a commutative ring. Given ideals $I\subset J\subset R$, there is an isomorphism of rings
+\[R/J \to (R/I)/(J/I).\]
+\end{prop}
+
+\begin{proof}
+ There is a map of sets $f\colon R/J\to R/I$ sending $[r]\in R/J$ to $[r]\in R/I$ for all $r\in R$. This  is well-defined because $r_2-r_1\in J\implies r_2-r_1\in I$. It is easy to check that $f$ is a ring homomorphism, since all operations are induced from those in $R$, and it is clearly surjective. An element $[r]\in R/J$ satisfies $f([r])=0$ precisely if $r\in J$. Thus the kernel of $f$ is the ideal $J/I$ considered above. The result therefore follows from the isomorphism theorem.
+\end{proof}
+
+\begin{example}
+Take $R=\Z$ and $I=(8)$ and set $S=\Z/8$. The ideals in $R$ containing $I$ are $I\subset (4)\subset (2) \subset (1)=R$. Thus the ideals in $S$ are $([0])\subset ([4])\subset ([2])\subset ([1])=S$. Let us put $J=(2)\subset R$. Then $J/I=([2])\subset S$ and
+\[S/([2])= (R/I)/(J/I)\isom R/J \isom \Z/2 .\]
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Maximal, prime and radical ideals}
+
+In this section we consider ideals with certain special properties. We start with the following simple observation.
+
+\begin{lemma}
+\label{field}
+A commutative ring $R$ is a field precisely if its only proper ideal is $\{0\}$.
+\end{lemma}
+
+\begin{proof}
+If $R$ is a field and $\{0\}\neq I\subset R$ is a nonzero ideal, then taking an element $0_R\neq r\in I$  we have that  $1_R=r\cdot r^{-1}\in I$ which implies that  $I=R$. 
+Conversely, suppose that  the only proper ideal of $R$ is the zero ideal. Then for any nonzero element $0_R\neq r\in R$ the principal ideal $(r)$ must be the full ring $R$. But this implies that $1_R=a\cdot r$ for some $a\in R$, which shows that $r$ has a multiplicative inverse. This proves  that $R$ is a field.
+\end{proof}
+
+
+\begin{remark}
+\label{inj}
+Suppose $f\colon R \to S$ is a ring homomorphism, and $R$ is a field. Then  exactly one of the following happens
+\begin{itemize}
+\item[(a)] $\ker(f)=(0)$, which is to say that $f$ is injective.
+\item[(b)] $\ker(f)=R$. Then $f(1_R)=1_S=0_S$ and hence $S$ is a trivial ring.
+\end{itemize}
+So ring homomorphisms from fields to non-trivial rings are always injective.
+\end{remark}
+
+
+
+
+
+
+
+\begin{defn}
+A proper ideal $I\subset R$ is said to be 
+\begin{itemize}
+\item[(a)]
+\emph{maximal} if there are no proper ideals of $R$ strictly containing $I$;
+\smallskip
+\item[(b)] \emph{prime} if for all elements $a,b\in R$
+\[a\cdot b\in I \implies a\in I \text{ or } b\in I;\]
+\item[(c)] \emph{radical} if for all elements $a\in R$
+\[a^n\in I \text{ for some }n \geq 1 \implies a\in I.\]
+\end{itemize}
+\end{defn}
+
+As a matter of convention, the non-proper ideal $R$ itself is considered to be radical but not prime or maximal.
+
+\begin{example}
+Let $p>1$ be a prime number. Then the  ideal $(p)\subset \Z$  is prime  because \[p\divides ab \implies p\divides a \text{ or }p\divides b.\]
+Conversely if $n>1$ is a composite number then $(n)$ is not a prime ideal. To see this write $n=a\cdot b$ with $1<a,b>n$ and then
+\[a\notin (n)\text{ and }b\notin (n)\text{ but }a\cdot b\in (n).\]
+Thus for any integer $n>0$ the ideal $(n)$ is prime precisely if $n$ is a prime number.
+\end{example}
+
+
+The following result explains the importance of the above special classes of ideals.
+
+\begin{lemma}
+\label{stana}
+An ideal $I\subset R$ is
+\begin{itemize}
+\item[(a)] maximal if and only if $R/I$ is a field;\smallskip
+\item[(b)] prime if and only if $R/I$ is an integral domain;\smallskip
+\item[(c)] radical if and only if $R/I$ is reduced.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+ Part (a) follows immediately from Proposition \ref{corr} together with Lemma \ref{field}.
+
+For part (b), note that  $R/I$ is an integral domain precisely if
+\[[a] \cdot [b] = 0_{R/I} \implies [a]=0_{R/I} \text{ or } [b]=[0_{R/I}].\]
+This easily translates into the  condition that $I$ be prime. Similary for the last part.
+\end{proof}
+
+Lemma \ref{obv} shows that there are implications
+\[I \text{ maximal} \implies I \text{ prime} \implies I \text{ radical}.\]
+
+\begin{example}
+Fix a positive integer $n>0$, and consider the ideal $(n)\subset \Z$. Lemma \ref{pos} and Lemma \ref{stana} show that we have implications
+\[ (n)\text{ is prime} \iff (n) \text{ is maximal} \iff n \text{ is prime}.\]
+The ideal $(0)$ is prime but not maximal.
+\end{example}
+
+\begin{example}
+Let $n>0$ be a positive integer. Example \ref{sqfr} and Lemma \ref{stana} show that the ideal $(n)\subset \Z$ is radical precisely if $n$ is square-free. Thus for example, if we take $n=12=2^2\cdot 3$, then $n$ is not square-free and the ideal $(n)$ is not radical because $6\notin (12)$ but $6^2\in (12)$.
+\end{example}
+
+\begin{lemma}
+Let $f\colon R \to S$ be a ring homomorphism. If $I$ is a prime (respectively radical) ideal then so is $f^{-1}(I)$.
+\end{lemma}
+
+\begin{proof}
+Suppose that $a\cdot b\in f^{-1}(I)$. Then $f(a\cdot b)=f(a)\cdot f(b)\in I$. Since $I$ is prime this implies either $f(a)\in I$ or $f(b)\in I$. But then either $a\in f^{-1}(I)$ or $b\in f^{-1}(I)$.
+
+Similarly, suppose $a^n\in f^{-1}(I)$. Then $f(a)^n \in I$ so since $I$ is radical, $f(a)\in I$ and hence $a\in f^{-1}(I)$.
+\end{proof}
+
+The corresponding statement for maximal ideals is false.
+
+\begin{example}
+Let $f\colon \Z \to \Q$ be the inclusion map. Then the ideal $(0)\subset \Q$ is maximal, but the ideal $f^{-1}(0)=(0)\subset \Z$ is not.
+\end{example}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Algebras}
+
+Let $k$ be a commutative ring.
+
+\begin{defn}A \emph{$k$-algebra} is a ring $R$ together with a ring homomorphism \[\phi\colon k \to R.\] 
+The map $\phi$ is called the \emph{structure map} of the algebra.\end{defn}
+
+We often abuse terminology and say that $R$ is a $k$-algebra, when we hope that the structure map is clear from the context.
+
+\begin{defn}
+Suppose that $\phi_1\colon k\to R_1$ and $\phi_2\colon k \to R_2$ are $k$-algebras. A homomorphism of $k$-algebras $f\colon R_1 \to R_2$ is a ring homomorphism satisfying the extra condition
+$f\circ \phi_1=\phi_2$.
+\end{defn}
+
+ We represent the condition for an algebra homomorphism $f$ by the commutative diagram
+\[\xymatrix{ R \ar@{>}[rr]^{f} && S \\ &k \ar@{>}[ur]_{\phi_2} \ar@{>}[ul]^{\phi_1}}.\]
+In words we say that $f$ commutes with the structure maps.
+
+
+\begin{examples}
+\begin{itemize}
+
+\item[(a)] The ring $\Fun(X,\R)$ is an $\R$-algebra where the structure map $\phi\colon \R \to \Fun(X,\R)$ sends an element $r\in \R$ to the corresponding constant function defined by setting $f(x)=r$ for all $x\in X$.
+\smallskip
+
+\item[(b)] If $k$ is any commutative ring, the polynomial algebra $k[x]$ is a $k$-algebra. The structure map is the inclusion $k\subset k[x]$ sending an element of $k$ to the corresponding constant polynomial.
+
+\smallskip \item[(c)] Recall from Lemma \ref{map} that if $R$ is any commutative ring there is a unique homomorphism $\phi\colon \Z\to R$. It follows that a $\Z$-algebra is the same thing as a ring. Similarly, a homomorphism of $\Z$-algebras is the same thing as a homomorphism  of rings.
+\smallskip
+
+\item[(d)] We can view $\C$ as a $\C$-algebra via the identity map, and as an $\R$-algebra via the inclusion $\R \subset \C$. Then complex conjugation defines an $\R$-algebra isomorphism $\C \to \C$ which is not a homomorphism of $\C$-algebras.
+\end{itemize}
+\end{examples}
+
+We often consider the case when the ring $k$ is a field. By Remark \ref{inj}, assuming the algebra is non-trivial, the structure map $\phi\colon k\to R$ is injective. The image of $\phi$ is then an isomorphic copy of $k$ lying inside $R$. We often suppress the structure map and view $k$ as being a subring of $R$. 
+
+Suppose $k$ is a field and $R$ is a $k$-algebra with structure map $\phi\colon k\to R$.  We can consider  $R$ to be an abelian group using the addition operation in $R$. Moreover, we can define scalar multiplication by elements $\lambda\in k$ by the rule
+\[\lambda\cdot r = \phi(\lambda)\cdot r,\]
+using the structure map and the multiplication operation in $R$.
+
+\begin{lemma}
+With these operations $R$ becomes a vector space over $k$.
+\end{lemma}
+
+\begin{proof}
+The required axioms are
+\[ \lambda\cdot (r_1+r_2)=\lambda\cdot r_1 + \lambda\cdot r_2, \quad (\lambda_1+\lambda_2)\cdot r = \lambda_1\cdot r + \lambda_2\cdot r\]
+\[\lambda_1\cdot (\lambda_2\cdot v)=(\lambda_1\cdot \lambda_2)\cdot v, \quad 1_k\cdot r = r.\]
+These are easily checked using the distributive law in $R$ and the fact that the structure map $\phi$ is a ring homomorphism. 
+\end{proof}
+
+Note that multiplication in $R$ defines a map 
+\[ \cdot \colon R \times R \to R, \quad (r_1,r_2) \mapsto r_1\cdot r_2.\]
+which is bilinear. This means that the map is linear in each variable, i.e. if we fix $s\in R$ then the maps $R\to R$ given by $r\mapsto r\cdot s$ and $r\mapsto s\cdot r$ are both linear maps. Explicitly this means that  for $\lambda_1,\lambda_2,\lambda_3\in k$ and $r_1,r_2,r_3\in R$ we have
+\[(\lambda_1 \cdot r_1 + \lambda_2 \cdot  r_2)\cdot r_3=\lambda_1\cdot (r_1\cdot r_3) + \lambda_2\cdot (r_2\cdot r_3),\]
+\[r_1\cdot (\lambda_2 \cdot r_2 + \lambda_3 \cdot r_3)=\lambda_2 \cdot (r_1 \cdot r_2) + \lambda_3 \cdot (r_1 \cdot r_3).\]
+
+\begin{remark}
+Conversely, one can easily show that a vector space $R$ over $k$ equipped with a bilinear, associative multiplication law, which has an identity element $1_R$, is naturally a $k$-algebra. The structure map $\phi\colon k\to R$ is defined by the rule $\phi(\lambda)=\lambda\cdot 1_R$. 
+\end{remark}
+
+
+\begin{defn}
+A $k$-algebra is called \emph{finite-dimensional} if it is a finite-dimensional as a vector space over $k$.  Its dimension is then the dimension of this vector space.
+\end{defn}
+
+To be completely explicit, if $R$ is a $k$-algebra with structure map $\phi\colon k \to R$, then $R$ is finite-dimensional precisely if there exists a finite basis for $R$ as a vector space over $k$. Such a basis  is a collection of elements $\{r_1,\cdots, r_n\}$ in terms of which every element $r\in R$ can be uniquely written in the form
+\[r= \phi(\lambda_1) \cdot r_1 + \cdots + \phi(\lambda_n)\cdot r_n\]
+for some elements $\lambda_1,\cdots,\lambda_n\in k$.
+The dimension of $R$ is then the number $n$ of elements of this basis.
+
+\begin{remark}Note that if a $k$-algebra $R$ has a basis $\{r_1,\cdots,r_n\}$ then  the multiplication on $R$ is completely determined by the products of the basis elements: once $r_i\cdot r_j\in R$ are given, all other products are determined by the bilinearity property.
+\end{remark}
+
+
+\begin{examples}
+\begin{itemize}
+\item[(a)] The complex numbers $\C$ form a two-dimensional algebra over the real numbers $\R$. A basis is given by ${1,i}$, with $1$ being the identity.  The multiplication is completely determined by bilinearity and the  condition $i^2=-1$:
+\[(a+bi)\cdot (c+di)=ac-bd + (ad+bc)i.\]
+ 
+\item[(b)] Similarly, the quaternions form a (non-commutative) algebra over $\R$ of dimension $4$ with basis
+$\{1,i,j,k\}$. The multiplication is completely determined by the rules
+\[i^2=j^2=k^2=ijk=-1,\]
+because these imply  that  $ij=k=-ji$, $jk=i=-kj$ and $ki=j=-ik$.\smallskip
+
+\item[(c)] The ring $\C[x]/(x^n)$ is an algebra over $\C$ of dimension $n$, with basis
+\[\{1,[x],[x^2], \cdots, [x^{n-1}]\}.\]
+The multiplication is determined by the rule $[x^i]\cdot [x^j]=[x^{i+j}].$
+\end{itemize}
+\end{examples}
+ 
+Let $R$ be a $k$-algebra with structure map $\phi\colon k\to R$.
+
+ \begin{defn}
+ A \emph{subalgebra} of $R$ is a subring $S\subset R$ which contains the image of the structure map $\phi$. Note that $S$ is then  a $k$-algebra via the induced ring homomorphism $\phi\colon k\to S$.
+\end{defn}
+
+It follows from Lemma \ref{intersect} that the intersection of any collection of subalgebras of $R$  is also a subalgebra. 
+
+\begin{defn}
+Let  $T\subset R$ a subset. The \emph{subalgebra of $R$ generated by $T$} is the intersection of all subalgebras of $R$ containing $T$. We denote it by $k[T]\subset R$.
+\end{defn}
+
+Note that $k[T]\subset R$ is just the subring of $R$ generated by $\im \phi$ and $T$. To give an explicit description first recall the definition \eqref{hat} of the subset $\Hat{T}\subset R$.  
+
+\begin{lemma}
+The elements of $k[T]\subset R$ are precisely the $k$-linear combinations of the elements of $\Hat{T}$, that is the sums of the form
+\[r=\lambda_1\cdot p_1+\cdots +\lambda_n\cdot p_n, \quad n\geq 0, \quad \lambda_i\in k, \quad p_i\in \Hat{T}.\]
+\end{lemma}
+
+\begin{proof}
+This follows in the same way as Lemma \ref{neil}: any subalgebra of $R$ containing the subset $T$ must also contain all these elements, on the other hand these elements do indeed form a subalgebra of $R$ containing $T$. 
+\end{proof}
+
+
+\begin{example}
+Consider the subset $T$ of the ring $R=\C[x]$ consisting of the single polynomial $x$. Then
+\begin{itemize}
+\item[(a)] The subring of $R$ generated by $T$ is then the subring $\Z[x]\subset \C[x]$ of polynomials with integer coefficients.
+\smallskip
+\item[(b)]  The ideal in $R$ generated by $T$ is the principal ideal $(x)\subset \C[x]$ consisting of polynomials with zero constant term.\smallskip
+
+\item[(c)]The $\C$-subalgebra of $R$ generated by $T$ is the full algebra $R=\C[x]$.
+\end{itemize}
+\end{example}
+
+\begin{defn}
+A $k$-algebra $R$ is said to be \emph{generated by} a subset $T\subset R$ if the subalgebra $k[T]\subset R$ generated by $T$ is equal to $R$ itself. A $k$-algebra is said to be \emph{finitely generated} if there is a finite subset $T\subset R$ such that $R$ is generated by $T$.
+\end{defn}
+
+\begin{remark}
+Note that being finitely-generated as a $k$-algebra is different from being finitely-generated as a ring. Thus $\C[x]$ is finitely-generated as a $\C$-algebra, but not as a ring.
+\end{remark}
+
+\begin{remark}The condition that a $k$-algebra be finitely-generated is much weaker than the condition
+that it should be finite-dimensional. A $k$-algebra $R$ is finite-dimensional if we can find elements
+ $r_1,\cdots,r_n$ such that all elements of $R$ are linear combinations of  the element $r_i$; it is finitely-generated if we can find elements $r_1,\cdots, r_n$ such that all elements of $R$ are linear combinations of \emph{products of} the elements $r_i$.
+Thus, for example, the $k$-algebra $k[x]$ is finitely-generated, but not finite-dimensional. \end{remark}
+
+%\begin{remark}
+
+
+%Given a map of sets $h\colon X\to Y$ there is an induced $R$-algebra map
+%\[h^*\colon \Fun(Y,\R) \to \Fun(X,\R), \quad [g\colon Y\to \R]  \mapsto [g\circ h \colon X \to \R].\]
+%We will now show that the assignment $h\mapsto h^*$ gives a 1-1 map
+%\[\{\text{Maps of sets }X \to Y\} \leftrightarrow \{\text{Maps of }R\text{-algebras } \Fun(Y,\R) \to \Fun(X,\R)\}.\]
+%
+%Let $R$ be a ring. We say that an element $e\in R$ is an \emph{idempotent} if $e^2=e$. Two idempotents $e_1,e_2$ are \emph{orthogonal} if $ef=0$. A finite set of pairwise orthogonal idempotents $e_i$ is called \emph{complete} if $1=e_1 + \cdots e_n$.
+%
+%\begin{lemma}
+%Let $R=\Fun(X,\R)$.
+%\begin{itemize}
+%\item[(a)] An element $f\in R$ is an idempotent iff it is the characteristic function of some subset $Y\subset X$. 
+%\smallskip
+%\item[(b)] Two idempotents in $R$ are orthogonal iff the corresponding subsets of $X$ are disjoint.
+%\smallskip
+%\item[(c)] A finite set of idempotents in $e_i\in R$ is complete iff the corresponding subsets $Y_i\subset X$ satisfy $X=\cup Y_i$.
+%\end{itemize}
+%\end{lemma}
+%
+%To prove the above claim suppose given an $\R$-algebra map
+% \[\phi\colon \Fun(Y,\R) \to \Fun(X,\R).\]
+%Since it is a homomorphism of rings it preserves complete sets of orthogonal idempotents. Consider the delta functions $\delta_y\colon y\in Y$. We conclude that $X$ is covered by disjoint subsets $X_y\subset X$, indexed by the points of $y\in Y$, such that $\phi^*(\delta_y)=\delta_{Y_y}$. We define a function $h\colon X\to Y$ by setting $h(x)=y$ whenever $x\in X_y$.
+%
+%Now we claim that $\phi=h^*$. This is certainly true on the functions $\delta_y$. But any element of $\Fun(Y,\R)$ is an $R$-linear combination of delta functions:
+%\[g=\sum_{y\in Y} g(y) \cdot \delta_y.\]
+%Since $\phi$ and $h^*$ are both $R$-algebra maps, they  both take $g$ to the same element of $\Fun(X,\R)$.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Polynomial algebras}
+
+Let $k$ be a commutative ring. As noted before, the polynomial ring $k[x]$ is a $k$-algebra as noted before, with the structure map $\phi\colon k \to k[x]$ sending an element $a\in k$ to the corresponding constant polynomial. We usually suppress  $\phi$ from the notation, and confuse an element $a\in k$ with the corresponding constant polynomial.
+
+\begin{remark}
+When we write an element of the algebra $k[x]$ in the form
+\begin{equation}
+\label{polyex}f(x)=a_0 + a_1 x+ \cdots + a_n x^n, \quad a_i\in k\end{equation}
+we can mean two slightly different things.
+
+Firstly \eqref{polyex} can be thought of as a formal expression: the ring $k[x]$ is defined to be the set of all such expressions. In this way of looking at \eqref{polyex} the symbols $x^i$ are just formal
+ place-holders: we could equally well define $k[x]$ to consist of all sequences of elements of $k$ of the form  $(a_0,a_1,a_2,\cdots )$  such that $a_i=0$ for $i\gg 0$. We could then define addition and mulitplication for such sequences in the same way as in Example \ref{begin}(a).
+
+The second way to look at \eqref{polyex} is as an equality in the ring $k[x]$. From this point-of-view the symbol $x$ denotes a particular element of the ring $k[x]$ (corresponding to the string $(0,1,0,\cdots )$), and the symbol $a_i$ denotes the constant polynomial associated to an element $a_i\in k$  (corresponding to the string $(a_i,0,0,\cdots)$).   Thus the right-hand side of \eqref{polyex} is a sum of terms, each being a constant polynomial multiplied by a power of the element $x\in k[x]$. 
+\end{remark}
+
+
+\begin{prop}[Universal property of the polynomial algebra]
+\label{uni}
+Let $\phi\colon k\to R$ be a $k$-algebra. Then for every element $r\in R$ there is a unique homomorphism of $k$-algebras $f\colon k[x]\to R$ such that $f(x)=r$.
+\end{prop}
+
+\begin{proof}
+By the definition of an algebra homomorphism, any such map $f$ must take the constant polynomial $a\in k\subset k[x]$ to $\phi(a)\in R$. By assumption we also have $f(x)=r$. Since $f$ preserves addition and multiplication it follows that 
+\[f(a_0+a_1 x+ \cdots a_2 x^2 +\cdots + a_d x^d)=a_0+a_1 r+ \cdots a_2 r^2 +\cdots + a_d r^d.\]
+Thus $f$ is obtained by substituting $x=r$ in a given polynomial.
+This proves that there can be at most one such homomorphism $f$. Conversely, it is easy to check that this $f$ does indeed define an algebra homomorphism.
+\end{proof}
+
+\begin{remark}
+\label{unirem}
+The algebra $k[x]$ with its element $x$ is essentially unique with the universal property of Proposition \ref{uni}. To see this, suppose there were some other $k$-algebra $S$ with an element $s\in S$ for which the universal property of Proposition\ref{uni} also holds, meaning that for each $k$-algebra $R$ there is a unique homomorphism of $k$-algebras $g\colon S\to R$ such that $g(s)=r$. Applying the univesral property for $k[x]$ gives an algebra homomorphism $f\colon k[x]\to S$ sending $x$ to $s$. Applying the universal property  for $S$ gives an algebra homomorphism $g\colon S \to k[x]$ sending $s$ to $x$. Now the composite $g\circ f$ is an algebra homomorphism $k[x]\to k[x]$ sending $x$ to $x$, and hence, by the uniqueness part of the universal property of $k[x]$, must be the identity map. Similarly, the  uniqueness part of the universal property of $S$ shows that the composite $f\circ g$ is the identity map on $S$. This proves  that $f$ and $g$ are mutually inverse isomorphisms of $k$-algebras.
+\end{remark}
+
+More generally we can define the polynomial ring $k[x_1,\cdots ,x_n]$ in $n$ variables.
+A \emph{monomial} in $n$ variables is an expression of the form
+\[x_1^{i_1} \cdots x_n^{i_n}, \quad  i_1,\cdots, i_n \geq 0.\] 
+The elements of $k[x_1,\cdots,x_n]$ are defined to be finite combinations of monomials of the form
+\[\sum_{i_1,\cdots, i_n\geq 0} a_{i_1,\cdots, i_n} x_1^{i_1} \cdots x_n^{i_n} \]
+with coefficients $ a_{i_1,\cdots, i_n} \in k.$
+Addition is given by the rule
+\[\sum _{i_1,\cdots, i_n \geq 0} a_{i_1,\cdots, i_n} x_1^{i_1} \cdots x_n^{i_n} + \sum _{i_1,\cdots, i_n \geq 0} b_{i_1,\cdots, i_n} x_1^{i_1} \cdots x_n^{i_n} \]\[=  \sum _{i_1,\cdots, i_n \geq 0}(a_{i_1,\cdots, i_n} + b_{i_1,\cdots, i_n}) x_1^{i_1} \cdots x_n^{i_n},\]
+and multiplication is defined by
+\[\sum _{i_1,\cdots, i_n \geq 0} a_{i_1,\cdots, i_n} x_1^{i_1} \cdots x_n^{i_n} \cdot  \sum _{i_1,\cdots, i_n \geq 0} b_{i_1,\cdots, i_n} x_1^{i_1} \cdots x_n^{i_n}\]\[=\sum_{i_1,\cdots,i_n\geq 0} c_{i_1,\cdots,i_n} x_1^{i_1}\cdots x_n^{i_n}\]
+where
+\[c_{i_1, \cdots , i_n}= \sum_{0\leq j_1 \leq i_1} \sum_{0\leq j_2\leq i_2} \cdots \sum_{0\leq j_n\leq i_n} a_{j_1,\cdots,j_n}\cdot b_{i_1-j_1,\cdots, i_n-j_n}.\]
+The ring $k[x_1,\cdots,x_n]$ is a $k$-algebra via the ring homomorphism sending an element $a\in k$ to the corresponding constant polynomial. It has the following universal property, which is proved in the same way as Proposition \ref{uni}.
+
+\begin{prop}[Universal property of the polynomial algebra]
+Let $\phi\colon k\to R$ be a $k$-algebra. Then for every $n$-tuple of elements $r_1,\cdots, r_n\in R$ there is a unique homomorphism of $k$-algebras \[f\colon k[x_1,\cdots,x_n]\to R\] such that $f(x_i)=r_i$.
+\end{prop}
+
+We can alternatively define multi-variable polynomial algebras step-by-step by adjoining indeterminates one at a time:
+
+\begin{lemma}
+\label{boot}
+For any $n\geq 1$ there is an isomorphism of $k$-algebras
+\[k[x_1,\cdots,x_{n-1}] [x_n]\isom k[x_1,\cdots,x_n].\]
+\end{lemma}
+
+\begin{proof}
+ This can be proved directly by constructing a map in the obvious way. Alternatively one can use the universal property: both sides have the property that there is a unique map to any $k$-algebra $R$ sending the elements $x_i$ to any given $n$-tuple of elements $r_i\in R$. By the uniqueness argument of Remark \ref{unirem} the two sides must be isomorphic. 
+\end{proof}
+
+
+\begin{remark}
+\label{remm}
+Suppose that $R$ is a $k$-algebra generated by a finite set $\{r_1,\cdots,r_n\}\subset R$.  By the universal property of polynomial rings there is a unique algebra homomorphism
+\[f\colon k[x_1,\cdots, x_n]\to R\]
+sending $x_i$ to the element $r_i\in R$.
+This map is surjective since its image is a $k$-subalgebra which contains the elements $r_i$, and by assumption,  the smallest such subalgebra is $R$ itself. Hence by the  isomorphism theorem there is an isomorphism
+\[R\isom k[x_1,\cdots, x_n]/I, \quad I=\ker (f).\]
+Thus we conclude that all finitely generated $k$-algebras are quotients of polynomial algebras. This is one reason for the importance of polynomial rings.
+\end{remark}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Noetherian rings}
+
+We now consider a very important special class of rings.
+
+
+\begin{defn}
+A ring $R$ is Noetherian if every ascending chain of ideals
+\[I_1\subset I_2 \subset I_3 \subset \cdots \]
+eventually stabilizes, i.e. there exists some $N\geq 0$ such that $I_N=I_{N+1}= ...$.
+\end{defn}
+
+
+\begin{lemma}
+A ring is Noetherian if and only if every ideal is finitely-generated.
+\end{lemma}
+
+\begin{proof}
+Suppose every ideal is finitely-generated and consider an ascending chain $I_1\subset I_2\subset \cdots $. The union $I=\bigcup_{n\geq 1} I_n$ is an ideal\footnote{In general unions of ideals are not ideals e.g. in $\Z$ we have $3,5\in (3)\cup(5)$ but $3+5\notin (3)\cup (5)$. }. Indeed,  if $a,b\in I$ then there exists $n$ such that $a,b\in I_n$ and then $a+b\in I_n$ so also $a+b\in I$. Similarly if $r\in R$ and $a\in I$ then since $a\in I_n$ for some $n$ we have  $r\cdot a\in I_n$  and hence $r\cdot a\in I$.
+
+ By assumption we can find a finite set of generators $(f_1,\cdots, f_r)$ for $I$. Hence we can find $N$ large enough so that $f_j\in I_N$ for all $1\leq j\leq r$. But then $I\subset I_N$. But $I_n\subset I$ for all $n\geq N$. Hence $I=I_n$ for all $n\geq N$.
+
+Conversely, consider an ideal $I\subset R$ and assume that $I$ is not finitely-generated. Take an element $f_1\in I$ and set $I_1=(f_1)\subset I$. Then $I_1$ is finitely-generated so $I_1\subsetneq I$ and we can take $f_2\in I\setminus I_1$ and consider $I_2=(f_1,f_2)$. Again $I_2$ is finitely-generated so $I_2\subsetneq I$ and we can  take $f_3\in I\setminus I_2$. And so on. We get an infinite chain
+\[I_1\subsetneq I_2 \subsetneq I_3 \subsetneq \cdots,\]
+and so $R$ is not Noetherian.
+\end{proof}
+
+\begin{example}
+\label{egg}
+\begin{itemize}
+\item[(a)] Any field $k$ is Noetherian since the only ideals are $(0)$ and $R$  and these are both principal.
+\smallskip
+\item[(b)] The ring $\Z$ is Noetherian; in fact any ideal is generated by a single element.
+\smallskip
+
+\item[(c)] 
+If $R$ is Noetherian and $I\subset R$ is an ideal then $R/I$ is noetherian. Indeed, ideals in $R/I$ correspond bijectively to ideals in $R$ containing $I$.
+\end{itemize}
+\end{example}
+
+The following important result is known as Hilbert's basis theorem.
+
+\begin{thm}
+If $R$ is a Noetherian ring then so is $R[x]$.
+\end{thm}
+
+
+\begin{proof}
+%Any nonzero polynomial $f\in R[x]$ can be uniquely written in the form
+%\[f(x)=a_0 + a_1 x + \cdots + a_d x^d, \quad a_0,\cdots, a_d\in R\]
+%with $a_d\neq  0$. Then the degree of $f$ is  $\deg(f)=d$ and the leading term is defined to be $\lc(f)=a_dx^d$. When $f=0$ we set $\deg(f)=0$ and $\lc(f)=0$.
+
+Let $I\subset R[x]$ be an ideal. We must prove that $I$ is finitely-generated. For each $n\geq 0$ define $J_n \subset R$ to be the subset of leading terms of degree $n$ polynomials in $I$:
+\[J_n=\big\{a\in R: \exists f\in I\text{ of the form }f(x)= ax^n + a_{n-1} x^{n-1}+ \cdots + a_1x + a_0\big\}.\]
+Note that each $J_n$ is an ideal because $I$ is. Also $J_n \subset J_{n+1}$ because if $f(x)\in I$ has leading term $a\cdot x^n$ then $x\cdot f(x)$ has leading term $a\cdot x^{n+1}$. 
+
+ Since $R$ is Noetherian each of the ideals $J_m$ for $1\leq m\leq N$ has a finite set of generators $t_{m,1}, \cdots ,t_{m,k(m)}$. We can then take polynomials $g_{m,i}\in I$ with leading term $t_{m,i} x^m$. Again, since $R$ is Noetherian there is some $N>0$ such that $J_N=J_{N+1}=\cdots$. We claim that the union
+\[\bigcup_{m=0}^N \{g_{m,1}, \cdots ,g_{m,k(m)}\}\]
+is a finite generating set for the ideal $I$.
+
+Suppose $f\in I$. We must show that $f$ is a linear combination of the above generators.  Suppose $f$ has leading term  $ax^d$. Then  $a\in J_d$ so is of the form
+\[a=\sum_{i=1}^{k(m)} r_i \cdot t_{m,i}, \quad r_i\in R,\]
+where we take $m=d$ if $d\leq N$ and $m=N$ for $d>N$. Then the polynomial
+\[x^{d-m} \cdot \sum_{i=1}^{k(m)} r_i\cdot g_{m,i}\]
+has degree $d$ and the same  leading coefficient as $f$. Hence we can subtract it and reduce to the case where $f$ hasr degree $<d$. The result follows by induction on the degree of $f$.
+\end{proof}
+
+Applying this result repeatedly gives
+
+\begin{thm}
+If $k$ is a Noetherian commutative ring then every finitely-generated algebra over $k$ is noetherian.
+\end{thm}
+
+\begin{proof}
+By repeatedly applying the basis theorem and using Lemma \ref{boot} we see that $k[x_1,\cdots, x_n]$ is Noetherian. By Example \ref{egg}(b) any ring of the form $k[x_1,\cdots, x_n]/I$ is Noetherian. But by Remark \ref{remm} any finitely-generated $k$-algebra is of this form.
+\end{proof}
+
+%\begin{example}
+%Let $k$ be a field (for example $k=\R$) and consider the ring $R$ of polynomials over $k$ in infinitely many variables $x_1,x_2, \cdots, x_n, \cdots$. It is the free $k$-algebra on the set $\N=\{1,2,3,\cdots\}$. Its elements are finite sums of monomials of the form
+%\[a\cdot  x_{j_1}^{i_1} \cdots x_{j_n}^{i_n}, \quad n \geq 0, \quad i_1,\cdots, i_n\geq 0, \quad j_1,\cdots, j_n \geq 1 , \quad a \in k.\]
+%The ring $R$ is not noetherian: it contains an infinite ascending chain of ideals
+%\[(x_1)\subsetneq (x_1,x_2)\subsetneq (x_1,x_2,x_3) \subsetneq \cdots\]
+%whose sum is the non-finitely-generated ideal generated by the $(x_i)$, consisting of polynomials with zero constant term.
+%\end{example}
+
+Not all rings are Noetherian however:
+
+\begin{example}
+The ring $R$ of continuous functions $f\colon \R\to \R$ is not noetherian. Indeed, consider the ideal $I\subset  R$ consisting of functions of bounded support: those for which there exists some $R>0$ with
+\begin{equation}
+\label{rel}|x|>R \implies f(x)=0.\end{equation}
+If $I$ is finitely generated it would follow that there is some universal constant $R>0$ such that for any $f\in I$ the relation \eqref{rel} holds. But that is plainly untrue: there are functions of bounded support which are nonzero on any given bounded subset of $\R$. 
+\end{example}
+
+One can similarly show that the ring of polynomials in infinitely many variables is non-Noetherian. 
+The Noetherian condition can be thought of as a type of finiteness condition: it asks that the ring should not be too big in a certain sense.
+
+%One might wonder about descending chains of ideals. A commutative ring $R$ is called artinian if every infinite descending chains of ideals eventually terminates. It turns out that this is a very restrictive condition. For example $\Z$ is not artinian as the infinite chain
+%\[\cdots \subset (16) \subset (8) \subset (4) \subset (2) \subset \Z\]
+%demonstrates. Of course, every field is artinian for trivial reasons, and conversely
+%
+%\begin{lemma}
+%An artinian integral domain is a field.
+%\end{lemma}
+%
+%\begin{proof}
+%Take $r\in R$  and consider the chain of ideals $(r^n)$. Then $(r^n)=(r^m)$ for some $n> m$. This says that $r^m = s r^n$ and hence $r^{m}(1-s r^{n-m})=0$. Thus either $r$ is a unit or a zero divisor. If $R$ is an integral domain it follows that $R$ is a field. 
+%\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Algebraic subsets}
+
+Fix a field $k$, for example $k=\Q, \R$ or $\C$. Define the affine space
+\[\A^n_k = \{(a_1,\cdots, a_n)\in k^n\}.\]
+Note that this is just the set $k^n$; the funny notation is traditional in algebraic geometry.
+
+Given a polynomial $f=f(x_1,\cdots,x_n)\in k[x_1,\cdots,x_n]$ and a point \[p=(a_1,\cdots,a_n)\in \A^n_k\] we have an element $f(p)\in k$ obtained by substituting $x_i=a_i$ in the polynomial $f$. In other words, we view elements of the ring $k[x_1,\cdots,x_n]$ as functions  $f\colon \A^n_k\to k$, and $f(p)$ is the evaluation of the function $f$ at the point $p$.
+
+Consider the maps
+\[\xymatrix{ {\text{Ideals }I\subset k[x_1,\cdots,x_n]} \ar@/^1pc/[rrr]^{V} &&& {\text{Subsets }V\subset \A^n_k} \ar@/^1pc/[lll]^{I}}\]
+defined by
+\[V(I)=\{p\in \A^n_k: f(p)=0 \text{ for all }f\in I\},\]
+
+
+\[I(V)=\{f\in k[x_1,\cdots,x_n]: f(p)=0 \text{ for all }p\in V\}.\]
+Note that these maps  are order-reversing:
+\[I_1\subset I_2 \implies V(I_1) \supset V(I_2); \quad V_1\subset V_2 \implies I(V_1)\supset I(V_2).\]
+
+We now make the very important
+
+\begin{defn}
+A subset $X \subset \A^n_k$ is said to be \emph{algebraic} if it is of the form $X=V(I)$ for some ideal $I\subset k[x_1,\cdots,x_n]$.
+\end{defn}
+
+
+Since the ring $k[x_1,\cdots,x_n]$ is Noetherian, any ideal $I\subset k[x_1,\cdots,x_n]$ is finitely-generated and therefore of the form $I=(f_1,\cdots, f_r)$ for some finite set of polymonials $f_1,\cdots, f_r$. Then
+\[V(I)=V(f_1,\cdots,f_r) = \{(a_1,\cdots, a_n)\in \A^n_k: f_i(a_1,\cdots, a_n)=0\text{ for }1\leq  i \leq r\}.\]
+Thus, a subset $X\subset \A^n_k$ is algebraic precisely if it is the vanishing locus of a finite set of polynomials.
+
+
+
+\begin{examples}
+\label{eg_algset}
+\begin{itemize}
+\item[(a)] The empty-set $\emptyset\subset \A^n_k$ is an algebraic subset; it is the vanishing locus of the non-proper ideal $k[x_1,\cdots,x_n]$.\smallskip
+
+\item[(b)]  The set $\A^n_k$ itself is an algebraic subset; it is the vanishing locus of the zero ideal $(0)\subset k[x_1,\cdots,x_n]$.
+\smallskip
+\item[(b)] The circle \[V=\{(a,b)\in \A^2_\R:a^2+b^2=1\}\subset \A^2_\R\] is an algebraic subset. Indeed, $V=V(I)$ where $I\subset \R[x,y]$ is the principal ideal generated by the polynomial \[f=x^2+y^2-1\in \R[x,y].\]
+%\smallskip
+\item[(c)] The union of the two co-ordinate axes
+\[V=\{(a,b)\in \A^2_\R:ab=0\}\subset \A^2_\R\] is an algebraic subset; being equal to $V(I)$ where \[I=(xy)\subset \R[x,y].\]
+%\smallskip
+\item[(d)] Any  point $(a,b)\in \A^2_\R$ is an algebraic subset. It is the vanishing locus of the non-principal ideal \[I=(x-a,y-b)\subset \R[x,y].\]
+%\smallskip
+\item[(e)] The subset \[V=\{a\in \R: a\geq 0\}\subset \A^1_\R\] is not algebraic. Indeed, any polynomial in $\R[x]$ has only finitely many roots, so any proper algebraic subset of $\A^1_\R$ consists of at most finitely many points.
+\end{itemize}
+\end{examples}
+
+Finite intersections and arbitrary unions of algebraic subsets are also algebraic:
+
+\begin{prop}
+\label{zar}
+\begin{itemize}
+\item[(a)] Given an arbitrary collection of ideals $I_s\subset R$ indexed by a set $S$ we have
+\[V\big(\sum_{s\in S} I_s\big)=V(\bigcap_{s\in S} V\big(I_s\big).\]
+
+\item[(b)]Given two ideals $I_1,I_2\subset R$ we have
+\[V(I_1\cap I_2)= V(I_1) \cup V(I_2).\]
+
+\end{itemize}
+\end{prop}
+
+\begin{proof}
+For part (a) note that by definition  the ideal $\sum_{s\in S} I_s$ consists of all finite sums of elements of $\bigcup_{s\in S} I_s$. The statement $P\in V(I_s)$ for all $s\in S$ is equivalent to the statement that for any $f\in\bigcup_{s\in S}  I_s$ we have $f(P)=0$. But then the same is true for any element $f\in \sum_{s\in S} I_s$.   
+
+For part (b) note that there are obvious inclusions $V(I_j)\subset V(I_1\cap I_2)$ which gives an inclusion 
+\[V(I_1\cap I_2)\supset V(I_1)\cup V(I_2).\]
+For the reverse inclusion suppose that 
+$p\notin V(I_1)\cup V(I_2)$. Then we can find $f_1\in I_1$ and $f_2\in I_2$ with $f_1(p)\neq 0$ and $f_2(p)\neq 0$. But then $f_1\cdot f_2\in I_1\cap I_2$ and $f_1\cdot f_2(p)\neq 0$ so that $p\notin V(I_1)\cap V(I_2)$.
+\end{proof}
+
+\begin{example}
+Consider the ideals $I_1=(x,y)\subset \C[x,y,z]$ and $I_2=(z)\subset \C[x,y,z]$. 
+Thus  $V(I_1)$ is the $z$-axis, and $V(I_2)$ is the $(x,y)$-plane. We claim that
+ \[ I_1+I_2=(x,y,z), \quad   I_1\cap I_2=(xz,yz).\]
+
+For the second statement suppose that $f\in I_1\cap I_2$. Then since $f\in I_1$, all monomials appearing with nonzero coefficient in $f(x,y,z)$ must contain either an $x$ or a $y$. On the other hand, since $f\in I_2$, any monomial appearing with nonzero coefficient in $f(x,y,z)$ must contain a $z$. Hence all monomials appearing in $f(x,y,z)$ contain either $xz$ or $yz$, and it follows that $f\in (xz,yz)$.
+
+Finally note that $V(I_1+I_2)=\{(0,0,0)\}$ and $V(I_1\cap I_2)$ is the union of the $z$-axis with the $(x,y)$-plane.
+\end{example}
+
+\begin{remark}
+Digression on the definition of a topological space. Recall that $\R^n$ has a distance function on it: given two points $x,y\in \R^n$ we define
+\[d(x,y)=\bigg(\sum_{i=1}^n (y_i-x_i)^2\bigg)^{\frac{1}{2}}.\]
+A subset $U\subset \R^n$ is open if for any $x\in U$ there exists an $r>0$ such that
+\[x\in B_r(x)=\{y\in \R^n : d(x,y)<r\} \subset U.\]
+A subset $F\subset \R^n$ is called closed if it is the complement of an open subset.
+One can make the same definitions in any metric space $X$.
+
+Open subsets of a mteric space $X$ (e.g. $X=\R^n$) have the following properties:\smallskip
+\begin{itemize}
+\item[(a)] The empty set $\emptyset\subset X$ and the set $X$ itself are both open subsets;\smallskip
+\item[(b)] If $U_1,U_2\subset X$ are open subsets then so is the intersection $U_1\cap U_2\subset X$;\smallskip
+\item[(c)]  If $U_i\subset X$ is an arbitrary collection of open subsets of $X$ indexed by some set $I$ then the (possibly infinite) union
+$\bigcup_{i\in I} U_i\subset X$
+is also an open subset.
+\end{itemize}
+
+A set $X$ with a collection of subsets (called open subsets) satisfying these conditions is called a \emph{topological space}. There are some rather extreme examples: you could take just $\emptyset,X$ as your open sets, or you could take all subsets to be open. A metric space always gives rise to a topological space by defining open subsets as above.
+But different metrics (equivalent ones) can give rise to the same topological space. And some topological spaces do not come from a metric space at all.
+
+\end{remark}
+
+\begin{remark}A topological space $X$ is called Hausdorff if given any two distinct points $x\neq y\in X$, there exist open subsets $U,V\subset X$ such that
+\[ x\in U, y\in V\text{ and }U\cap V=\emptyset.\]
+The topological space arising from a metric space $(X,d)$ is always Hausdorff: given $x,y\in X$ we can take $U$ and $V$ to be open balls at $x$ and $y$ with radius $r<d(x,y)/2$. But for example, if a set $X$ has more than one element, then the topology whose only open subsets are $\emptyset$ and $X$ is never Hausdorff. 
+\end{remark}
+
+Proposition \ref{zar} shows that the algebraic subsets form the closed subsets of a topology on $\A^n_k$. This is called the 
+Zariski topology. It's a rather weird topology, and almost never comes from a  metric structure.
+
+
+\begin{example}
+Consider the case $n=1$. Any polynomial $f\in k[x]$ of degree $d$ has at most $d$ roots. 
+Hence the algebraic subsets of $\A^1_k = k$ are just the finite sets of points. Note that if $k$ is infinite then any two non-empty open subsets intersect. Thus this topology is certainly not Hausdorff in general.
+\end{example}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Nullstellensatz}
+
+
+Consider again the correspondences \eqref{corr}. We would like to say that $V$ and $I$ define inverse bijections, but this is of course not true as they are currently defined.
+\begin{example}
+\begin{itemize}
+\item[(a)] Let $I=(x^2)\subset \C[x]$ and $J=(x) \subset \C[x]$. Then $V(I)=V(J)=\{0\}\subset \A^1_\C$.
+\smallskip
+\item[(b)] Let $I=(x^2+1)\subset \R[x]$ and $J=\R[x]$. Then $V(I)=V(J)=\emptyset$.
+\smallskip
+\item[(c)] Let $k=\Z/p$ for some prime number $p>0$ and take $I=x^p-x$. Then  $V(I)=V(0)=\A^1_k$ because by Fermat's little theorem, any element $a\in \Z$ satisfies $a^p\equiv a$ modulo $p$.
+\end{itemize}
+\end{example}
+
+The problem with Example (a) is that the ideal $I$ is not radical. Recall the definition of the  radical of an ideal
+\[\sqrt{I}=\{r\in R: r^n\in I \text{ for some }n\geq 1\}.\]
+Note that $V(I)=V(\sqrt{I})$ because $f^n(p)=0\implies f(p)=0$. Moreover, for the same reason, any ideal of the form $I(V)$ is radical. Thus we can restrict our maps $V$ and $I$ to correspondences
+\[\xymatrix{ {\text{Radical ideals }I\subset R} \ar@/^1pc/[rrr]^{V} &&& {\text{Algebraic subsets }V\subset \A^n_k} \ar@/^1pc/[lll]^{I}}\]
+
+The basic problem in Example (b) is that we considered a polynomial $x^2+1$ which had no real roots. Of course this would not have worked over $\C$, where the polynomial $x^2+1$ has the two roots $\pm i$. Example  (c) shows a different problem when the field $k$ is finite: there are nonzero polynomials which vanish at every point of $\A^1_k$. To eliminate both of these problems we restrict to a special class of fields.
+
+\begin{defn}
+A field $k$ is said to be \emph{algebraically closed} if every non-constant polynomial $f\in k[x]$ has a root in $k$.
+\end{defn}
+
+Using polynomial division it follows that if $k$ is algebraically closed then any  polynomial $f\in k[x]$ can be written in the form
+\[f(x)=c\cdot (x-a_1) \cdots (x-a_k),\]
+with $c\in k$ and $a_i\in k$.
+
+\begin{example}
+\begin{itemize}
+\item[(a)] The fields $\Q$ and $\R$ are not algebraically closed because  $f(x)=x^2+1$ has no roots.
+\smallskip
+\item[(b)] The field $\C$ is algebraically closed: this is called the fundamental theorem of algebra.
+\smallskip
+\item[(c)] A finite field $k$ is never algebraically closed because  the polynomial \[f(x)=1+ \prod_{a\in k}(x-a)\] has no roots. Thus algebraically closed fields have infinitely many elements.
+\end{itemize}
+\end{example}
+
+\begin{remark}It can be proved that  any field $k$ can be embedded as a subfield $k\subset \bar{k}$  of a minimal algebraically closed field known as the \emph{algebraic closure} of $k$. It is defined by formally adjoining roots of all polynomials in $k[t]$. Thus for example $\C$ is the algebraic closure of $\R$, and the algebraic closure of $\Q$ is the field $\bar{\Q}\subset \C$ of algebraic numbers. 
+\end{remark}
+
+From now on we always assume that our field $k$ is algebraically closed. The reader will not lose much by taking $k=\C$.
+The following important result is called Hilbert's Nullstellensatz (the German means `Zeroes theorem').
+
+\begin{thm}Assume that $k$ is algebraically closed. Then
+\[I(V(I))=\sqrt{I}.\]
+In particular, if $I$ is a radical ideal then $I(V(I))=I$.
+\end{thm}
+
+We defer the proof to later in the course.
+
+\begin{example}
+Consider the ideal \[I=(x^2+y^2-1,y-1)\subset \C[x,y].\]
+The algebraic set $V=V(I)$ is the intersection of the circle of unit radius centered at the origin with the line $y=1$. It therefore consists of a single point $(0,1)$.
+ The element $x\in \C[x,y]$ lies in the ideal $I(X)$ since it vanishes on the set $V$. Thus by the Nullstellensatz we must have $x\in \sqrt{I}$. In fact
+\[x^2=x^2+y^2-1 - (y+1)\cdot (y-1)   \in I.\]
+But we claim that $x\notin I$. Indeed, if $x\in I$ we can  write
+\[
+x=p(x,y) \cdot (x^2+y^2-1) + q(x,y)\cdot (y-1)\]
+for some polynomials $p,q\in \C[x,y]$. Applying the homomorphism $\C[x,y]\to \C[x]$ obtained by setting $y=1$ gives
+$x=p(x,1)\cdot x^2$ which gives a contradiction. 
+\end{example}
+
+ The following important corollary is absolutely vital for algebraic geometry.
+
+\begin{cor}
+\label{cor}
+The  two maps $I,V$  give mutually-inverse  order-reversing bijections
+\[\xymatrix{ {\text{Radical ideals }I\subset R} \ar@/^1pc/[rrr]^{V} &&& {\text{Algebraic subsets }V\subset \A^n_k} \ar@/^1pc/[lll]^{I}}\]
+\end{cor}
+
+\begin{proof}
+ The Theorem shows that if  $I$ a radical ideal then $I(V(I))=I$. Now suppose that $V\subset \A^n_k$ is an algebraic subset. By definition we can write $V=V(I)$ for some ideal, which we can take to be radical since $V(I)=V(\sqrt{I})$. But now \[V(I(V))=V(I(V(I))=V(I)=V\]
+so the result is proved.
+\end{proof}
+
+It follows that we get a bijection between maximal ideals of $R$ and mimimal algebraic subsets of $\A^n_k$. Note that any point $p=(a_1,\cdots, a_n)\in \A^n_k$ is an algebraic subset since it is the vanishing locus of the ideal
+\[I(p)=(x_1-a_1, \cdots, x_n-a_n).\]
+Hence we get a bijection
+\[\xymatrix{ {\text{Maximal ideals }I\subset R} \ar@/^1pc/[rrr]^{V} &&& {\text{Points }p\in  \A^n_k} \ar@/^1pc/[lll]^{I}}.\]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Affine varieties}
+We have given geometric interpretations of radical and maximal ideals in polynomial rings above. The following definition allows a similar interpretation of prime ideals.
+
+\begin{defn}We say that an algebraic set $V\subset \A^n_k$  is irreducible if it cannot be written in the form $V=V_1\cup V_2$ with $V_i\subsetneq V$ being proper algebraic subsets.\end{defn}
+
+
+\begin{example}
+\begin{itemize}
+\item[(a)] The algebraic  set $V=V(xz,yz)\subset \A^3_\C$ is not irreducible since it is the union $V=V(z)\cup V(x,y)$ which are both proper algebraic subsets.\smallskip
+\item[(b)] The algebraic set $V=V(xy)\subset \A^2_\C$ is not irreducible since it is the union $V=V(x)\cup V(y)$ which are both proper algebraic subsets.\smallskip
+\end{itemize}
+\end{example}
+
+\begin{lemma}
+An algebraic set $V\subset \A^n_k$ is irreducible iff the ideal $I(V)\subset R$ is prime.
+\end{lemma}
+
+\begin{proof}
+Suppose first that $I=I(V)$ is prime. Suppose $V=V_1\cup V_2$ with $V_i\subsetneq V$. Put $I_i=I(V_i)$. Then $V(I)=V(I_1\cap I_2)$. Since $I$ and $I_1\cap I_2$ are both radical, the Nullstellensatz shows that $I=I_1\cap I_2$ and  with $I\subsetneq I_i$. 
+ Take $f_i\in I_i\setminus I$. Then $f_1 \cdot f_2\in I_1\cap I_2=I$ contradicting the statement that $I$ is prime.
+
+Conversely, suppose that $V$ is irreducible and take elements $f_i\in k[x_1,\cdots,x_n]\setminus  I$ such that $f_1\cdot f_2\in I$. Consider the algebraic subsets $V_i=V\cap V(f_i)=V(I+(f_i))$. Then $V_i\subsetneq V$. But if $p\in V$ then $f_1\cdot f_2(p)=0$ so either $p\in V_1$ or $p\in V_2$. Hence $V=V_1\cup V_2$. 
+\end{proof}
+
+Thus we get a final bijection
+\[\xymatrix{ {\text{Prime ideals }I\subset R} \ar@/^1pc/[rrr]^{V} &&& {\text{Irreducible algebraic subsets }V\subset \A^n_k} \ar@/^1pc/[lll]^{I}}\]
+It is fairly obvious that we can break any given algebraic set into irreducible pieces. More precisely we have
+
+\begin{lemma} Every algebraic subset $X\subset \A^n_k$ has a unique (up to reordering)  decomposition
+\[X=X_1 \cup X_2 \cup \cdots \cup X_r\]
+with each $X_i\subset \A^n_k$ an irreducible subset, and $X_i\not\subset X_j$ for $i\neq j$.
+\end{lemma}
+
+\begin{proof}
+Let us call  an algebraic subset $X\subset \A^n_k$  good if it can be written as a finite union of irreducible algebraic subsets. 
+Suppose $X_0\subset \A^n_k$  is bad. Then in particular $X_0$ is not irreducible, so we 
+ can write it as a union $X_0=X_1\cup Y$ with $X_1,Y\subsetneq X$. If $X_1$ and $Y$ are both good then obviously $X_0$ would also be good. Hence without loss of generality $X_1$ must be bad. We can repeat the argument and obtain a bad subset $X_2\subsetneq X_1$. In this way we obtain an infinite descending chain
+\[  \cdots \subsetneq X_3\subsetneq X_2 \subsetneq X_1 \subsetneq X_0\]
+ of bad subsets of $X_0$. But note that the ring $k[x_1,\cdots,x_n]$ is Noetherian.  So by the order-reversing bijection of Corollary \ref{cor} there can be no infinite descending chains of algebraic subsets of $\A^n_k$. This gives a contradiction.
+We have therefore shown that any algebraic subset $X$ is good, and hence has a decomposition as in the statement. We can easily ensure the minimality condition $X_i\not\subseteq X_j$ for $i\neq j$ by simply discarding any unnecessary factors.
+
+For uniqueness, suppose we have
+\[X= X_1\cup \cdots \cup X_n=Y_1 \cup \cdots \cup Y_m\]
+both satisfying the minimality condition. Then we have
+\[Y_1=(Y_1\cap X_1) \cup \cdots \cup (Y_1\cap X_n).\]
+Since $Y_1$ is irreducible we must have $Y_1\cap X_i=Y_1$ for some $i$. Relabelling we can therefore assume that $Y_1\subset X_1$.
+The same argument shows that we must also have $X_1\subset Y_i$ for some $i$. Since this implies that $Y_1\subset Y_i$ the minimality condition implies that $i=1$ and hence $X_1=Y_1$.
+Repeating this argument gives the result.
+\end{proof}
+
+
+
+
+
+
+
+\begin{example}
+Consider $I=(x^2-yz, xz-x)\subset \C[x,y,z]$ and the corresponding algebraic subset $V=V(I)\subset \A^3_\C$. Suppose that $(x,y,z)\in V$. Then the second equation shows that either $x=0$ or $z=1$. In the first case we must have either $y=0$ or $z=0$. In the second case we must have $y=x^2$. It is then easy to see that
+\[V=V(x,y)\cup V(x,z) \cup V(y-x^2,z-1).\]
+Let us label the subsets appearing on the right hand side $V_1$, $V_2$ and  $V_3$ respectively. Note that the minimality condition $V_i\not\subseteq V_j$ for $i\neq j$ is satisfied because the points $(0,0,2)$, $(0,1,0)$ and $(1,1,1)$ are contained only in $V_1$, $V_2$ and $V_3$ respectively. 
+
+To prove that the subsets $V_i$ are irreducible it is enough to show that the defining ideals are prime. For the first two this follows as in the last example. For the last we note that
+\[\C[x,y,z]/(y-x^2,z-1) \isom \C[x]\]
+via the unique $\C$-algebra homomorphism sending $(x,y,z) \mapsto (x,x^2,1)$. We have now proved that the irreducible components of $V$ are the subsets $V_1$, $V_2$ and $V_3$.
+\end{example}
+
+\begin{example}
+\label{twostages}
+Consider $I=(xz-y^2,x^3-yz)\subset \C[x,y,z]$ and the corresponding algebraic subset $V=V(I)\subset \A^3_\C$. Suppose that $(x,y,z)\in V$. Multipltying the first equation by $z$ and the second by $y$ and subtracting gives $xz^2=x^3y$. Hence either $x=0$ or $z^2=x^2y$. In the first case the first equation then implies that $y=0$. Conversely, if $x=y=0$ then both defining equations are satisfed. Thus we can write
+\[V=V(x,y) \cup V(xz-y^2,x^3-yz,z^2-x^2y).\]
+Let us call the two subsets appearing on the right hand side $V_1$ and $V_2$ respectively. Note that we don't have $V_1\subset V_2$ or $V_2\subset V_1$. Indeed $(0,0,1)\in V_1\setminus V_2$ and $(1,1,1)\in V_2\setminus V_1$.
+
+ The subset $V_1$ is the line $x=y=0$. This is easily seen to be irreducible geometrically, because it is a copy of the affine line $\A^1_\C$,  so the only algebraic subsets are finite sets of points. Algebraically we note that $\C[x,y,z]/(x,y)\isom \C[z]$. This shows firstly that the ideal $(x,y)$ is radical, which ensures that $I(V_1)=(x,y)$, and secondly  that $(x,y)=I(V_1)$ is prime,  and hence that the subset $V_1$ is irreducible.
+
+We will show later that the other subset  $V_2\subset V$ is also irreducible (see Example \ref{secondstage}). We will then have proved that the irreducible components of $V$ are $V_1$ and $V_2$.
+\end{example}
+
+One last definition
+
+\begin{defn}
+An \emph{affine variety} is an irreducible algebraic subset $X\subset \A^n_k$.
+\end{defn}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Co-ordinate ring}
+
+Let $X\subset \A^n_k$ be an algebraic set. The co-ordinate ring of $X$ is defined to be the quotient ring
+\[k[X]=k[x_1,\cdots,x_n]/I(X).\]
+Note that $k[X]$ is always reduced, since the ideal $I(X)$ is radical.
+
+\begin{remark}
+An algebraic subset $X\subset \A^n_k$  is a variety iff the co-ordinate ring $k[X]$ is an integral domain.
+\end{remark}
+
+We can think of the elements of $k[X]$ as functions on the algebraic set $X$.
+
+\begin{defn}
+Let  $X\subset \A^n_k$ be an algebraic set. A function $f\colon X \to k$ is called \emph{polynomial} if there is a polynomial $g\in k[x_1,\cdots, x_n]$ such that for all points $p=(a_1,\cdots,a_n)\in X$ we have $f(p)=g(a_1,\cdots,a_n)$.
+\end{defn}
+
+
+\begin{lemma}
+The set of polynomial functions on an algebraic subset $X\subset \A^n_k$  forms a  $k$-algebra  under pointwise operations. This algebra is isomorphic to the co-ordinate ring $k[X]$.
+\end{lemma}
+
+
+\begin{proof}
+Let $\Fun_{\operatorname{poly}}(X)$ denote the ring of polynomial functions $X\to k$ with pointwise operations and give it the obvious $k$-algebra structure, where the structure map sends an element $\lambda\in k$ to the corresponding constant function $X\to k$. There is then a $k$-algebra homomorphism $k[x_1,\cdots x_n]\to \Fun_{\operatorname{poly}}(X)$ sending a polynomial to the induced polynomial function on $X$. This homomorphism is surjective, and by definition its  kernel is $I(X)$. The result therfore follows from the isomorphism theorem.
+\end{proof}
+
+
+
+
+
+For any algebraic set $X\subset \A^n_k$ we have a correspondence
+
+\[\xymatrix{ {\text{Ideals }I\subset k[X]} \ar@/^1pc/[rrr]^{V} &&& {\text{Algebraic subsets }Y\subset X} \ar@/^1pc/[lll]^{I}}.\]
+Indeed, the two sides can be identified with 
+\[
+\xymatrix{ {\text{Ideals }I(X)\subset I\subset k[x_1,\cdots,x_n]} \ar@/^1pc/[rrr]^{V} &&& {\text{Algebraic subsets }Y \subset X\subset \A^n_k} \ar@/^1pc/[lll]^{I}}.\]
+Applying the Nullstellensatz we get
+
+\begin{thm}
+Let $k$ be an algebraically closed field, and $X\subset \A^n_k$ an algebraic subset. Then
+the  two maps $I,V$  give mutually-inverse  order-reversing bijections
+\[\xymatrix{ {\text{Radical ideals }I\subset k[X]} \ar@/^1pc/[rrr]^{V} &&& {\text{Algebraic subsets }V\subset X} \ar@/^1pc/[lll]^{I}}\]
+\end{thm}
+
+
+In particular, the points of $X$ (which are minimal algebraic subsets) correspond to maximal ideals of $k[X]$. Similarly, irreducible algebraic subsets $V\subset X$ correspond to prime ideals in the ring $k[X]$.
+
+
+
+\begin{example}
+Consider the algebra $R=\C[x,y]/(xy^2-x)$. To understand it geometrically we would like to view it as a co-ordinate ring of some algebraic subset. Write $I=(xy^2-x)\subset \C[x,y]$. The obvious thing to do is take $V=V(I)\subset \A^2_\C$. Then by the Nullstellensatz $I(V)=\sqrt{I}$ and the co-ordinate ring $\C[V]$ is $\C[x,y]/\sqrt{I}$. So the first thing is to check that the ideal $I$ is radical, so that $I=\sqrt{I}$.
+
+The easiest way to do that is to use the fact that all polynomial rings over fields are unique factorisation domains. For any $f\in \C[x,y]$ of positive degree we can write $f$  in the form
+\[f=g_1\cdot g_2 \cdots g_k,\]
+with  the polynomials $g_i\in \C[x,y]$ being \emph{irreducible}: that is, not the product of lower-order polynomials. The important fact is that  this decomposition of $f$ is basically unique: the factors $g_i$ appearing are unique up to reordering and multiplication by scalar factors.
+It is immediate from this  that $f\in I$ precisely if it is divisible by all three of  the polynomials $x$, $y-1$ and $y+1$. It is then clear that $f^n\in I \implies f\in I$ and hence $I$ is radical. 
+
+The maximal ideals of $R$ are in bijection with the points of the set $V$ which consists of the $y$-axis and the lines $y=\pm 1$. They are therefore of the form
+\[(x,y-b), \quad (x-a,y+1), \quad (x-a,y-1) \text{ with } a,b\in \C.\]
+The prime ideals which are not maximal correspond to irreducible subsets of $V$ which are not points. There are three such, namely
+\[(x), \quad (y-1), \quad (y+1).\] 
+These correspond to the $y$-axis, and the two lines $y=\pm 1$.
+\end{example}
+
+We equip an algebraic subset $X\subset \A^n_k$ with the  topology induced from the Zariski topology on $\A^n_k$. This means that the closed subsets $Y\subset X$ are precisely the algebraic subsets $Y\subset \A^n_k$ which are contained in $X$. 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Polynomial maps}
+
+We now start to consider maps between algebraic subsets.
+
+
+
+
+\begin{defn}
+Suppose $X\subset \A^{m}_k$ and $Y\subset \A^{n}_k$ are algebraic subsets. A map $\phi\colon X \to Y$ is called \emph{polynomial} if there are polynomials
+\[\phi_1\in k[x_1,\cdots,x_m], \quad \phi_n\in k[x_1,\cdots,x_m],\]
+such that
+\[\phi(a_1, \cdots, a_m)=\big(\phi_1(a_1,\cdots, a_m), \cdots, \phi_{n}(a_1,\cdots, a_m)\big).\]
+\end{defn}
+
+Note that we could equivalently view the $\phi_i$ as being polynomial functions on $X$ or as elements of the co-ordinate ring $k[X]$.
+
+\begin{examples}
+\label{cusp}
+\begin{itemize}
+\item[(a)] {\rm Cuspidal cubic.} Consider the polynomial map $\phi\colon \A^1_\C \to \A^2_\C$ given by $t\mapsto (t^2,t^3)$. Its image is contained in the algebraic subset $V=V(y^2-x^3)\subset \A^2_\C$. We thus get an induced map
+\[\phi\colon \A^1_\C \to V.\]
+This polynomial map is a bijection: indeed, given any point $(x,y)\in \A^2_\C$ satisfying $y^2=x^3$ we can take $t=\pm \sqrt{x}$ and choose the sign uniquely so that $t^3=y$.
+
+
+
+
+\smallskip
+
+
+\item[(b)] Consider the polynomial map $\phi\colon \A^2_\C \to \A^2_\C$ given by $(s,t)\mapsto (s^2,st,t^2)$.
+The image is the algebraic subset $V=(y^2-xz)\subset \A^3_\C$. Indeed, given any $(x,y,z)\in V$ we can take $s=\pm\sqrt{x}$ and $t=\pm \sqrt{z}$ and then, changing one of the signs if necessary, we have $st=y$. We thus get an induced polynomial map
+\[\phi\colon \A^2_\C \to V\]
+in which the inverse image of every point except the origin consists of 2 points $\pm(s,t)$. The inverse image of the origin $(0,0)$ is just $(0,0)$.
+\end{itemize}
+\end{examples}
+
+
+
+
+
+
+
+
+Note that if $f\colon Y\to k$ is a polynomial function on $Y$ then the composition $f\circ \phi$ is a polynomial function on $X$. This defines a $k$-algebra homomorphism $\phi^*\colon k[Y]\to k[X]$.
+
+
+
+
+\begin{prop}
+Suppose $X\subset \A^{m}_k$ and $Y\subset \A^{n}_k$ are algebraic subsets.
+Sending a regular map $\phi\colon X \to Y$ to the algebra homomorphism $\phi^*\colon k[Y]\to k[X]$ defines a bijection
+\[\big\{\text{Polynomial maps }X\to Y\big\} \to \big\{k\text{-algebra homomorphisms }k[Y]\to k[X]\big\}.\]
+\end{prop}
+
+\begin{proof}
+First of all, a polynomial map $\phi\colon X \to Y$ is determined by the corresponding algebra homomorphism $\phi^*\colon k[Y]\to k[X]$. Indeed, if we take the co-ordinate functions $y_i\in k[Y]$ then $\phi^*(y_i)=\phi_i\in k[X]$ is the $i$th component of the map $\phi$. Knowing all these clearly determines  the map $\phi$. This shows that the map $\phi\mapsto \phi^*$ is injective.
+
+To prove that $\phi\mapsto \phi^*$ is surjective, suppose we have an algebra map $h\colon k[Y]\to k[X]$. Set $\phi_i=h(y_i)$ and consider the resulting regular map $\phi\colon X \to Y$ given by
+\[\phi(a_1, \cdots, a_m)=\big(\phi_1(a_1,\cdots, a_m), \cdots, \phi_{n}(a_1,\cdots, a_m)\big).\]
+Then $\phi^*(y_i)=\phi_i=h(y_i)$. But $k[Y]$ is generated as an $k$-algebra by the elements $y_i$. Since both $h$ and $\phi^*$ are $k$-algebra maps it follows that they are  equal.
+\end{proof}
+
+\begin{example}
+\label{secondstage}
+Consider again the algebraic subset of Example \ref{twostages}
+\[X=V(xz-y^2,x^3-yz,z^2-x^2y)\subset \A^3_k.\]
+We claim that $X$ is the image of the morphism
+\[\phi\colon \A^1_k \to \A^3_k, \quad  t\mapsto (t^3,t^4,t^5).\]
+Indeed, given a point $(x,y,z)\in X$ note that $x=0 \implies y=z=0$. On the other hand, if $x\neq 0$, set $t=y/x\neq 0$ and $u=z/x\neq 0$. The defining relations become
+\[u=t^2, \quad x=t\cdot u, \quad  u^2=xt.\]
+These reduce to $u=t^2$ and $x=t^3$ and hence $(x,y,z)=(t^3,t^4,t^5)$. 
+
+Suppose now that $X=X_1\cup X_2$ with $X_1,X_2\subset X$ proper algebraic subsets. Then we can find $g_1\in I(X_1)\setminus I(X)$ and $g_2\in I(X_2)\setminus I(X)$. Then $g_1\cdot g_2\in I(X_1\cup X_2)=I(X)$.
+Consider the algebra homomorphism
+\[\phi^*\colon \C[x,y,z]\to \C[t], \quad (x,y,z)\mapsto (t^3,t^4,t^5).\]
+Note that $I(X)=\ker(\phi^*)$. Hence $\phi^*(g_1\cdot g_2)=0$. But since $\C[t]$ is an integral domain this means that  $\phi^*(g_i)=0$ for $i=1$ or $2$. But then $g_i\in I(X)$, a contradiction.
+\end{example}
+
+\begin{defn}
+Let $X\subset \A^n_k$ and $Y\subset \A^m_k$ be algebraic subsets. A polynomial map $X\to Y$ is said to be an \emph{isomorphism} if there is a polynomial map $\psi\colon Y\to X$ such that $\psi\circ \phi=\id_X$ and $\phi\circ \psi=\id_Y$.
+\end{defn}
+
+Note that $\phi\colon X \to Y$ being an isomorphism implies that $\phi^*\colon k[Y]\to k[X]$ is an isomorphism of $k$-algebras with inverse $\psi^*$. Thus isomorphic algebraic sets have isomorphic co-ordinate rings.
+
+\begin{example}
+The map $\phi\colon \A^1_\C \to V$ of Example \ref{cusp}(a) corresponds to the $k$-algebra homomorphism
+\[\phi^*\colon \C[V]=\C[x,y]/(y^2-x^3) \to k[\A^1_\C]=\C[t], \quad (x,y)\mapsto (t^2,t^3).\]
+Note that this is not an isomorphism: its image is $\C[t^2,t^3]\subset \C[t]$, which does not contain the element $t$.
+Thus $\phi$ is also not an isomorphism: there is no inverse polynomial map $\psi\colon V \to \A^1_\C$. Of course there is an inverse to $\phi$, as we discussed in Example \ref{cusp}(a), but it is not a polynomial map since it involves taking square-roots.
+\end{example}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\section{Field of fractions}
+
+Throughout this lecture $R$ is an integral domain. We construct a field $K(R)$ called the \emph{field of fractions} of $R$ together with an injective ring homomorphism \[q\colon R\to K(R).\] The basic example is when $R=\Z$; in that case  the resulting field of fractions $K(\Z)$ is the field $\Q$ of rational numbers. 
+
+Consider  pairs \[(r,s)\text{ with } r\in R\text{  and }s\in R\setminus \{0\}.\]
+You should think of such a  pair $(r,s)$ as standing for the fraction $r/s$.
+Two such pairs $(r_1,s_1)$ and $(r_2,s_2)$ are defined to be equivalent if
+\[r_1 \cdot s_2 - r_2 \cdot s_1=0.\]
+Note that for any nonzero $a\in R$ we have $(a \cdot r,a \cdot s)\sim (r,s)$.
+The relation $\sim$ is clearly symmetric and reflexive. To check transitivity, suppose we have
+\[r_1 \cdot s_2-r_2 \cdot s_1=0=r_2 \cdot s_3-r_3 \cdot s_2\]
+so that $(r_1,s_1)\sim (r_2,s_2)\sim (r_3,s_3)$. Multiplying the first relation by $s_3$ and the second by $s_1$ gives
+\[r_1 \cdot s_2 \cdot s_3=r_3 \cdot s_1 \cdot s_2.\]
+Since $R$ is an integral domain and $s_2\neq 0$ we can cancel $s_2$ and conclude that $r_1 \cdot s_3=r_3 \cdot s_1$ and hence $(r_1,s_1)\sim (r_3,s_3)$ as required.
+
+We denote by $K(R)$ the set of equivalence classes of such pairs $(r,s)$. 
+We define addition and multiplication in $K(R)$ by the rules
+\[(r_1,s_1) + (r_2,s_2)=(r_1\cdot s_2+r_2\cdot s_1,s_1\cdot s_2); \quad (r_1,s_1) \cdot (r_2,s_2)=(r_1 \cdot r_2, s_1\cdot  s_2).\]
+We should check that these are well-defined. Suppose then that $(r'_1,s'_1)\sim (r_1,s_1)$ so that $r'_1 \cdot s_1=r_1 \cdot s'_1$. Then we have
+\[(r'_1,s'_1)+(r_2,s_2)=(r'_1 \cdot  s_2+ r_2  \cdot s'_1 ,s'_1  \cdot s_2)\sim (r'_1  \cdot s_1 \cdot  s_2 + r_2 \cdot  s_1  \cdot s'_1, s_1  \cdot s'_1 \cdot  s_2) \]\[\sim (r_1 \cdot  s'_1 \cdot  s_2+ r_2  \cdot s_1 \cdot  s'_1, s_1 \cdot  s'_1  \cdot s_2)\sim (r_1  \cdot s_2 + r_2  \cdot s_1, s_1 \cdot  s_2)=(r_1,s_1)+(r_2,s_2)\]
+which shows that addition is well-defined. Similarly, for multiplication
+\[(r'_1,s'_1)\cdot(r_2,s_2)=(r'_1 \cdot  r_2  ,s'_1  \cdot s_2)\sim (r'_1   \cdot s_1  \cdot r_2, s_1 \cdot  s'_1  \cdot s_2) \]\[\sim (r_1  \cdot  s'_1 \cdot  r_2, s_1  \cdot s'_1 \cdot  s_2)\sim (r_1 \cdot   r_2 , s_1  \cdot s_2)=(r_1,s_1)\cdot(r_2,s_2)\]
+
+We must now check that the ring axioms hold. The zero and unit are the equivalence classes containing the pairs $0=(0,1)$ and $1=(1,1)$ respectively. To help with checking the axioms,
+note that given pairs $(r_1,s_1)$ and $(r_2,s_2)$ we can find representatives (i.e. pairs in the same equivalence classes) which have the same denominator (just like any two fractions can be put over the same denominator). Indeed
+\[(r_1,s_1) \sim (r_1  \cdot s_2, s_1 \cdot  s_2),  \quad (r_2,s_2)\sim (r_2 \cdot  s_1, s_1  \cdot s_2).\]
+ Addition then becomes very simple:
+\[(r_1,s)+(r_2,s)=(s \cdot (r_1+r_2),s)\sim (r_1+r_2,s).\]
+As an example, let us consider the distributive law
+\[a_1 \cdot (a_2+a_3)=a_1 \cdot a_2+a_1 \cdot a_3\]
+for any $a_1,a_2,a_3\in K(R)$. We can take representatives $a_i=(r_i,s_i)$ such that $s_2=s_3=s$. Then
+\[a_1 \cdot (a_2+a_3)=(r_1,s_1)\cdot[ (r_2,s)+(r_3,s)]=(r_1,s_1)\cdot(r_2+r_3,s)\]\[=(r_1 \cdot  (r_2+ r_3), s_1 \cdot  s)=(r_1,s_1) \cdot (r_2,s)+(r_1,s_1) \cdot (r_3,s)=a_1  \cdot a_2+a_1  \cdot a_3.\]
+The other axioms are pretty-much immediate, and we leave them to the reader.
+
+
+The resulting commutative ring is $K(R)$ is called the \emph{field of fractions} of $R$. To see that it is a field note that $(r,s)\sim (0,1)$ precsiely if $r=0$. Hence if $(r,s)$ represents a nonzero element of $K(R)$ then $r\neq 0$ and we have
+\[(r,s)\cdot (s,r) = (r \cdot s,r \cdot s)\sim (1,1).\]
+There is an obvious  ring homomorphism
+\[q\colon R \to K(R), \quad r\mapsto (r,1)\]
+ Note that $q$ is always injective, becasue its kernel consists of elements $r\in R$ such that $(r,0)\sim (0,0)$ and as above the only such element is $r=0$. 
+
+\begin{remark}
+We can view $R$ as a subring of a field $K(R)$. More precisely, the image of the map $q$ is isomorphic to $R$ and is a subring of $K(R)$.  Note that the assumption that $R$ was an integral domain was clearly necessary for this: any subring of an integral domain (in particular, of a field)  is also an integral domain.
+\end{remark}
+
+The field $K(R)$ has the following universal property:
+
+\begin{examples}
+\begin{itemize}
+\item[(a)] The field of fractions of $\Z$ is the rational numbers $\Q$. The localization map $\Z \to \Q$ is just the inclusion.
+\smallskip
+
+\item[(b)] If $R$ is a field then the field of fractions is just $R$ itself. More precisely, the homomorphism $q\colon R \to K(R)$ is an isomorphism. It is always injective, and when $R$ is a field it is also surjective, because for any pair $(r,s)$ we have $(r,s)\sim (r \cdot s^{-1},1)=q(r  \cdot s^{-1})$.
+\smallskip
+
+\item[(c)] Let $R=\R[x]$ be the ring of real polynomials. The field of fractions is the field of rational functions, i.e. expressions of the form
+\[f(x)/g(x), \quad f,g\in \R[x], g\neq 0.\]
+Note that any such expression gives a partially-defined function $\R \dashrightarrow \R$: it is undefined at the finite set of points where $g(x)=0$.
+\end{itemize}
+\end{examples}
+
+The field of fractions satisfies the following universal property:
+
+\begin{lemma}
+Suppose $f\colon R \to K$ is an injective ring homomorphism with $K$ a field.
+\[\xymatrix{ R \ar@{>}[rr]^{f} \ar@{>}[dr]_{q} && K \\ &K(R) \ar@{..>}[ur]_{\bar{f}}}.\]
+Then there is a unique ring homomorphism $\bar{f}\colon K(R) \to S$ such that $f=\bar{f}\circ q$.
+\end{lemma}
+
+\begin{proof}
+Note that for any element $(r,s)\in K(R)$ we can write
+\[(r,s)= (r,1)\cdot (1,s)= (r,1)\cdot (s,1)^{-1}=q(r) \cdot q(s)^{-1}.\]
+Therefore if we want to have  $f=\bar{f}\circ q$ there is no choice in defining $\bar{f}$: we must set \begin{equation}
+\label{xmas}\bar{f}(r,s)=f(r) \cdot f(s)^{-1}.\end{equation}
+Note that this makes sense: by assumption the map $f$ must be injective, so $s\neq 0$ ensures that $f(s)\neq 0$. This proves uniqueness. To prove existence, we first check that \eqref{xmas} gives a well-defined map of sets:
+\[(r_1,s_1) \sim (r_2,s_2) \iff r_1 \cdot  s_2 = r_2 \cdot  s_1 \]\[\implies f(r_1)  \cdot f(s_2)=f(r_2) \cdot f(s_1) \implies f(r_1) \cdot  f(s_1)^{-1}=f(r_2) \cdot  f(s_2)^{-1}.\]
+Finally we must check that $\bar{f}$ is a ring homomorphism. For this we take representatives with a common denominator, and observe that
+\[\bar{f}((r_1,s)+(r_2,s))=\bar{f}(r_1+r_2,s)=f(r_1+r_2) \cdot f(s)^{-1}\]\[=f(r_1) \cdot f(s^{-1})+f(r_2) \cdot f(s)^{-1}=\bar{f}(r_1,s)+\bar{f}(r_2,s).\]
+ Similarly
+\[\bar{f}((r_1,s_1)\cdot(r_2,s_2))=\bar{f}(r_1 \cdot r_2,s_1 \cdot s_2)=f(r_1) \cdot f(r_2) \cdot [f(s_1) \cdot f(s_2)]^{-1}\]\[=\bar{f}(r_1,s_1) \cdot \bar{f}(r_2,s_2).\]
+Finally $\bar{f}(1,1)=f(1) \cdot f(1)^{-1}=1$. This completes the proof.
+\end{proof}
+
+%An important point is that whenever a construction satisfies a universal property as above, it is unique up to isomorphism. Let's argue this through in this example. Suppose we had another definition of the field of fractions which also satisfied the universal property. Then we would get a unique map $g\colon S^{-1} r \to U$ and a unique map $h\colon U\to S^{-1} R$. We claim that $g$ and $h$ are isomorphisms. It will be enough to show that $h\circ g$ is the identity, and similarly $g\circ h$ is the identity. But this follows from the uniqueness part of the universality statement.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Function fields}
+
+Let us now consider an affine variety $X\subset \A^n_k$. The co-ordinate ring $k[X]$ is an integral domain, so we can consider the corresponding field of fractions.
+
+\begin{defn}
+The \emph{function field} $k(X)$ of an affine variety $X\subset \A^n_k$ is the field of fractions of the co-ordinate ring $k[X]$. The elements of $k(X)$  are called \emph{rational functions} on $X$.
+\end{defn}
+
+Thus a rational function  $f\in k(X)$ is an equivalence class of pairs $(g,h)$ with $g,h\in k[X]$ and $h\neq 0$. We usually write such an element as a fraction $f=g/h$. Note that there is a partially-defined function
+$X \dashrightarrow k$
+given by setting \[f(a_1,\cdots,a_n)=\frac{g(a_1,\cdots, a_n)}{h(a_1,\cdots, a_n)}\]
+ for points $(a_1,\cdots,a_n)\in X$ such that $h(a_1,\cdots,a_n)\neq 0$.
+
+\begin{defn}
+We say that the rational function $f$ is \emph{regular} at a point $(a_1,\cdots,a_n)\in X$ if there is a representative $(g,h)$ for $f$ such that $h(a_1,\cdots,a_n)\neq 0$.
+The \emph{domain of definition} of $f$ is the set of points $U\subset X$ at which $f$ is regular. It is denoted $\operatorname{dom}(f)$.
+\end{defn}
+
+Note that $f$ gives a well-defined function $f\colon \operatorname{dom}(f) \to k$. Indeed, for any point $(a_1,\cdots,a_n)\in \operatorname{dom}(f)$ we can find a representative $f=g/h$ with $h(a_1,\cdots,a_n)\neq 0$ and hence define $f(a_1,\cdots,a_n)$ as above. Moreover, if we have two such representatives, then the equivalence relation used in defining $k(V)$ ensures that they give the same value for $f$ at the point $(a_1,\cdots,a_n)$.
+When we use the notation \[f\colon X \dashrightarrow k\] we mean that $f$ is an element of the function field $k(X)$, and hence a well-defined function $f\colon \dom(f)\to k$, where $\operatorname{dom}(f)\subset X$ is the domain of definition of $f$.
+
+
+\begin{lemma}
+The domain of definition of a rational function $f\in k(X)$ is an open subset of $X$.
+\end{lemma}
+
+\begin{proof}
+Take a representative $f=g/h$ of $f$. It is well-defined on the open subset which is the complement of the algebraic subset $V(h)\subset X$. The domain of definition of $f$ is the union of these open subsets for all representatives of $f$. This is therefore an open subset of $X$.
+\end{proof}
+
+
+\begin{example}
+Consider the algebraic subset $X=V(y^2-x^3)\subset \A^2_\C$. The rational function $f=y/x$ is well-defined everywhere except at the origin $(0,0)\in X$. Suppose we take some other representative $f=p/q$ with $p,q\in k[X]$. Thus $q(x,y)\cdot y = x\cdot p(x,y)$. Suppose $q(0,0)\neq 0$ so that $q(x,y)$ has nonzero constant term. Then $x\cdot p(x,y)$ has a nonzero coefficient of $y$ which is impossible. Hence no representative of $f$ is well-defined at the origin.
+Hence $\dom(f)$ is the  subset $X\setminus \{(0,0)\}$, which is open because it is the complement of the point $\{0,0\}=V(x,y)$.
+\end{example}
+
+
+\begin{example}
+Consider the algebraic subset $X=V(xy-zw)\subset \A^4_\C$. 
+
+ Note that  the pairs $(z,x)$ and $(y,w)$ define the same element of $k(X)$ because $xy-zw=0\in k[X]$. Hence the two expressions $z/x$ and $y/w$ define the same element of the function field $k(X)$. This rational function $X \dashrightarrow k$ is regular on the open subset $X\setminus \{(0,y,z,0)\}$ because at any other point of $X$ either $x$ or $w$ is nonzero. Note that the particular representative $z/x$ is only well-defined on the smaller open subset $X\setminus \{(0,y,z,w)\}$. Thus to get the full domain of definition of the rational function one may need to consider various different representatives.
+\end{example}
+
+
+A rational function $f\in k(X)$  is called \emph{regular} if its domain of definition $\operatorname{dom}(f)$ is the whole of $X$.
+
+\begin{prop}
+Assume that $k$ is algebraically closed. Then a rational function  $f\in k(X)$ is 
+ regular iff it lies in the subring $k[X]\subset k(X)$.
+\end{prop}
+
+\begin{proof}
+Certainly if $f\in k[X]$ then $f$ is regular since the denominator is $1$.
+Conversely, assume $f$ is regular, and
+let $I\subset k[X]$ be the set of elements occuring as denominators  in some representative for $f$. More precisely
+\[I=\{0\}\cup \{h\in k[X]\setminus\{0\}: f=g/h\text{ with }g\in k[X]\}.\]
+It is not quite clear that this is closed under addition. Suppose $f=g_1/h_1$ and$f=g_2/h_2$ so that $h_2 g_1=h_1 g_2$. Then we claim that also $f=(g_1+g_2)/(h_1+h_2)$. Indeed
+\[(h_1+h_2) g_1= h_1g_1+h_2g_1=h_1 g_1+h_1g_2=h_1(g_1+g_2).\]
+Thus $I$ is an ideal. Consider the closed subset $V(I)\subset X$. At points of this set, all denominators for $f$ vanish, so $f$ is not well-defined. But $f$ is assumed to be regular, so $V(I)=\phi$. By the Nullstellensatz it follows that $\sqrt{I}=I(\emptyset)=k[X]$. It follows that $I=k[X]$ since $1\in \sqrt{I}\implies 1^n\in I\implies 1\in I$. Thus $1$ occurs as a denominator of $f$, which is to say $f$ has a representative $f=g/1$. This is precisely the statement that $f\in k[X]$.
+\end{proof}
+
+
+
+For this reason, polynomial maps $f\colon X \to k$ are also called \emph{regular maps}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+\section{Rational maps}
+
+
+
+Definitions, dominant maps and compositions, examples,  examples of birational maps.
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Localization}
+
+There is a more general version of the construction of the last lecture which is very useful. We start with an arbitrary commutative ring $R$. 
+
+\begin{defn}A subset $S\subset R$ is called \emph{multiplicative} if
+\[s_1, s_2 \in S \implies s_1 \cdot s_2 \in S,\]
+and $1_R\in S$.
+\end{defn}
+
+\begin{examples}
+\begin{itemize}
+\item[(a)] $R$ is an integral domain precisely if the set $S=R\setminus\{0\}$ is multiplicative;
+\smallskip
+\item[(b)] If $r\in R$ is any element then  $\{r^n \colon n\geq 0\}\subset R$ is multiplicative;
+\smallskip
+\item[(c)] if $I\subset R$ is a prime ideal then $R\setminus I$ is multiplicative. 
+\end{itemize}
+\end{examples}
+
+Note that (c) is in fact a special case of (a) corresponding to the zero ideal, which is prime precisely if $R$ is an integral domain.
+
+We now repeat the construction we had before, considering equivalence classes of pairs
+ \[(r,s)\text{ with } r\in R\text{  and }s\in S.\]
+There is one important difference: if we copy exactly the same definition for the equivalence relation the result will not be transitive. Instead we say that 
+two such pairs $(r_1,s_1)$ and $(r_2,s_2)$ are equivalent if there is an element $t\in S$ such that
+\[(r_1 s_2 - r_2 s_1)\cdot t=0.\]
+You should check that this is an equivalence relation. Note that in the integral domain case this would reduce to what we had before, since $t\in S=R\setminus\{0\}$ and we could cancel the $t$.
+
+The set of equivalence classes of pairs is denoted $S^{-1} R$.
+The rest of the construction goes as before, and we obtain a localised ring $S^{-1}R$. This time there is no reason for it to be a field, since the inverse of a pair $(r,s)$ would be $(s,r)$ which doesn't make sense if $r\notin S$. What is true is that if $s\in S$ then $Q(s)$ is a unit in $S^{-1} R$. Indeed, $Q(s)$ is rfepresented by the pair $(s,1)$, which has inverse $(1,s)$.
+
+As before there is a ring homomorphism $f\colon R \to S^{-1} R$. This time however it need not be injective: an element $r\in R$ is mapped to the equivalence class defined by the pair $(r,1)$ and
+\[(r,1)\sim 0 \iff \text{ there exists }t\in S \text{ such that } rt=0.\]
+
+\begin{examples}
+\begin{itemize}
+\item[(a)] Take $R=\Z$ and consider the prime ideal $I=(p)$ for some prime number $p$. Let $S=R\setminus I$, that is $S$ consists of all integers \emph{not} divisible by $p$. Then $S^{-1} R$ consists of fractions of the form
+\[\Z_{(p)} = \{r/s, \quad r,s\in \Z, p\notdivides s\}.\]
+This is the first step in the definition of the $p$-adic numbers.  Note that an element of $\Z_{(p)}$ is a unit precisely if $p\notdivides r$.
+\smallskip
+
+\item[(b)] Suppose $r\in R$ is nilpotent and take $S=\{r^n\colon n\geq 0\}$. In particular $0\in S$. Then all pairs are equivalent to $(0,1)$ so the localization $S^{-1}R$ has a single element, and hence  is the trivial ring.
+\smallskip
+\item[(c)] Laurent polynomials.
+\end{itemize}
+\end{examples}
+
+The universal property now becomes
+
+\begin{lemma}
+Suppose that $f'\colon R \to U$ is a ring homomorphism such that for any  $s\in S$ the element $f'(s)\in U$ is a unit. Then there is a unique ring homomorphism $g\colon S^{-1} R \to U$ such that $f'=g\circ f$.
+\end{lemma}
+
+
+
+Explain rational functions on $X$ regular on $D(fg)$ are precisely $k[X][f^{-1}]$. Birational map giving rise to isomorphic localized rings of this form.
+Explanation that $D(f)$ is actually a variety.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+
+
+
+
+
+
+\section{Projective varieties}
+
+If there is time remaining, we can discuss some of the following topics:
+
+Projective space, homogeneous ideals, projective varieties and the projective form of the Nullstellensatz.
+
+Affine pieces, quasi-projective varieties, regular and birational maps.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+
+
+Improvements:
+
+
+Introduce $k[x_1,\cdots,x_n]$ earlier. 
+
+Mention UFDs and show that $k[x_1,\cdots,x_n]$ are.
+
+Mention the evaluation map $k[x_1,\cdots,x_n]\to k$ earlier.
+
+Get to rational maps.

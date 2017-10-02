@@ -81,8 +81,8 @@ This is slightly more involved than the definition in the notes.  \emph{Why?}
   Some of the properties in the definition are implied by other properties.
   \begin{itemize}
   \item Since $S$ has additive inverses and $\varphi$ preserves addition, it automatically preserves $0$'s:
-    $$\varphi(0_R)=\varphi(0_R+0_R)=\varphi(0_r)+\varphi(0_r)$$
-    and add $-\varphi(0_r)$ to both sides.
+    $$\varphi(0_R)=\varphi(0_R+0_R)=\varphi(0_R)+\varphi(0_R)$$
+    and add $-\varphi(0_R)$ to both sides.
   \item Similarly, $\varphi$ must preserve additive inverses:
     $$\varphi(r)+\varphi(-r)=\varphi(r-r)=\varphi(0_R)=0_S$$
     and now add $-\varphi(r)$ to both sides.
@@ -139,7 +139,7 @@ How many such ring homomorphisms?
 Informally, we think of things as being isomorphic if they are ``the same''.  This is subtly and importantly different than being ``equal''.  
 
 \begin{definition}
-A ring homomorphism $\varphi:R\to S$ is a \emph{isomorphism} if there is another ring homomorphism $\varpsi:S\to R$ with $\varphi\circ\varpsi=\text{Id}_S, $\varpsi\circ\varphi=\text{Id}_R$.
+A ring homomorphism $\varphi:R\to S$ is a \emph{isomorphism} if there is another ring homomorphism $\varpsi:S\to R$ with $$\varphi\circ\psi=\text{Id}_S, \quad\psi\circ\varphi=\text{Id}_R$$
   \end{definition} 
 
 \begin{block}{A silly example}
@@ -189,7 +189,7 @@ To show two rings $R$ and $S$ are \emph{not} isomorphic, it is usually easiest t
 
 
 \begin{frame}{Sneak peek at next week}
-  From a ring homomorphism $\varphi:R\to S$, we define the kernel $\ker(\phi)$ and the image $\text{Im}(\vaprhi)$ by
+  From a ring homomorphism $\varphi:R\to S$, we define the kernel $\ker(\phi)$ and the image $\text{Im}(\varphi)$ by
 
   $$\text{Im}(\varphi)=\{s\in S : s=\varphi(r) \text{ for some } r\in R\}$$
     $$\ker(\varphi)=\{r\in R : \varphi(r)=0_S\}$$

@@ -14,7 +14,7 @@ Lectures are in the Hicks building, Thursday at 2 in Lecture Theatre C, and Thur
 
 Office hours are currently scheduled for:
  - Monday 2:30-3:30
- - Tuesday 11:30-12:30
+ - Tuesday 11:00-12:00
  
 They may change with input from the class later in the semester.  Always feel free to ask questions during or after class, in an email, or to set up a time to chat in person.
 

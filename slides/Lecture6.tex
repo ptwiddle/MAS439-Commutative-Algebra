@@ -71,8 +71,14 @@ To make multiplication well defined.
 
 As a set, the quotient ring $R/I$ is defined to be the set of equivalence classes under the relation $r\sim s$ if $r-s\in I$.
 
-If $r\in R$ any element, and $i\in I$ any element, we see that $r+i\sim r$.  Furthermore, if $s\sim r$, then $s-r=i\in I$, and so $s=r+i$.  Thus, we see that the equivalence classes of $\sim$ are exactly the cosets of $I$ -- sets of the form $r+I$.
+\begin{block}{Why?}
+We want $I$ to be be $\ker(p), p:R\to R/I$.  If $r-s\I$, the $p(r-s)=0$ and so $p(r)=p(s)$.  
+\end{block}
+\begin{block}{Another perspective: cosets}
+  The equivalence classes are exactly the same as the sets of the form
 
+  $$r+I=\{x\in R | x=r+i \text{ for some } i\in I\}$$
+  \end{block}
 
 \end{frame}
 

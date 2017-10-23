@@ -13,7 +13,7 @@ Prove that the ideals of $$R\times S$$ are precisely the sets of the form $$\{(x
 
 Ideals of $$\mathbb{Z}/2\times\mathbb{Z}/4$$ (2 marks)
 -------
-What are all the ideals of $$\mathbb{Z}/2\times \mathbb{Z}/4$$?  Which ones are reduced?  Prime?  Maximal?
+What are all the ideals of $$\mathbb{Z}/2\times \mathbb{Z}/4$$?  Which ones are radical?  Prime?  Maximal?
 
 
 
@@ -23,11 +23,11 @@ Question 2: Eisenstein integers as a quotient ring (4 marks)
 
 Let $$\omega=(-1+i\sqrt{3})/2$$, and let $$R=\{a+b\omega : a,b\in\mathbb{Z}\}$$.  In a previous problem set, we proved that $$R\subset \mathbb{C}$$ was a subring.  The ring $$R$$ is called the *Eisenstein Integers*.
 
-Let $$S=\mathbb{Z}[x]/(x^2+x_1)$$.  This week we prove that $$R\cong S$$.  Please use any results about $$R$$ from the previous homework that you want.
+Let $$S=\mathbb{Z}[x]/(x^2+x+1)$$.  This week we prove that $$R\cong S$$.  It may help to use some of the things we proved about $$R$$ in the previous homework...
 
 Bare hands (2 marks)
 ------
-First, let's do this with our "bare hands".  Find a distinct representative for each equivalence class of elements in $$\mathbb{Z}[x]/(x^2+x+1)$$.  Write down how to multiple and add elements of $$\mathbb{Z}[x]/(x^2+x+1)$$ in terms of these representatives.  Compare this with $$S$$ to see $$R\cong S$$.
+First, let's do this with our "bare hands".  Find a distinct representative for each equivalence class of elements in $$\mathbb{Z}[x]/(x^2+x+1)$$.  Write down how to multiple and add elements of $$\mathbb{Z}[x]/(x^2+x+1)$$ in terms of these representatives.  Compare this with $$R$$ to see $$R\cong S$$.
 
 Universal Property (2 marks)
 ------

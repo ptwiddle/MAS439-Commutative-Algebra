@@ -1,0 +1,244 @@
+\documentclass{amsart}
+\usepackage{mathpazo, microtype}
+\usepackage[all]{xy}
+\usepackage{microtype}
+\linespread{1.2}
+\theoremstyle{definition}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{dummy}{}[section]
+\newtheorem{theorem}[dummy]{Theorem}
+\newtheorem{lemma}[dummy]{Lemma}
+\newtheorem{example}[dummy]{Example}
+\newtheorem{corollary}[dummy]{Corollary}
+\newtheorem{definition}[dummy]{Definition}
+\newtheorem{remark}[dummy]{Remark}
+\newtheorem{proposition}[dummy]{Proposition}
+\newtheorem{observation}{Observation}
+\newtheorem{question}{Question}
+\newtheorem{conjecture}[dummy]{Conjecture}
+\newtheorem*{FalseHope}{False Hope}
+
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\proj}{\mathbb{P}}
+\newcommand{\core}{\mathbf{core}}
+\newcommand{\DP}{\mathcal{DP}}
+\newcommand{\SC}{\mathbf{SC}}
+\newcommand{\TD}{\mathbf{TD}}
+\newcommand{\OC}{\mathcal{OC}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\sk}{s\ell}
+\newcommand{\vac}{\mathbf{vac}}
+\newcommand{\inv}{\mathbf{inv}}
+\newcommand{\asm}{\mathbf{asm}}
+\newcommand{\aparts}{\mathbf{size}_a}
+\newcommand{\invsum}{\mathbf{invsum}}
+\newcommand{\INV}{\mathbf{INV}}
+\newcommand{\DES}{\mathbf{DES}}
+\newcommand{\des}{\mathbf{des}}
+\newcommand{\maj}{\mathbf{maj}}
+\newcommand{\siz}{\mathbf{siz}}
+\newcommand{\sqin}{\mathbf{sqin}}
+\newcommand{\LD}{\mathbf{LD}}
+\newcommand{\VS}{\mathbf{VS}}
+\newcommand{\cone}{\mathfrak{c}}
+\newcommand{\polyh}{\mathfrak{c}}
+\newcommand{\dominant}{\mathcal{D}}
+\DeclareMathOperator{\Sym}{Sym}
+
+
+
+
+
+\title{Category Theory Notes \\ First Draft
+}
+
+\begin{document}
+\maketitle
+
+\section{Definition and Examples}
+
+
+Category theory is known among mathematicians as ``abstract nonsense''.  This term is part dismissive, but also part endearing.  Category theory is certainly very abstract, and there's not a lot of meat to the definitions or theorems.  The value is from a couple of things.
+
+First, category theory is a language to compare and relate things that happen in different areas of math, a way to make vague ``these things look the same'' statements precise and rigorous.  It was first invented in algebraic topology -- it turns out there are multiple different ways to define homology, and on the surface they all look very different, but at the end of the day they seemed to do the same thing.  This is one reason we want to introduce category theory: in algebraic geometry, we will have two ways of looking at things, one algebraic, and one geometric, and these will turn out to be the same, though they'll look very different.  Category theory will give us a language to state this precisely and efficiently.
+
+Second, category theory is a philosophy, that ``things'' in isolation are not very interesting, and taht the interest lies in how they relate to other things.  This sounds hopelessly vague, but an example is universal properties.
+
+
+
+
+
+The definition of a category is a little long-winded, but really it doesn't say much at all, and is just a further abstraction of perhaps the most important cateogry $\textbf{Set}$, which intuitively consists of sets and functions between them.
+
+In general, a category has some things, which we call objects.  In $\textbf{Set}$, the objects are just sets.  A category also has some arrows between the things, which we call morphisms, or maps.  In $\textbf{Set}$, the morphisms between two sets $X$ and $Y$ are just the functions from $X$ to $Y$.  
+
+You also have to have a way to compose morphisms, just like you can compose functions between sets, and the morphisms have to satisfy some axioms that just say they behave like functions between sets behave.  
+
+\begin{definition}
+
+A \emph{category} $\mathcal{C}$ consists of 
+\begin{itemize}
+  \item  a collection of \emph{objects} $\textrm{Ob}(\mathcal{C})$
+ \item For each pair of objects $A,B\in\textrm{Ob}(\mathcal{C})$ a set of morphisms $\textrm{Hom}_{\mathcal{C}}(A,B)$
+\item A binary operation $\circ$ called composition of morphisms:
+$$\circ:\textrm{Hom}(B,C)\times\textrm{Hom}(A,B)\to\textrm{Hom}(A,C)$$
+$$(g,f)\mapsto g\circ f$$
+$$\xymatrix{ A \ar@/_2pc/[rr]_{g\circ f} \ar[r]^f &B \ar[r]^g &C}$$
+\item  For each object $A\in\textrm{Ob}(\mathcal{C})$ an identity morphism $1_A\in\textrm{Hom}_{\mathcal{C}}(A,A)$
+ \end{itemize}
+These things must satisfy:
+\begin{itemize}
+\item  Composition of morphisms is associative:  $(f\circ g)\circ h=f\circ (g\circ h)$ whenever $f,g,h$ are morphisms where this is defined; i.e., when
+$$f\in \mathrm{Hom}(A,B)\quad g\in \mathrm{Hom}(B,C)\quad h\in \textrm{Hom}(C,D)$$
+ \item The identity morphisms act as identities: for $f\in \textrm{Hom}(A,B)$, we have  $1_B\circ f=f=f\circ 1_A$
+\end{itemize}
+
+So it's a bit of a mouthful to write down, but it's not really saying much of anything.  From one viewpoint, the point of category theory is a philosophical one: that the things are less important than how they relate to each to each other.  The objects are less important than the morphisms between them.  As an example of this, recall the definition of ring isomorphism given in the notes: a ring homomorphism that was bijective.  This depended on talking about elements of the ring, in order to state that the map is surjective and injective.  On the other hand, in any category we can define:
+
+\begin{definition} Let $\mathcal{C}$ be a category.  A morphism $f:A\to B$ is called an \emph{isomoprhism} if there exists a morphism $g:B\to A$ with $f\circ g=1_B$ and $g\circ f=1_A$.
+\end{definition}
+
+Note that this definition doesn't talk $A$ and $B$ at all, really; it just says some things about morphisms.  It turns out that this can be very a useful and powerful way of thinking; one that hopefully you'll be able to see develop a bit over the rest of the term.
+
+Before first we should see a lot of examples of categories.
+
+\begin{example} The category $\mathbf{Set}$, whose objects are sets, and where $\textrm{Hom}(A,B)$ is the set of functions from $A$ to $B$.
+\end{example}
+
+Many -- perhaps most -- important examples are built on $\mathbf{Set}$. The objects in these categories will be sets with some kind of extra struction, and the morphisms will be functions between the sets that somehow ``preserve'' that structure.
+
+\begin{example}[Sets with extra structure]
+  \begin{itemize}
+\item The catgory $\textbf{Grp}$ whose objects are groups, and whose morphisms are group homomorphisms.
+\item The category $\mathbf{Ring}$ whose objects are rings, and whose morphisms are ring homomorphisms.
+\item For $k$ a field, the category $\mathbf{Vect}_k$, whose objects are vector spaces over $k$, and whose morphisms are $k$-linear maps
+\item The category $\mathbf{Top}$, whose objects are topological spaces, and whose morphisms are continuous maps  
+\item The category $\mathbf{Ab}$, whose objects are abelian groups, and whose morphisms are group homomorphisms
+\end{itemize}
+  \end{example}
+
+However, not every example of a category is built off of sets.  
+
+\begin{example}[Categories with one object]
+Suppose $\mathcal{C}$ is a category with just one object $C$.  Then the only  data of the category is the set of morphisms $\mathrm{Hom}(C,C)$.   Since all arrows have the same source and target, we can compose any two morphisms; this composition is associative, and has an identity.  Hence $\mathrm{Hom}(C,C)$ is a \emph{monoid}
+
+Similarly, given any monoid $M$, we can construct a category with one object by declaring $\textrm{Hom}(C,C)=M$.
+
+Finally if, $\mathcal{C}$ is a category with one object, and furthermore we have that every morphism is an isomorphism, then every element of $\textrm{Hom}(C,C)$ has an inverse, and so this monoid is in fact a group. 
+
+\section{Philosophy: importance of maps}
+
+  This philosophy is to understand an object in your category by how it relates to other objects in your category.  Roughly speaking, if you understand the maps into (and/or out of) an object in your category, you should understand the object.  This is sort of a functional way of thinking -- understanding an object based on what it does.
+
+In the homework this week, we will see ways of thinking about injections and surjections of sets without talking about elements of the sets.  Universal properties are another example of this way of thinking.  I wouldn't want to try to give a formal definition of what a universal property is, but the idea is that it defines an object of a category in terms of certain morphism in or out of a category.
+
+We will illustrate this with a specific familiar example: the product.  Suppose $X, Y,Z$ are sets.  A function from $X$ to $Y\times Z$ has to be of the form $x\mapsto (f(x), g(x))$ for some functions $f:X\to Y, g:X\to Z$.  In other words, a map to $Y\times Z$ is the same as a map to $Y$ and a map to $Z$.
+
+  It turns out that this property actually defines the product $Y\times Z$.  
+
+  Let $A,B\in \textrm{Ob}(\mathcal{C})$.  The \emph{product} of $A$ and $B$, sometimes denoted $A\times B$ or $A\prod B$, is an object $C\in \mathcal{C}$, together with two maps $\pi_1:A\times B\to A$ and  $\pi_2:A\times B \to B$, satisfying the following universal property:
+
+For any object $D\in\textrm{Ob}(\mathcal{C})$, and pair of morphisms $f:D\to A$ and $g:D\to B$, there is a unique morphism $h:D\to A\times B$ making the following diagram commute:
+$$\xymatrix{
+& C \ar[dl]_f \ar@{-->}[d]_{\exists !h} \ar[dr]^g \\
+A & A\times B \ar[l]^{\pi_1} \ar[r]_{\pi_2} & B}$$
+\end{example}
+
+
+For a given category $\mathcal{C}$, and two objects $A, B$, an object $A\times B$ satisfying this universal property may or may not exist.  However, if they exist, objects satisfying a universal property are almost always unique up to unique isomorphism for tautological reasons.  Thus, the universal property can be taken as the definition of the thing satisfying it.
+
+We illustrate this now with the product.
+
+\begin{lemma}
+Products are unique up to unique isomorphism. More explicitly, suppose that $A, B\in\textrm{Ob}(\mathcal{C})$ are arbitrary elements, and $X$ and $Y$ were two objects that each satisfied the universal property of $A\times B$, with structure maps $\pi_i^X$ and $\pi_i^Y$.  
+
+  Then there are unique isomorphisms $\varphi:X\to Y$ and $\psi:Y\to X$ that commute with the projection maps.
+\end{lemma}
+\begin{proof}
+
+Let us first construct maps $\varphi:X\to Y$ and $\psi:Y\to X$ that commute with the projection maps.
+
+Since $Y$ satisfies the universal property of $A\times B$, to give a map $\varphi:X\to Y$ is the same as giving maps $f:X\to A$ and $g:X\to B$.  But since $X$ satisfies the universal property of $A\times B$, and $X$ comes with maps $\pi_1^X:X\to A$ and $\pi_2^X:X\to B$.  Applying the universal property of $Y$ to these maps out of $X$ gives us a unique map $\varphi:X\to Y$ making the following diagram commute:
+
+$$\xymatrix{
+& X \ar[dl]_{\pi_1^X} \ar@{-->}[d]_{\exists !\varphi} \ar[dr]^{\pi_2^X} \\
+A & Y \ar[l]^{\pi^Y_1} \ar[r]_{\pi^Y_2} & B}$$
+
+Switching the roles of $X$ and $Y$ in the above argument, similarly we construct a unique map $\psi:Y\to X$ that makes the following diagram commute:
+
+$$\xymatrix{
+& Y \ar[dl]_{\pi_1^Y} \ar@{-->}[d]_{\exists !\psi} \ar[dr]^{\pi_2^Y} \\
+A & X \ar[l]^{\pi^X_1} \ar[r]_{\pi^X_2} & B}$$
+
+
+We now need to show that the maps $\varphi$ and $\psi$ we have defined are isomorphisms.  To see, for instance, that $\psi\circ\varphi=1_X$, we will use the universal property of $X$ one more time.  We begin by looking at the following diagram, made by pasting together the previous two diagrams:
+
+$$\xymatrix{
+& X \ar[dl]_{\pi_1^X} \ar[d]_{\varphi} \ar[dr]^{\pi_2^X} & \\
+A & Y \ar[l]^{\pi^Y_1} \ar[r]_{\pi^Y_2} \ar[d]_{\psi} & B \\
+& X \ar[ul]^{\pi_1^X} \ar[ur]_{\pi_1^X} &}$$
+
+Looking at the outside square and the composition of the two vertical mnaps, we see that the following diagram commutes:
+
+$$\xymatrix{
+& X \ar[dl]_{\pi_1^X} \ar[d]_{\psi\circ\varphi} \ar[dr]^{\pi_2^X} \\
+A & X \ar[l]^{\pi^X_1} \ar[r]_{\pi^X_2}  & B }$$
+
+This is exactly the diagram for the universal property of $X$, obtained with the maps $f=\pi_1^X$ and $g=\pi_2^X$.  Thus, we know that $\psi\circ\varphi$ is the *unique* such map making the diagram commute.  However, it is immediate that we could get another commutative diagram by putting $1_X:X\to X$ in the middle arrow, as such:
+
+$$\xymatrix{
+& X \ar[dl]_{\pi_1^X} \ar[d]_{1_X} \ar[dr]^{\pi_2^X} \\
+A & X \ar[l]^{\pi^X_1} \ar[r]_{\pi^X_2}  & B }$$
+
+Thus, $1_X$ and $\psi\circ\varphi$ both make the diagram commute; since $X$ satisfies the universal property of $A\times B$, there is a unique morphism making the diagram commute, and so we must have $\psi\circ\varphi=1_X$.
+
+Interchanging the roles of $X$ and $Y$ gives that $\varphi\circ\psi=1_Y.
+\end{proof}
+
+\section{Functors}
+The fun really begins when we start considering maps between categories, which are called functors.
+
+\begin{definition}Let $\mathcal{C},\mathcal{D}$ be categories.  A \emph{functor} $F:\mathcal{C}\to\mathcal{D}$ is a map between them that preserves the structure.  I.e.
+  \begin{itemize}
+    \item For each object $A\in\mathcal{C}$, an object $F(A)\in \mathcal{D}$.
+    \item For each morphism $f:A\to B$ a morphism $F(f):F(A)\to F(B)$.
+  \end{itemize}
+
+  We ask that the functor preserve identity morphisms and composition of morphisms.  This is actually called a \emph{covariant} functor; there are also \emph{contravariant} functors, that reverse the direction of the arrows.  I.e., for a contravariant functor $F:\mathcal{C}\to\mathcal{D}$, and $f:A\to B$ a morphism in $\mathcal{C}$, we have $F(f):F(B)\to F(A)$.
+
+  \begin{example}[Forgetful functors]One natural class of functors is to forget part of the structure on our objects.  For example, in algebra all of our objects are sets with some extra structure, and morphisms are functions that preserve the extra structure.  We could forget that extra structure, and just remember the sets and the functions between them.
+
+    So, for example, there's a forgetful functor $F:\textbf{Ring}\to\textbf{Set}$ that takes a ring $R$ to its set of elements, and takes a ring homomorphism $\varphi:R\to S$ to the function between $\varphi:R\to S$ between the underlying sets.
+
+    You don't necessarily have to forget all of the structure; for example:
+\begin{itemize}
+\item $F:\textbf{Ring}\to \textbf{Ab}$ that forgets the multiplication on $R$ and just remembers the additive group, a 
+\item $F:k\textbf{-alg}\to \textbf{Ring}$ that forgets the $k$-algebra structure
+\item $F:\ktextbf{-alg}\to \textbf{Vect}_k$ that forgets the multiplication and just remembers the addition and the multiplication by $k$.
+  \end{itemize}
+\end{example}
+
+  Variations of the next two functors are the heart of algebraic geometry, and we will spend the rest of the semester studying them.
+
+  \begin{example}For $X$ a set, and $k$ a ring, we've produced the $k$-algebra $Fun(X,k)$.  This is actually part of a contravariant functor $\textbf{Fun}_k:\textbf{Set}\to k\textbf{-alg}$.  To complete this into a functor, given a function $f:X\to Y$, we need to produce a ring homomorphism $\textbf{Fun}(f):\text{Fun}(Y,k)\to \text{Fun}(X,k)$.  There's really only one thing to do.  Suppose $g:Y\to k$ is a function.  Then we can precompose with $f$ to get $g\circ f:X\to k$.
+
+    To check this is a functor we just need to check it preserves the identity, and preserves multiplication.
+  \end{example}
+
+  \begin{example} Given a ring homomorphism $\varphi:R\to S$, and a prime ideal $\mathfrak{p}\in S$, we saw that $f^{-1}(\mathfrak{p})$ was a prime ideal in $R$.
+
+    This observation is really defining a contravariant functor $\textbf{Spec}:\textbf{Ring}\to\textbf{Set}$, that sends a ring $R$ to its set of prime ideals (often called its spectrum, and written $\text{spec}(R)$.  We see that given a ring homomorphism $f:R\to S$, we get a function $\textbf{spec}(f):\text{spec(S)}\to\text{Spec(R)}$ defined by $\textbf{Spec}(f)(\mathfrak{p})=f^{-1}(\mathfrak{p})$.\end{example}
+
+    
+  
+\end{document}
+
+
+
+
+

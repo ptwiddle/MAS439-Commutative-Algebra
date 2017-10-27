@@ -4,11 +4,15 @@ duedate: 2nd November
 layout: default
 ---
 
+Introduction
+======
+Completing the exercises this week does not require category theory at all.  However, the result they build to is best understood as something about the functor $$\textbf{Fun}_k:\textbf{Set}\to k\textbf{--alg}$$, in particular that it is *full*; so we discuss this briefly as motivation.
 
-The exercise this week is to walk you through proving something about the functor $$\textbf{Fun}_k:\textbf{Set}\to k\textbf{--alg}$$, in particular that it is *full*.
+A functor $$F:\mathcal{C}\to\mathcal{D}$$ is called *full* if it is surjective on the sets of morphisms; it is called *faithful* if it is injective on the set of morphisms.
 
-A functor $$F:\mathcal{C}\to\mathcal{D}$$ is called Full if it is surjective on the sets of morphisms.  That is, if $$F$$ is a contravariant functor from $$\mathcal{D}\to\mathcal{D}$$, we say $$F$$ is full if for any objects $$A,B$$ of $$\mathcal{C}$$, and any morphism $$g$$ from $$F(B)$$ to $$F(A)$$ in $$\mathcal{D}$$, there is a morphism $$f:A\to B$$ in $$C$$ with $$F(f)=g$$.
+More precisely, let $$F$$ be a contravariant functor from $$\mathcal{C}\to\mathcal{D}$$.  For any two objects $$A,B$$ of $$\mathcal{C}$$, the functor $$F$$ gives a function from $$Hom_{\mathcal{C}}(A,B)\to Hom_{\mathcal{D}}(F(B), F(A))$$.  We say $$F$$ is full if this map is surjective for every $$A, B$$, and we say $$F$$ is faithful if this map is injective for every $$A, B$$.  
 
+It turns out that being an isomorphism of categories is far too strong, the right notion of two categories being "the same" is called an equivalence of categories.  Any reasonable notion of a functor $$F$$ as being an equivalence should require it to be full and faithful; it turns out there's just one more condition.
 
 
 Question 1: Collecting some lemmas (6 marks)
@@ -28,10 +32,12 @@ An *idempotent* in a ring $$R$$ is an element $$e\in R$$ s.t. $$e^2=e$$.  A set 
 Question 2: Classifying algebra maps between $$\textrm{Fun}(X,k)$$. (4 marks)
 ===
 
-Again, assume $$k$$ an integral domain.  Let $$f:X\to Y$$ a map between finite sets.  We define a map $$f^*:\textrm{Fun}(Y,k)\to \textrm{Fun}(X,k)$$ by $$f^*(g)=g\circ f$$; that is, the value of $$f^*(g)$$ on a point $$x\in X$$ is $$g(f(x))$$.
+Again, assume $$k$$ an integral domain.  Let $$f:X\to Y$$ a map between finite sets.  We define a map $$f^*:\textrm{Fun}(Y,k)\to \textrm{Fun}(X,k)$$ by $$f^*(g)=g\circ f$$; that is, the value of $$f^*(g)$$ on a point $$x\in X$$ is $$g(f(x))$$.  In lecture, we called this map $$\textbf{Fun}(f)$$.  
 
 
-1. Prove $$f^*$$ is a morphism of $$k$$-algebras, and that every $$k$$-algebra morphism from $$\textrm{Fun}(Y,k)$$ to $$\textrm{Fun}(X,k)$$ is of the form $$f^*$$ for some $$f:X\to Y$$.  (Hint: Use question 1)
+1. Prove that $$f^*$$ is a morphism of $$k$$-algebras.
 
-2. Give an example of an integral domain $$k$$, finite sets $$X, Y$$ and a *ring* homomorphism $$\textrm{Fun}(Y,k)$$ to $$\textrm{Fun}(X,k)$$ that is *not* of the form $$f^*$$ for any $$f:X\to Y$$.
+2. Prove that every $$k$$-algebra morphism from $$\textrm{Fun}(Y,k)$$ to $$\textrm{Fun}(X,k)$$ is of the form $$f^*$$ for some $$f:X\to Y$$.  (Hint: This question is the hard one.  Suppose we have some $$k$$-algebra homomorphism $$\varphi:\textrm{Fun}(Y,k)\to\textrm{Fun}(X,k)$$.  From $$\varphi$$ we need to cook up a function $$f:X\to Y$$ with $$f^*=\varphi$$.  Use Question 1...)
+
+3. Give an example of an integral domain $$k$$, finite sets $$X, Y$$ and a *ring* homomorphism $$\textrm{Fun}(Y,k)$$ to $$\textrm{Fun}(X,k)$$ that is *not* of the form $$f^*$$ for any $$f:X\to Y$$.  (Hint: Maybe take $$X$$ and $$Y$$ to each be a point, and $$k=\mathbb{C}$$, and you may have an example at hand...)
 

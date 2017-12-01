@@ -26,7 +26,7 @@ Let $$k$$ be an algebraic closed field, and let $$X\subset \mathbb{A}^n_k$$ and 
 
 1. Prove that if $$\varphi$$ is surjective, then $$\varphi^*$$ is injective.
 2. Prove that if $$\varphi^*$$ is surjective, then $$\varphi$$ is injective.
-3. Show that the converses of point 1 and 2 don't hold. (Hint: consider the map $$V(xy-1)\to \mathbb{A}_k^1$$ 
+3. Show that the converses of point 1 and 2 don't hold. (Hint: consider the map $$V(xy-1)\to \mathbb{A}_k^1$$ given by $$(a,b)\mapsto a$$)
 
 Hints: Two points are different iff there is a polynomial that takes on different values at p and q.  Two polynomials are the same iff they take on the same value at every point.  For 3, one of the examples from the previous homework may help...
 

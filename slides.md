@@ -14,3 +14,4 @@ This page contains copies of any slides used in lecture.
 - [Lecture 7: Isomorphism Theorem](../slides/Lecture7.pdf)
 - [Lecture 8: Radical, Prime, Maximal](../slides/Lecture8.pdf)
 - [Lecture 9: Algebras](../slides/Lecture9.pdf)
+- [Lecture 19+20:Fields of fractions, function fields](../slides/Lecture19.pdf)

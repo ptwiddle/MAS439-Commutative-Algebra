@@ -9,7 +9,7 @@ Question 1: An almost inverse
 =======
 (2 points)
 
-In question 1 from the previous week, we constructed a surjective map $$\varphi:\mathbb{A}^1_{\mathbb{C}}\to X=V(y^2-x^3-x^2)$$.  Construct a rational map $$\psi:V\to\mathbb{A}^1$$ that is the inverse to this.  Where does $$\psi$$ fail to be regular?
+In question 1 from the previous week, we constructed a surjective map $$\varphi:\mathbb{A}^1_{\mathbb{C}}\to X=V(y^2-x^3-x^2)$$.  Construct a rational map $$\psi:X\dashrightarrow\mathbb{A}^1$$ that is the inverse to this.  Where does $$\psi$$ fail to be regular?
 
 
 
@@ -42,8 +42,9 @@ The first exercise is some practice in thinking categorically -- in thinking in 
 3. In the category of rings, it is true that surjections and epimorphisms are the same things, but these are no longer equivalent to retractions.  Give an example to show this -- i.e., give a surjective map of rings $$f:R\to S$$ that is not a retraction.  
 
 
-Question 3: Category Theory and fraction fields (2 points)
+Question 3: Category Theory and fraction fields 
 =====
+(2 points)
 
 Let $$\mathcal{C}$$ be the category whose objects are integral domains, and whose morphisms $$\varphi:R\to S$$ are just ring homomorphisms from $$R$$ to $$S$$.  Let $$\mathcal{F}$$ be the category whose objects are fields, and whose morphisms are ring homomorphisms between fields.
 

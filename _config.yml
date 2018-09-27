@@ -8,7 +8,7 @@ collections:
   problemsets:
     output: true
   bulletins:
-    output: tue
+    output: true
 github_username:  ptwiddle
 
 # Build settings

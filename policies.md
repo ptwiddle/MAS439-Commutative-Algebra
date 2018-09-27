@@ -8,22 +8,31 @@ This page contains all the essential policies for the course.
 
 Basic facts
 ------
-The lecturer for the first semester is Paul Johnson.  Email paul.johnson@sheffield.ac.uk, Office Hicks J6b.  The second semester lecturer is Evgeny Shinder.
 
-Lectures are in the Hicks building, Thursday at 2 in Lecture Theatre C, and Thursday at 4 in F28.  It's slightly awkward to have both lectures so close together; I'm going to experiment with having informal office hours in a coffeeshop in the hour in between.
+My contact information:
+
+ - Paul Johnson
+ - paul.johnson@sheffield.ac.uk
+ - Office Hicks J6b
+
+The second semester will be lectured by Anna Barbieri.
+
+Lectures:
+ - Thursday 2, F30
+ - Friday 10, F41
 
 Office hours are currently scheduled for:
- - Monday 2:30-3:30
- - Tuesday 11:00-12:00
+ - Tuesday 2-3
+ - Wednesday 10-11
  
-They may change with input from the class later in the semester.  Always feel free to ask questions during or after class, in an email, or to set up a time to chat in person.
+I picked these as time slots where there did not appear to be level 4 modules, so hopefully they will work for everyone, but if you'd like to come to office hours regularly and neither slot works for you let me know, and I may change with input from the class later in the semester.  Additionally, always feel free to ask questions during or after class, in an email, or to set up a time to chat in person.
 
 Marking
 ------
 
 There is no exam for this module.  Instead, there will be weekly assessed problem sets.
 
-Problem sets will be assigned in lecture every week, and will be due the next week at the beginning of the first lecture.  You can email the problem sets to me before lecture starts, hand a paper copy in at the *beginning* of lecture, or slip it under my door *before* lecture starts.  
+Problem sets will be assigned in lecture every week, and will be due the next week at the beginning of the Friday lecture.  You can email the problem sets to me before lecture starts, hand a paper copy in at the *beginning* of lecture, or slip it under my door *before* lecture starts.  
 
 You are allowed, and in fact encouraged, to meet in small groups to discuss the course, including the problem sets.  Working with friends is a great way to learn and is usually more fun.  ``Small'' here means two or three people; larger groups are not allowed, as it becomes too easy to just listen and not contribute.  
 

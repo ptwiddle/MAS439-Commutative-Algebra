@@ -2,14 +2,14 @@
 title: "MAS 439"
 email: "paul.johnson@sheffield.ac.uk"
 description: 
-baseurl: "/MAS439-Commutative-Algebra" # the subpath of your site, e.g. /blog/
+baseurl: "/MAS439-Commutative-Algebra/" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 collections:
   problemsets:
     output: true
   bulletins:
     output: true
-github_username:  ptwiddle
+github_username: ptwiddle
 
 # Build settings
 markdown: kramdown

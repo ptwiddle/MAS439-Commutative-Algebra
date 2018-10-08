@@ -18,7 +18,7 @@ My contact information:
 The second semester will be lectured by Anna Barbieri.
 
 Lectures:
- - Thursday 2, F30
+ - Thursday 2, LT6
  - Friday 10, F41
 
 Office hours are currently scheduled for:

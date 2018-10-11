@@ -1,5 +1,5 @@
 ---
-tite: Problem Set 3
+title: Problem Set 3
 duedate: October 19th
 layout: default
 ---
@@ -40,7 +40,7 @@ This exercise is some practice in thinking categorically -- in thinking in terms
 
 
 1. Prove that in any category $$\mathcal{C}$$, any retraction is an epimorphism.
-
-Note: The same proof, "with all the arrows reversed", proves that any section is a monomorphism. This is an example of duality in category theory.
 2. Prove that in the category of sets, with functions as morphisms, that the function $$f:A\to B$$ being a retraction and being an epimorphism are both equivalent to being a surjection.
-3. In the category of rings, it is true that surjections and epimorphisms are the same things, but these are no longer equivalent to retractions.  Give an example to show this -- i.e., give a surjective map of rings $$f:R\to S$$ that is not a retraction.  
+3. In the category of rings, it is true that surjections and epimorphisms are the same things, but these are no longer equivalent to retractions.  Give an example to show this -- i.e., give a surjective map of rings $$f:R\to S$$ that is not a retraction.
+
+Note: The same proof of Part 1, "with all the arrows reversed", proves that any section is a monomorphism. This is an example of duality in category theory.

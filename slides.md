@@ -10,5 +10,7 @@ This page contains copies of any slides used in lecture.
 - [Lecture 2: Homomorphisms](../slides/Lecture2.pdf)
 - [Lecture 3: Subrings](../slides/Lecture3.pdf)
 - Lecture 4: Ideals finished the end of the slides for Lecture 3, and then used the board.
+- [Lecture 5: Definition of quotient rings](../slides/Lecture5.pdf)
+- [Lecture 6: Examples of quotient rings, what's the Universal Property all about?)(../slides/Lecture6.pdf)
 
 

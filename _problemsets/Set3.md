@@ -39,6 +39,8 @@ This exercise is some practice in thinking categorically -- in thinking in terms
  - *section* if there exists $$r:B\to A$$ with $$r\circ f=1_A$$.
 
 
-1. Prove that in any category $$\mathcal{C}$$, any retraction is an epimorphism, and any section is a monomorphism. (Hint: The second part is the first part with "all the arrows reversed")
+1. Prove that in any category $$\mathcal{C}$$, any retraction is an epimorphism.
+
+Note: The same proof, "with all the arrows reversed", proves that any section is a monomorphism. This is an example of duality in category theory.
 2. Prove that in the category of sets, with functions as morphisms, that the function $$f:A\to B$$ being a retraction and being an epimorphism are both equivalent to being a surjection.
 3. In the category of rings, it is true that surjections and epimorphisms are the same things, but these are no longer equivalent to retractions.  Give an example to show this -- i.e., give a surjective map of rings $$f:R\to S$$ that is not a retraction.  

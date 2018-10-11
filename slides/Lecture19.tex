@@ -1,0 +1,165 @@
+\documentclass{beamer}
+
+\usepackage{amsmath, amssymb, hyperref, graphics, wasysym, tikz}
+\usetikzlibrary{cd}
+\usepackage{mathpazo}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\A}{\mathbb{A}}
+\title{MAS439 Lecture 19 \\ Fields of fractions, Function fields}
+
+\date{October 26th}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Going back to Primary school}
+    Remember how we construct the rational numbers $\Q$ out of the integers $\Z$:
+    \begin{itemize}
+    \item A rational number is an equivalence class of $(a,b)\in\Z\times\Z$, with $b\neq 0$ (we write $\frac{a}{b}$)
+    \item $\frac{a}{b}\sim \frac{c}{d}$ if $ad-bc=0$
+    \item $\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}$
+    \item $\frac{a}{b}\cdot \frac{c}{d}=\frac{a\cdot c}{b\cdot d}$
+\end{itemize}
+These operations make $\Q$ into a field. The inverse of $a/b$ is $b/a$, and $\Z$ sits inside $\Q$ as a subring, via $n\mapsto n/1$.
+
+But we can generalize this...    
+\end{frame}
+
+\begin{frame}{The main definition}
+Let $R$ be an \alert{integral domain}.  The \emph{field of fractions} of $R$, denoted $K(R)$, is the field where the elements consists of equivalence classes of the form $a/b$, with $a,b\in R, b\neq 0_R$ with  
+\begin{itemize}
+\item $\frac{a}{b}\sim \frac{c}{d}$ if $ad-bc=0$
+    \item $\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}$
+    \item $\frac{a}{b}\cdot \frac{c}{d}=\frac{a\cdot c}{b\cdot d}$
+\end{itemize}
+
+
+One has to check that $K(R)$ actually is a ring, and a field, which is a bit laborious but not difficult or enlightening.
+\end{frame}
+
+\begin{frame}{Examples}
+  \begin{block}{$K(\Z)=\Q$}
+    This is the example we used to motivate the definition of $K(R)$.
+  \end{block}
+  \begin{block}{Rational functions}
+    Recall that a function of one variable is called \emph{rational} if it is the ratio of polynomials, e.g.
+    $$\frac{x}{x^2-1}, \quad \frac{x^3+3x}{ix^2+x+.5}, \frac{x^2-x}{x-1}, \quad \frac{x}{1}$$
+
+    It is clear the set of rational functions form a field, sometimes denoted $\Q(t), \R(t), \C(t)$.
+    Then $\Q(t)=K(\Q(t))$.
+    \end{block}
+\end{frame}
+\begin{frame}{More examples - nonisomorphic rings with isomorphic fields of fraction}
+  \begin{block}{$K(k)\cong k$}
+    If $R$ is already a field, then $K(R)\cong R$.  So, we have $K(\Z)\cong \Q\cong K(\Q)$.
+  \end{block}
+  \begin{block}{But many more...}
+    But maybe we're in between somewhere; let $S=\Z[x]/(2x-1)$.  Then in $S$, we see that $x$ is acting as $1/2$, and in particular we see powers of two have inverses in $S$.   Then
+    $K(S)\cong\Q$. 
+  \end{block}
+
+  \end{frame}
+
+\begin{frame}{Why integral domains?}
+  In the definition of $K(R)$, we required that $R$ be an integral domain.  Why?
+
+  \begin{lemma} Suppose that $R$ is not an integral domain.  Then $K(R)$ is the trial ring.\end{lemma}
+  \begin{proof}
+    Let $uv=0$ in $R$ with $u,v\neq 0$.  Then in $K(R)$, we have
+    $$1=\frac{1}{u}\cdot u\cdot v\cdot \frac{1}{v}=0.$$
+    \end{proof}
+Even if $R$ isn't an integral domain, we can still add inverses to \emph{some} things...
+\end{frame}
+  
+
+\begin{frame}{Function Fields}
+
+  \begin{definition} Let $X\subset \A^n_k$ be an affine variety, so by definition $k[x]$ is an integral domain.  The \emph{function field} $k(X)$ of $X$ (sometimes called the \emph{coordinate field}), is the field of fractions of the coordinate ring of $X$, i.e.
+    $$k(X):= K(k[X])$$
+  \end{definition}
+
+  \begin{example} For $X=\A^n_k$, we have $k[\A^n_k]=k[x_1,\dots, x_n]$, and so $k(\A^n_k)=k(x_1,\dots, x_n)$, the ring of rational functions in $n$ variables.
+    \end{example}
+\end{frame}
+
+\begin{frame}{More examples: varieties with isomorphic function fields}
+  \begin{example} Let $X=V(xy-1)\subset \A^2_\C$.  Then we see that
+    $$\C[X]=\C[x,y]/(xy-1)\cong \C[x,x^{-1}]$$
+    I.e., the coordinate ring of $X$ is the ring of \emph{Laurent polynomials}.  Thus:
+    $$\C(X)\cong \C(t)\cong \C(\A^1_\C)$$
+\end{example}
+  \end{frame}
+
+\begin{frame}{More examples, continued}
+  \begin{example} As a less trivial example, let $Y=V(x^2-y^3)$ be the cuspidal cubic.
+
+    We have seen that $\C[Y]\cong \C[t^2, t^3]$.  But
+    $$K(\C[t^2, t^3])\cong \C(t)\cong \C[\A^1_\C]$$
+    since $t^3/t^2$ behaves just like $t$.  
+     \end{example}
+\end{frame}
+
+\begin{frame}{Elements of function fields as functions}
+  Remember that we viewed $k[X]$ as polynomial functions from $X\to k$.
+
+  Thus, if $f=g/h\in k(X)$ we may view $f$ as a partially defined function from $f\to k$, where if $a\in X$, we set $f(a)=g(a)/h(a)$, which makes sense as long as $h(a)=0$.
+
+  We write $f:X\dashrightarrow k$ to distinguish that the function may not be defined everywhere.
+  \begin{block}{Switching representatives}
+    In first and second year, we viewed $\frac{x^2-1}{x-1}$ and $x+1$ as different functions, as the first isn't defined at $x=1$.  But in $\C(x)$, these two functions are defined to be equal.  
+  \end{block}
+  \end{frame}
+\begin{frame}{Domains of rational functions}
+\begin{definition}
+  Let $f\in k(X)$ be a rational function.
+  \begin{itemize}
+  \item We say $f$ is \emph{regular} at $a\in X$ if \alert{there exists} a representative $g/h$ of $f$ with $h(a)\neq 0$.
+  \item The \emph{domain} of $f$, written $\text{dom}(f)$, is the set of points $U\subset X$ where $f$ is regular.
+  \end{itemize}
+  \end{definition}
+  Thus, a rational function $f\dashrightarrow k$ gives an actual function $f:\text{dom}(f)\to k$.
+  \end{frame}
+
+\begin{frame}{Example of finding the domain}
+  Let $X=V(y^2-x^3)$, and consider $f=y/x\in \C(X)$.  It is clear that $f$ is well defined everywhere except perhaps at the origin $(0,0)$.  We now show $(0,0)\notin \text{dom}(f)$.
+
+  Suppose otherwise; then $f$ has a representative $p/q$, with $q(0,0)\noteq 0$. Hence, $q$ has a nonzero constant term, say $q(0,0)=c$.
+
+  But since $y/x\sim p/q$, we have $yq(x,y)=xp(x,y)$.  But the $y$ term of the left hand side is $cy\neq 0$, while the right hand side has no $y$ term, contradiction.
+  
+  \end{frame}
+
+\begin{frame}{There may not be one best representative}
+  Consider $X=V(xy-zw)\subset \A^4_\C$, sometimes called the \emph{conifold}.
+
+  Note that in $\C(X)$ we have $z/x=y/w$.
+
+  Now $z/x$ is well defined as long as $x\neq 0$, while $y/w$ is well defined as long as $w\neq 0$.
+
+  \end{frame}
+
+\begin{frame}{Regular functions}
+  \begin{definition}
+    A rational function $f\in k(X)$ is called \emph{regular} if its domain of definition $\text{dom}(f)$is all $X$.
+  \end{definition}
+
+  \begin{lemma}Let $k=\overline{k}$.  Then $f\in k(X)$ is regular if and only if we have $f\in k[x]\subset k(X)$; that is, if $f$ has a representative of the form $f=g/1$.
+  \end{lemma}
+
+  \begin{proof}
+    Idea:\begin{itemize}
+    \item Show that $I(f)=0\cup\{h: \exists g/h=f\}$ is an ideal in $k[x]$.
+    \item Apply the Nullstellensatz to $I(f)$.
+    \end{itemize}
+  \end{proof}
+  \end{frame}
+    
+
+\end{document}

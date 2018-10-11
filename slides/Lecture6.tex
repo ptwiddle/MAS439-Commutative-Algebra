@@ -7,7 +7,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
 
-\title{MAS439 Lecture 5 \\ Quotient Rings}
+\title{MAS439 Lecture 6 \\ Examples of Quotient Rings \\ What's the Universal Property all about?}
 
 \date{October 12th}
 
@@ -17,140 +17,18 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Goal:}
+\begin{frame}{Last time, we introduced the quotient ring $R/I$}
+  \begin{definition} Let $R$ be a ring, and $I$ an ideal.  Then the ring $R/I$ is the set of equivalence classes of elements of $R$, where $r\sim s$ if $r-s\in I$.
 
-  Given a ring $R$ and an ideal $I\subset R$, construct a new ring $R/I$ and a homormophsim $p:R\to R/I$ so that
-  \begin{itemize}
-  \item $p$ is surjective
-  \item $\ker(p)=I$
-  \end{itemize}
+    Addition and multiplication are given by adding and multiplying representatives:
+    $$[r]+[s]=[r+s]$$
+    $$[r]\cdot [s]=[r\cdot s]$$
+    $$1_{R/I}=[1]$$
+  \end{definition}
 
-  \begin{block}{It's just like...}
-    \begin{itemize}
-    \item If $N\subset G$ a normal subgroup, we can make the quotient group $G/N$
-      \item If $W\subset V$ a sub-vector space, we can make the quotient vector spave $V/W$.
-    \end{itemize}
-\end{block}
+  \begin{lemma}The map $p:R\to R/I$ defined by $p(r)=[r]$ is a homomorphism.
+  \end{lemma}
   \end{frame}
-
-\begin{frame}{A first example: $\mathbb{Z}/n\mathbb{Z}$}
-We've seen that the ideals of $\mathbb{Z}$ are precisely the principal ideals $(n)=n\mathbb{Z}$.
-
-Thus $\mathbb{Z}/(n)=\mathbb{Z}/\mathbb{Z}$.
-
-\begin{block}{Something to keep in mind:}
-We often \emph{think} ``$\mathbb{Z}/n\mathbb{Z}=\{0,1,2,\dots, n-1\}$.''
-
-This isn't quite right, really:
-
-$$\mathbb{Z}/n\mathbb{Z}=\{k+n\mathbb{Z} \}$$
-
-We do this because awkward to think of ring elements as being themselves sets; and things in the second description have more than one name, i.e., $2+7\mathbb{Z}=-5+7\mathbb{Z}$.
-
-\end{block}
-
-
-\end{frame}
-
-
-\begin{frame}{Review of quotient groups}
-Recall that, given a normal subgroup $N \subset  G$, we have the quotient subgroup $G/N$.  The elements of $G/N$ are the \emph{cosets} of $N$ -- sets of the form $gN$.  Alternatively, elements of $G/N$ are equivalence classes, where $g\sim h$ if $gh^{-1}\in N$.
-
-\begin{block}{Why did $N$ need to be normal?}
-To make multiplication well defined.
-
-\end{block}
-
-\end{frame}
-
-
-
-
-
-\begin{frame}{Definition of $R/I$ as a set}
-
-As a set, the quotient ring $R/I$ is defined to be the set of equivalence classes under the relation $r\sim s$ if $r-s\in I$.
-
-\begin{block}{Why?}
-We want $I$ to be be $\ker(p), p:R\to R/I$.  If $r-s\I$, the $p(r-s)=0$ and so $p(r)=p(s)$.  
-\end{block}
-\begin{block}{Another perspective: cosets}
-  The equivalence classes are exactly the same as the sets of the form
-
-  $$r+I=\{x\in R | x=r+i \text{ for some } i\in I\}$$
-  \end{block}
-
-\end{frame}
-
-
-\begin{frame}{Operations on $R/I$}
-We have defined what $R/I$ is as a set; we now need to turn $R/I$ into a ring.  We define addition and multiplication on $R/I$ by adding/multiplying representatives from the equivalence classes.  That is, 
-
-$$[a]+[b]=[a+b]$$
-$$[a]\cdot [b]=[a\cdot b]$$
-
-\begin{block}{To do list:}
-\begin{itemize}
-\item Check that these operations are well defined
-\item Check that these operations satisfy the axioms of a ring
-\end{itemize}
-\end{block}
-
-\end{frame}
-
-\begin{frame}{Addition is well defined}
-Suppose we chose $a^\prime\sim a$ and $b^\prime \sim b$.  For addition to be well defined we need:
-$$[a^\prime+b^\prime]:=[a^\prime]+[b^\prime]=[a]+[b]=:[a+b]$$
-
-\begin{itemize}
-\item Since $a^\prime \sim a$, we have $a^\prime-a=i\in I$
-\item Since $b^\prime \sim b$, we have $b^\prime-b=i\in I$ 
-\item $(a^\prime+b^\prime)-(a+b)=(a^\prime-a)+(b^\prime-b)=i+j$
-\item Since $I$ closed under addition, $i+j\in I$, so $(a^\prime+b^\prime)\sim (a+b)$
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Multiplication is well defined}
-Suppose $$a^\prime-a=i\in I,\qquad b^\prime-b=j\in I$$  
-
-We need to show that $$a^\prime\cdot b^\prime-a\cdot b\in I$$
-
-Then:
-
-
-$$a^\prime\cdot b^\prime-a\cdot b=(a+i)\cdot (b+j)-a\cdot b=a\cdot j+b\cdot i+i\cdot j$$
-
-\begin{itemize}
-\item Since $i, j\in I$ and $I$ an ideal, we have $a\cdot i, b\cdot j, i\cdot j\in I$. 
-\item  Since $I$ is an ideal, their sum is also in $I$. 
-\item  Hence $a^\prime\cdot b^\prime\sim a\cdot b$ and multiplication is well defined.
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{$R/I$ satisfies the ring axioms}
-
-These proofs are all just symbol pushing.  For instance, to show that the distributive law holds, we have:
-
-\begin{align*}
-([a]+[b])\cdot [c]& =[a+b]\cdot[c] \\
-& =[(a+b)\cdot c] \\
-&=[a\cdot c+b\cdot c] \\
-&=[a\cdot c]+[b\cdot c]=[a]\cdot [c]+[b]\cdot [c]
-\end{align*}
-\end{frame}
-
-
-\begin{frame}{In words}
-
-To me, that last proof was rather unenlightening.
-
-The ring axioms are satisifed in $R/I$ because the operations $+, \cdot$ are defined in terms of lifting to representatives in $R$; and the axioms hold there.
-
-
-
-\end{frame}
 
 
 \begin{frame}[plain,c]
@@ -160,23 +38,25 @@ The ring axioms are satisifed in $R/I$ because the operations $+, \cdot$ are def
 \Huge
 
 \usebeamercolor[fg]{frametitle}
-$\twonotes$ Let's all go to the lobby $\twonotes$ \\ $\twonotes$ Let's all go to the lobby $\twonotes$ \\
-(2 minute intermission)
+Examples
 \end{center}
 
 \end{frame}
 
-\begin{frame}{Example: $\R[x]/(x^2)$}
+\begin{frame}{The problem with this definition:}
+  To talk about what the elements are, we need to understand what the equivalence classes are.
 
-First, we have to understand it as a set -- we want to give a \emph{unique} name to each element of $R/I$.  This is usually done by picking a representative from each coset in some systematic way.
+  \begin{block}{Usually we want to pick a unique representative from each class}
+    This is exactly like thinking:
+    $$\Z/n=\{0,1,\dots, n-1\}$$
+    instead of the strict definition:
+    $$\Z/n=\Big\{\{a+n\Z\} : a\in \Z\Big\}$$
+    \end{block}
+  \begin{block}{The division algorithm is a good way to do this}
+    \end{block}
 
-$I$ consists of linear combinations of monomials of degree 2 or bigger.  So every equivalence class contains exactly one linear term $a+bx$.  We see that 
 
-$$[a+bx]\cdot [c+dx]=[ac+adx+bcx+adx^2]=[ac+(ad+bc)x]$$
-
-
-\end{frame}
-
+  \end{frame}
 
 \begin{frame}{Example: $\C\cong\R[x]/(x^2+1)$}
 
@@ -207,6 +87,21 @@ which, if we replace $x$ with $i$, is exactly the formula for multiplying comple
 
 \end{frame}
 
+
+\begin{frame}{Example: $\R[x]/(x^2)$}
+
+First, we have to understand it as a set -- we want to give a \emph{unique} name to each element of $R/I$.  This is usually done by picking a representative from each coset in some systematic way.
+
+$I$ consists of linear combinations of monomials of degree 2 or bigger.  So every equivalence class contains exactly one linear term $a+bx$.  We see that 
+
+$$[a+bx]\cdot [c+dx]=[ac+adx+bcx+adx^2]=[ac+(ad+bc)x]$$
+
+
+\end{frame}
+
+
+
+
 \begin{frame}{Constructing $\mathbb{F}_4$}
 
 We claim that $R=\mathbb{F}_2[x]/(x^2+x+1)$ is a field with 4 elements.  
@@ -218,7 +113,61 @@ $$[x]\cdot [x+1]=[x^2+x]=[1]$$
 So every nonzero element has an inverse, and so $R$ is a field.
 \end{frame}
 
+\begin{frame}{A case where the division algorithm doesn't hold:}
+\begin{block}{Consider the ring $\Z[x]/(2x-1)$:}
+Can't divide $x$ by $2x-1$ and get a polynomial of lower degree.  
+\end{block}
+
+\begin{block}{What is this ring, intuitively?}
+  Since we're setting $2x-1=0$, then $x$ ``should be'' $1/2$.  So, we've taken the integers and added $1/2$.
+  \end{block}
+
+\begin{block}{How to make this intuition formal?}
+To really understand the ring $\Z[x]/(2x-1)$, will find two different systems ofunique representatives for the equivalence classes.
+\end{block}
+  
+  \end{frame}
 
 
+\begin{frame}{Method 1: Muddle along with division algorithm}
+  \begin{lemma}
+    For any polynomial $p(x)\in\Z[x]$, there is a unique polynomials $q(x)$ and a unique integer $r$, so that
+    \begin{itemize}
+    \item $p(x)=q(x)(2x-1)+r$
+    \item $q(x)=\sum a_n x^n$ with $a_i\in \{0,1\}$
+    \end{itemize}
+  \end{lemma}
+
+  \begin{proof}
+    \begin{itemize}
+    \item Existence
+    \item Uniqueness
+\end{itemize}
+    \end{proof}
+
+ Every number in $\Z[1/2]$ has a unique terminating binary expansion.
+
+
+  \end{frame}
+
+\begin{frame}{Method 2: Divide ``backwards''}
+
+  \begin{lemma} For any $p(x)\in\Z[x]$, there is a unique $q(x)\in\Z[x]$, $n\geq 0$, and $a\in\Z$, so that
+    $$p(x)=q(x)(1-2x)+ax^n$$
+and $a$ is odd if $n>0$.  
+  \end{lemma}
+  \begin{proof}
+    \begin{itemize}
+    \item Existence: divide backwards as power series to get remainder $ax^m$, if even, backtrack;
+    \item Uniqueness
+    \end{itemize}
+  \end{proof}
+
+  This is writing an element of $\Z[1/2]$ as $a/2^n$, and then if $a$ is even we can cancel some powers of 2.
+  
+
+  \end{frame}
+
+\begin{frame}{
 
 \end{document}

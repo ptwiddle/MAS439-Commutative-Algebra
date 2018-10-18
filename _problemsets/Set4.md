@@ -1,0 +1,37 @@
+---
+title: Problem Set 4
+duedate: 26th October
+layout: default
+---
+
+Question 1: Fixing some holes left in a previous homework (4 points)
+===
+
+A. Let $$R$$ and $$S$$ be rings.  Prove that any ideal $$K\subset R\times S$$ is of the form
+
+$$K=I\times J=\{(a,b): a\in I, b\in J\}$$
+
+for some ideals $$I\subset R, J\subset S$$.
+
+B. Suppose that $$R$$ and $$S$$ are principal ideal domains; prove that $$R\times S$$ is a principal ideal domain.
+
+
+Question 2: Ideals in $$\mathbb{C}[x,y]$$ (3 marks)
+======
+
+Determine whether each of the following ideals in $$\mathbb{C}[x,y]$$ is prime, maximal, and/or radical.
+
+1. $$I=(y-1)$$
+2. $$J=(x-\pi i, y)$$
+3. $$K=(x^2+y^2, x^2-y^2)$$
+
+Question 3: An easy universal property (3 points)
+====
+
+Let $$\mathcal{C}$$ be a category; an object $$A\in\mathcal{C}$$ is called the *initial* object of $$\mathcal{C}$$ if it satisfies the following universal property: For any object $$B\in\mathcal{C}$$, there is a unique morphism $$f_B:A\to B$$.
+
+Given a notion in category theory, one can create the *dual notion* by "reversing all the arrows".  For example, the dual notion of an initial object is that of a *terminal object*: $$C\in\mathcal{C}$$ is the terminal object if, given any $$B\in \mathcal{C}$$, there exists a unique morphism $$g_B:B\to C$$.
+
+1. Let $$\mathcal{C}$$ be any category.  Prove that if it exists, the initial object of $$\mathcal{C}$$ is unique up to unique isomorphism (i.e., if we had two final objects, they'd be isomorphic, in a unique way).  Similarly, prove that if it exists, the final object is unique up to unique isomorphism.  (Hint: all we know is that we have the universal property, so we're going to have to use that a few time.  The proof for terminal object should be "dual" to the proof of the initial object).
+2. Does the category of rings and homorphisms have an initial object?  A final object?  What are they?
+

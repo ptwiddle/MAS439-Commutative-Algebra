@@ -14,5 +14,5 @@ This page contains copies of any slides used in lecture.
 - [Lecture 6: Examples of quotient rings, what's the Universal Property all about?](../slides/Lecture6.pdf)
 - [Lecture 7: Isomorphism Theorem](../slides/Lecture7.pdf)
 - [Lecture 8: Maximal, prime, radical](../slides/Lecture8.pdf) Note: Anna used the board instead of slides
-
+- [Lecture 9: Algebras](../slides/Lecture9.pdf) 
 

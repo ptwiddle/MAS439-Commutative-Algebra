@@ -24,7 +24,7 @@ Let $$I=(x^2+y^2-2), J=(xy-1)\subset \mathbb{R}[x,y].$$
 1. Describe and draw the algebraic subsets $$X=V(I), Y=V(J)\subset\mathbb{A}_\mathbb{R}^2$$.
 2. Find $$X\cap Y$$, and verify that $$X\cap Y=V(I+J)$$.  
 3. Show that $$x-y\in I(X\cap Y)$$, but $$x-y\notin I\cap J$$, showing that $$I(X\cap Y)\neq I(X)+I(Y)$$ in general.
-4. Finally, show that $$(x-y)^2\in I$$.
+4. Finally, show that $$(x-y)^2\in I+J$$.
 
 Problem 3 (4 points)
 ====

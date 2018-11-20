@@ -31,14 +31,14 @@ and you need to find $$h(x,y)$$.
 
 Part 2. We outline a careful proof that $$(x-y)\notin (x^2+y^2-2, xy-1)$$, motivated with some geometric intution.  First, show that $$x+y=2$$ is the tangent line to both $$x^2+y^2-2$$ and $$xy-1$$ at $$(1,1)$$.
 
-Now, observe that if $$(x-y)=2z$$ (the two is for convenience), and $$x+y=2$$, then $$x=z+1$$ and $$y=z-1$$; making these change of variables should make our picture "look like" the nonradical ideal $$(z^2)$$.
+Now, observe that if $$(x-y)=2z$$ (the two is for convenience), and $$x+y=2$$, then $$x=z+1$$ and $$y=1-z$$; making these change of variables should make our picture "look like" the nonradical ideal $$(z^2)$$.
 
 Part 3.  Finally, prove $$(x-y)\notin (x^2+y^2-2, xy-1)$$ as follows: suppose that we have $$x-y=f(x,y)(x^2+y^2-2)+g(x,y)(xy-1)$$, apply the homomorphism $$\varphi:k[x,y]\to k[z]$$ defined by $$\varphi(x)=z+1, \varphi(y)=z-1$$, and obtain a contradiction.
 
 Bonus for fun: prove that $$(x-y)\in (x^2+y^2-2, x^3-y^5, y^3-x^5)$$.  You do *not* want to try to do this by hand; this problem is an excuse to take a look at a computer algebra system like Sage.
 
 
-Problem 3 A reducible algebraic set (3 points)
+Question 3 A reducible algebraic set (3 points)
 ====
 
-Let $$I=(x^2-yz, xy-zw)$$.  By considering the cases $$z=0$$ and $$z\noteq 0$$, prove that $$V(I)=V(x,z)\cup V(x^2-yz, xy-zw, y^2-xw)$$.  Then show that $$V(x,z)$$ and $$V(x^2-yz, xy-zw, y^2-xw)$$ are both proper subsets of $$V(I)$$ by finding points that are in one but not the other.
+Let $$I=(x^2-yz, xy-zw)$$.  By considering the cases $$z=0$$ and $$z\neq 0$$, prove that $$V(I)=V(x,z)\cup V(x^2-yz, xy-zw, y^2-xw)$$.  Then show that $$V(x,z)$$ and $$V(x^2-yz, xy-zw, y^2-xw)$$ are both proper subsets of $$V(I)$$ by finding points that are in one but not the other.

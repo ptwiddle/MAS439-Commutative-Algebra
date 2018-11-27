@@ -23,7 +23,9 @@ Consider the algebraic subset $$V=V(I)\subset \mathbb{A}_{\mathbb{C}}^3$$, where
 
 $$I=(xy,xz,yz)$$
 
-First, give an explicit description of the coordinate ring $$\mathbb{C}[V]$$; use this description to show that $$\mathbb{C}[V]$$ is reduced, and hence that $$I$$ is radical.
+~~First, give an explicit description of the coordinate ring $$\mathbb{C}[V]$$; use this description to show that $$\mathbb{C}[V]$$ is reduced, and hence that $$I$$ is radical.~~
+
+First, give an explicit description of $$R=\mathbb{C}[x,y,z]/I$$, using this description to show that $$R$$ is reduced, and hence that $$R\cong \mathbb{C}[V]$$.
 
 Then, give an example of an ideal $$J\subset\mathbb{C}[V]$$ satisfying each of the following:
 
@@ -31,9 +33,9 @@ Then, give an example of an ideal $$J\subset\mathbb{C}[V]$$ satisfying each of t
 2. $$J$$ is prime but not maximal
 3. $$J$$ is maximal
 
-Be sure to justify your answers both algebraically.
+Be sure to justify your answers ~~both~~ algebraically.
 
-Finally, for each of the ideals $$J\subset \mathbb{C}[V]$$, give a precise geometrical description of the corresponding algebraic subset $$V(J)\subset V$$.
+Finally, for each of the ideals $$J\subset \mathbb{C}[V]$$ that you found, give a precise geometrical description of the corresponding algebraic subset $$V(J)\subset V$$.
 
 
 

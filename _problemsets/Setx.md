@@ -13,10 +13,10 @@ Question 1: Finishing an example
 
 In class, we discussed the conifold variety $$X=V(xy-zw)\subset \mathbb{A}^4_{\mathbb{C}}$$, and the rational function $$r=y/z\in k(X)$$, and began discussing the domain of definition of $$r$$; in this exercise we rigorously prove exactly what the domain is.
 
-1. Recall the proof from class/the lecture notes that if $$p=(w,x,y,z)\in X$$, with $$z\neq 0$$ or $$x\neq 0$$, then $$p$$ is in the domain of $$f$$. Prove first that any point $$(0,0,0,0)\neq p\in X$$ has $$x=0$$ and $$z=0$$, then $$p$ is not in the domain of $$f$$.
+1. Recall the proof from class or the lecture notes that if $$p=(w,x,y,z)\in X$$, with $$z\neq 0$$ or $$x\neq 0$$, then $$p$$ is in the domain of $$f$$. Prove first that for any $$p\in X, p\neq (0,0,0,0)$$ with $$x(p)=0$$ and $$z(p)=0$$, then $$p$$ is not in the domain of $$f$$.
 2.  Finally, conclude that $$(0,0,0,0)$$ is not in the domain of $$f$$. 
 
-Hint: tools from class help for both of these.
+Hint: tools from class / lecture notes help for both of these;  Lemma 19.3 in the notes is equivalent to "the set where a rational function $$f\in k(X)$$ is *not* defined is an algebraic subset of $$X$$," which we proved in class.
 
 
 
@@ -26,7 +26,7 @@ Question 2: An almost inverse
 
 Recall that last week we considered the nodal *nodal cubic* $$X=V(y^2-x^3-x^2)$$, and the map $$\varphi:\mathbb{A}_{\mathbb{C}}^1\to X$$ given by $$\varphi(t)=(t^2-1, t^3-t)$$.
 
-1. Construct a rational function $$r\in K(X)$$ that is as close to an inverse to $$\varphi$$ as possible -- that is, $$r\varphi$$ and $$\varphi r$$ are both the identity wherever they are defined.
+1. Construct a rational function $$r\in k(X)$$ that is as close to an inverse to $$\varphi$$ as possible -- that is, $$r\varphi$$ and $$\varphi r$$ are both the identity wherever they are defined.
 2. Prove that the domain of $$r$$ is $$X\setminus \{(0,0)\}$$.
 3. Give an intuitive reason why $$r$$ can't be extended to the point $$(0,0)$$ in terms of the map $$\varphi$$.
 

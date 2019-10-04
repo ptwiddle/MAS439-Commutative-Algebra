@@ -1,33 +1,124 @@
 \documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\usepackage{amsmath, amssymb, hyperref, graphics, tikz}
 
-\usepackage{amsmath, amssymb, hyperref, graphics}
-\usepackage{mathpazo}
-\usepackage[usenames, dvipsnames]{color}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
-
-\title{Commutative Algebra MAS439 \\ Lecture 2: Homomorphisms}
-\author{Paul Johnson \\ \href{mailto:paul.johnson@sheffield.ac.uk}{paul.johnson@sheffield.ac.uk} \\ Hicks J06b}
-\date{September 28th}
+\newcommand{\N}{\mathbb{N}}
 
 \begin{document}
 
-\begin{frame}
-\titlepage
+\begin{frame}{Commutative Algebra Lecture 2}
+\begin{block}{Last time}
+\begin{itemize}
+    \item Course set-up: 5 homeworks
+    \item What and Why of normal subgroups (quotients!)
+    \item Homomorphisms preserve structure (will review)
+    \item Commutative Rings -- can add and multiply
+    \item Most important example: $\Z,\Q, \R,\C, \Z/n\Z, R[x]$. Others?
+    \end{itemize}
+\end{block}
+
+\begin{block}{Today}
+\begin{itemize}
+    \item Types of elements and rings
+    \item Test clicker system
+        \item Start homomorphisms (Section 4 of notes)
+\end{itemize}
+\end{block}
 \end{frame}
 
-\begin{frame}{Slogan: (Homo)-morphisms preserve structure}
+\begin{frame}{Looking into the future}
+\begin{itemize}
+\item The last HW question depends on Section 4
+\item Next session we will finish Section 4, motivate 5 and 6
+\item After that, roughly one section / lecture
+\end{itemize}
+
+\begin{block}{Before next week's lecture...}
+  \begin{itemize}
+  \item Read Sections 2-4 of the notes
+    \item Email me questions / comments you have about them
+    \end{itemize}
+\end{block}
+\begin{block}{The first Homework is due October 18th!}
+  \end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Basic definitions: types of elements}
+
+
+\begin{definition}
+We say $r\in R$ is a \emph{unit} if there exists an element $s\in R$ with $rs=1_R$
+\end{definition}
+
+\begin{definition}
+We say that $r\in R$ is a \emph{zero divisor} if there exists $s\in R, s\neq 0_R$ with $rs=0_R$
+\end{definition}
+
+\begin{definition}
+We say that $r\in R$ is \emph{nilpotent} if there exists some $n\in\mathbb{N}$ with $r^n=0_R$
+\end{definition}
+
+\begin{block}{Examples!}
+ \end{block}
+\end{frame}
+
+
+\begin{frame}{Basic definitions: Types of rings}
+
+\begin{definition}
+We say $R$ is \emph{field} if every nonzero element is a unit.
+\end{definition}
+By convention, the trivial ring is not a field.
+\begin{definition}
+We say $R$ is an \emph{integral domain} if it has no zero divisors.
+\end{definition}
+
+\begin{definition}
+We say that $R$ is \emph{reduced} if it has no nilpotent elements.
+\end{definition}
+
+\begin{block}{Examples!}
+\end{block}
+\begin{theorem}
+$R$ a field $\implies$ $R$ an integral domain $\implies$ $R$ is reduced
+\end{theorem}
+
+\end{frame}
+
+
+\begin{frame}[plain, c]
+
+\begin{center}
+
+\Huge
+
+\usebeamercolor[fg]{frametitle}
+Clicker session: ttpoll.eu
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Review: (Homo)-morphisms preserve structure}
 \begin{block}{Objects}  Often in math we study things that are sets with some extra sturcture (Groups, rings, fields, vector spaces, metric spaces, topological spaces, measure space, \dots).
 \end{block}
-\begin{block}{Morphisms}  In these situations, usually there is a notion of \emph{morphism} between these objects -- i.e., set maps that ``preserve the extra structure''
+\begin{block}{Maps or Morphisms}  In these situations, usually there is a notion of \emph{map} or \emph{morphism} between these objects -- these are functions that ``preserve the extra structure''
 \end{block}
   \begin{itemize}
   \item Group homomorphisms preserve addition, units, inverses
     \item Vector space morphisms (linear maps) preserve addition and multiplication by scalars
 \end{itemize}
-This is the beginnings of \emph{category theory}, which we'll talk about later.
+
 \end{frame}
 
 \begin{frame}{What do we mean by ``preserve structure''?}
@@ -48,7 +139,7 @@ This is the beginnings of \emph{category theory}, which we'll talk about later.
       \end{enumerate}
 \end{definition}
 
-\alert{Warning:} For us, preserve will always be easy like this; but it can be more different. 
+\alert{Warning:} For us, ``preserve the structure'' doesn't have to be this striaghtforward.
 \end{frame}
 
 
@@ -63,6 +154,9 @@ What is a ring homomorphism?
 \end{center}
 
 \end{frame}
+
+
+
 \begin{frame}{Ring Homomorphisms}
   \begin{definition}
     A ring homomorphism $\varphi:R\to S$ is a function so that
@@ -74,150 +168,23 @@ What is a ring homomorphism?
        \item $\varphi(rs)=\varphi(r)\varphi(s)$
       \end{enumerate}
 \end{definition}  
-This is slightly more involved than the definition in the notes.  \emph{Why?}
+This is slightly more involved than the definition in the notes, because some of these properties follow from others...
+\begin{block}{Which?}
+\end{block}
 \end{frame}
 
-\begin{frame}{A shortcut to ring homomorphisms}
-  Some of the properties in the definition are implied by other properties.
-  \begin{itemize}
-  \item Since $S$ has additive inverses and $\varphi$ preserves addition, it automatically preserves $0$'s:
-    $$\varphi(0_R)=\varphi(0_R+0_R)=\varphi(0_R)+\varphi(0_R)$$
-    and add $-\varphi(0_R)$ to both sides.
-  \item Similarly, $\varphi$ must preserve additive inverses:
-    $$\varphi(r)+\varphi(-r)=\varphi(r-r)=\varphi(0_R)=0_S$$
-    and now add $-\varphi(r)$ to both sides.
-  \end{itemize}
-
-So we only need to check that $\varphi$ preserves addition, multiplication, and multiplicative units.
-  \end{frame}
-
-
-\begin{frame}[plain,c]
+\begin{frame}[plain, c]
 
 \begin{center}
 
 \Huge
 
 \usebeamercolor[fg]{frametitle}
-Examples of ring homomorphisms.
+Examples of ring homomorphisms!
 \end{center}
 
 \end{frame}
 
-\begin{frame}{Non-examples}
-  \begin{itemize}
-  \item $\text{det}: M_{n\times n}(R)\to R$ is not a homomorphism: doesn't preserve addition
-  \item The map $f:\Z/6\Z\to \Z/6\Z$ defined by $f([n])=[4n]$ satisfies everything but doesn't preserve the identity
-    \item The map zero map $R\to S$ sending everything to $0_S$ is only a homomorphism if $S$ is the trivial ring; otherwise it doesn't preserve multiplicative identities
-\end{itemize}
-  \end{frame}
-\begin{frame}[plain,c]
 
-\begin{center}
-
-\Huge
-
-\usebeamercolor[fg]{frametitle}
-Is there a ring homomorphism $\varphi:\Z\to M_{3\times 3}(\R)$? \\~\\
-
-How many such ring homomorphisms?
-\end{center}
-
-\end{frame}
-
-\begin{frame}{A useful lemma}
-
-  \begin{lemma} For any ring $R$, there is a unique ring homomorphism $f:\Z\to R$.
-  \end{lemma}
-
-  To prove the lemma, we need to write down a ring homomorphism $f:\Z\to R$ to show there \emph{is} one. \\~\\
-
-  Then, we need to prove that any other ring homomorphism \emph{has} to be the same as $f$ (uniqueness).
-  \end{frame}
-
-\begin{frame}{Isomorphisms}
-Informally, we think of things as being isomorphic if they are ``the same''.  This is subtly and importantly different than being ``equal''.  
-
-\begin{definition}
-A ring homomorphism $\varphi:R\to S$ is a \emph{isomorphism} if there is another ring homomorphism $\varpsi:S\to R$ with $$\varphi\circ\psi=\text{Id}_S, \quad\psi\circ\varphi=\text{Id}_R$$
-  \end{definition} 
-
-\begin{block}{A silly example}
-  Let {\color{red} $R$} be a copy of {\color{red} $\Z$} painted {\color{red}red}.
-  Let {\color{green}$S$} be a copy of {\color{green}$\Z$} painted {\color{green}green}.
-
-  Then {\color{red}$R$} and {\color{green}$S$} are isomorphic, but they aren't equal.
-  \end{block}
-
-\end{frame}
-
-\begin{frame}{A more serious example}
-  Let $R$ be a commutative ring, and for a set $X$ recall that $\text{Fun}(X,R)$, the set of functions from $X$ to $R$, is a ring under pointwise addition and multiplication.  Let $\{x\}$ be a one element set.
-
-  \begin{block}{$\text{Fun}(\{x\}, R)\cong R$} To prove this, we define $\varphi:\text{Fun}(\{x\}, R)\to R$ by $\varphi(f)=f(x)$. \\~\\
-
-    For $r\in R$ let $g_r\in\text{Fun}(\{x\}, R)$ be defined by $g_r(x)=r$. Then we define $\psi:R\to\text{Fun}(\{x\}, R)$ by $\psi(r)=g_r$. \\~\\
-
-    Then $\phi$ and $\psi$ are inverses to each other.
-    \end{block}
-  
-Similarly, $\text{Fun}(\{x,y\},R)\cong R\times R$.
-  \end{frame}
-
-\begin{frame}{Another viewpoint on isomorphisms}
-  \begin{lemma} If $\varphi:R\to S$ is a bijective homomorphism, then $\varphi$ is an isomorphism.
-  \end{lemma}
-
-  \begin{proof} Since $\varphi$ is a bijection, we know from first year that there is an inverse map $\varphi^{-1}$ of sets, we need to show that $\varphi^{-1}$ is a ring homomorphism.  \\~\\
-
-    We need to check... (See board and/or notes)
-
- \end{proof}
-  
-\end{frame}
-
-\begin{frame}{Nonisomorphic rings}
-  Any \emph{reasonable} property of rings (i.e., defined in terms of properties of the ring structure, and not in terms of something extraneous like being {\color{green}green} or {\color{red}red}) are invariant under isomorphism.
-\\~\\
-So, for example, if $R$ and $S$ are isomorphic, and $R$ is an integral domain, than so is $S$.
-\\~\\
-To show two rings $R$ and $S$ are \emph{not} isomorphic, it is usually easiest to find something true about one ring but not the other.
-
-
-\begin{lemma} None of the rings $\Z/n\Z, \Z, \Q,\R$ or $\C$ are isomorphic to each other. \end{lemma}
-  \end{frame}
-
-
-\begin{frame}{Sneak peek at next week}
-  From a ring homomorphism $\varphi:R\to S$, we define the kernel $\ker(\phi)$ and the image $\text{Im}(\varphi)$ by
-
-  $$\text{Im}(\varphi)=\{s\in S : s=\varphi(r) \text{ for some } r\in R\}$$
-    $$\ker(\varphi)=\{r\in R : \varphi(r)=0_S\}$$
-  
-
-Though the kernel and the image are both subsets of a ring, it turns out they are very different types of subsets.
-
-\begin{itemize}
-\item The kernel is the prototypical (only!) example of an \emph{ideal}
-  \item The image is the prototypical (only!) example of a \emph{subring}
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{A simple use of image and kernel}
-
-
-  \begin{lemma} Let $\varphi:R\to S$ a ring homomorphism.  Then
-
-    \begin{enumerate}
-    \item $\varphi$ is surjective if and only if $\text{Im}(\varphi)=S$
-      \item $\varphi$ is injective if and only if $\ker(\varphi)=\{0_R\}$
-      \end{enumerate}
-\end{lemma}
-
-\begin{block}{Proof}
-\begin{center} ? ? ? \end{center}
-\end{block}  
-  \end{frame}
 
 \end{document}

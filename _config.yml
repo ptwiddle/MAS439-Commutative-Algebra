@@ -5,8 +5,6 @@ description:
 baseurl: "/MAS439-Commutative-Algebra" # the subpath of your site, e.g. /blog/
 url: # the base hostname & protocol for your site
 collections:
-  bulletins:
-    output: true
 github_username: ptwiddle
 
 # Build settings

@@ -1,0 +1,11 @@
+\frametitle{Important examples of $k$-algebras}
+
+\begin{itemize}
+\item $k[x]$ is a $k$-algebra, with $\phi:k\to k[x]$ the inclusion of $k$ as constant polynomials.
+\item $\C$ is an $\R$-algebra, with $\phi:\R\to \C$ the inclusion
+\item $\C$ is also a $\C$-algebra, with $\phi:\C\to \C$ the identity
+
+\item The ring $\textrm{Fun}(X,R)$ of functions is an $R$-algebra, with $\phi:R\to\textrm{Fun}(X,R)$ the inclusion of $R$ as the set of constant functions
+
+\item As there is a unique homomorphism $\phi:\Z\to R$ to any ring $R$, we see that any ring $R$ is a $\Z$-algebra in a unique way -- that is, rings are the same thing as $\Z$ algebras.
+\end{itemize}

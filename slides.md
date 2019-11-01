@@ -11,3 +11,5 @@ This page contains copies of any slides used in lecture.
 - [Lecture 3: Homomorphisms](../slides/Lecture3.pdf) -- [Print](../slides/print_Lecture3.pdf)
 - [Lecture 4: Subrings](../slides/Lecture4.pdf) -- [Print](../slides/print_Lecture4.pdf)
 - [Lecture 8: Isomorphism Theorem](../slides/Lecture7.pdf)
+- [Lecture 9: Maximal, Prime, Radical](../slides/PrimeMaxRad.pdf)
+- [Lecture 10: $$k$$-algebras](../slides/Algebras.pdf)

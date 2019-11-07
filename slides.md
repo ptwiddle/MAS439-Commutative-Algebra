@@ -13,3 +13,4 @@ This page contains copies of any slides used in lecture.
 - [Lecture 8: Isomorphism Theorem](../slides/Lecture7.pdf)
 - [Lecture 9: Maximal, Prime, Radical](../slides/PrimeMaxRad.pdf)
 - [Lecture 10: $$k$$-algebras](../slides/Algebras.pdf)
+- [Lecture 11: Polynomials + Noetherian](../slides/Polynomials.pdf)

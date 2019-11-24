@@ -1,0 +1,40 @@
+\documentclass{amsart}[12pt]
+
+
+
+\title{MAS439 Commutative Algebra \\ Problem set 4}
+\author{Due Tuesday, December 10th}
+\begin{document}
+\maketitle
+
+
+\section{Using Universal Properties}
+
+It is tedious to completely check that a given set map is a homomorphism by hand, but if we use the universal properties of polynomial rings and quotient rings we can construct maps we know are homomorphisms without doing the labor of checking it.  Using both of these universal properties, carefully prove that:
+
+\begin{enumerate}
+ \item $\mathbb{C}[z]$ is isomorphic to $\mathbb{C}[x,y]/(y-3)$
+\item For any ring $k$, $k[x]/(x^2-x)$ is isomorphic to $k\times k$.
+\end{enumerate}
+(The $k$-algebra structure on $k\times k$ is $\varphi(r)=(r,r)$)
+
+In each case you should use the universal properties to construct a homomorphism of algebras from one algebra to the other, and then prove your homomorphism is an isomorphism.
+
+\section{``Bad'' intersections}
+
+Let $I=(x^2+y^2-2), J=(xy-1)\subset \mathbb{R}[x,y].$
+
+\begin{enumerate}
+  \item Describe and draw the algebraic subsets $X=V(I), Y=V(J)\subset\mathbb{A}_\mathbb{R}^2$.
+\item Find $X\cap Y$, and verify that $X\cap Y=V(I+J)$.  
+\item Show that $x-y\in I(X\cap Y)$, but $x-y\notin I + J$.  This verifies that that $I(X\cap Y)\neq I(X)+I(Y)$ in general.
+\item Finally, show that $(x-y)^2\in I+J$.  
+\end{enumerate}
+\section{Proving the Nullstellensatz in dimension one}
+Recall that $r$ is a root of a polynomial $f$ if $f(r)=0$, and that a field $k$ is algebraically closed if every nonconstant polynomial $f\in k[x]$ has a root $r\in k$.
+
+\begin{enumerate}
+\item Prove that if $k$ is algebraically closed, and $f\in k[x]$, then $f$ factors completely into linear factors $f=a(x-r_1)(x-r_2)\cdots(x-r_n)$.  (Hint: division algorithm and induction)
+\item Prove the Nullstellensatz in dimension 1: if $k$ is algebraically closed and $I\subset k[x]$, then $I(V(I))=\sqrt{I}$.
+\end{enumerate}
+\end{document}

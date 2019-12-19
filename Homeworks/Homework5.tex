@@ -1,0 +1,43 @@
+\documentclass{amsart}[12pt]
+
+\newcommand{\C}{\mathbb{C}}
+
+\title{MAS439 Commutative Algebra \\ Problem set 5}
+\author{Due Before Term 2}
+\begin{document}
+\maketitle
+\section*{Question 1}
+
+Let $k$ be an algebraic closed field, and let $X\subset \mathbb{A}^n_k$ and $Y\subset \mathbb{A}^m_k$ be algebraic sets.  Let $\varphi:X\to Y$ be a polynomial map and let $\varphi^*:k[Y]\to k[X]$ be the corresponding map between coordinate rings.
+
+\begin{enumerate}
+  \item Prove that if $\varphi$ is surjective, then $\varphi^*$ is injective.
+\item Prove that if $\varphi^*$ is surjective, then $\varphi$ is injective.
+\item  Show that the converses of parts 1 and 2 don't hold. 
+\end{enumerate}
+
+\subsection*{Hints}
+\begin{enumerate}
+\item Two polynomials are the same if and only if they take on the same value at every point.
+\item Two points $p$ and $q$ are different if and only if there is a polynomial that takes on different values at $p$ and $q$.
+  \item Consider the map $V(xy-1)\to \mathbb{A}_k^1$ given by $(a,b)\mapsto a$
+\end{enumerate}
+\section*{Question 2 }
+The \emph{nodal cubic} is the algebraic set $X=V(y^2-x^3-x^2)$.  
+
+
+\begin{enumerate}
+\item Show that the map $\varphi:\mathbb{A}_{\mathbb{C}}^1\to \mathbb{A}^2_{\mathbb{C}}$ given by $\varphi(t)=(t^2-1, t^3-t)$ lands inside $X$, and hence gives a polynomial map $\varphi:\mathbb{A}^1_\C\to X$
+\item Show that the map $\varphi$ is surjective onto $X$.  Where does $\varphi$ fail to be injective?   
+\item Prove that $X$ is irreducible.  Using $\varphi$ or $\varphi^*$ might help...
+\item Construct a rational function $r\in\C(X)$ that is an inverse to $\varphi$ wherever it is defined.
+\end{enumerate}
+
+\subsection*{Geometric explanation}
+There's nothing to prove here, and no information that's required to prove the parts above, but it may provide some intuition for the mysterious formula for $\varphi$.
+
+Sketch the real part of $X$ (maybe by considering how it's related to the graph of $y=x^3+x^2$).
+
+The map $\varphi$ has the following geometric interpretation, which may be enlightening.  Consider the line through the origin with slope $t$, i.e., $y=tx$.  If we restrict $y^2-x^3-x^2$ to this line, it will be a cubic polynomial in one variable, and hence have three roots.  The origin will always be a double root, and hence there will be one more root.  Geometrically, this means the line $y=tx$ intersects $X$ at the origin with multiplicity two, and at one *other* point.  This other point is $\varphi(t)$.  
+
+\end{document}
